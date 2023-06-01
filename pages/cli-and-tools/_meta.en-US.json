@@ -1,0 +1,14 @@
+{
+  "create-dataverse-app": {
+    "title": "Create dataverse app",
+    "icon": "🔨",
+    "description": "Know what dataverseos is and what changes it brings to today's internet",
+    "href": "/cli-and-tools/create-dataverse-app"
+  },
+  "dapp-backend": {
+    "title": "Self-host ceramic node",
+    "icon": "📫",
+    "description": "A gateway to explore Web3 internet",
+    "href": "/cli-and-tools/dapp-backend"
+  }
+}

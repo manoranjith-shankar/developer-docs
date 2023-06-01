@@ -1,0 +1,26 @@
+{
+  "overview": {
+    "title": "Overview",
+    "icon": "🏁",
+    "description": "Know what dataverseos is and what changes it brings to today's internet",
+    "href": "/introduction/overview"
+  },
+  "data-wallet": {
+    "title": "Data Wallet",
+    "icon": "💽",
+    "description": "A gateway to explore Web3 internet",
+    "href": "/introduction/data-wallet"
+  },
+  "identity-computer": {
+    "title": "Identity Computer",
+    "icon": "🖥️",
+    "description": "Know what dataverseos is and what changes it brings to today's internet",
+    "href": "/introduction/identity-computer"
+  },
+  "ecosystem": {
+    "title": "Ecosystem",
+    "icon": "🏵️",
+    "description": "Know what dataverseos is and what changes it brings to today's internet",
+    "href": "/introduction/ecosystem"
+  }
+}

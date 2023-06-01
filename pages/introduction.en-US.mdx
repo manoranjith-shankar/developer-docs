@@ -1,0 +1,22 @@
+import Link from '@components/core/Link';
+import Card, { Cards } from '@components/core/Card';
+import guides from './introduction/_meta.en-US.json';
+
+# Introduction
+
+If you're not familiar with DataverseOS, this section will you through what DataverseOS is and
+some of the key concepts. If you're already familiar with DataverseOS, you can skip this section
+and start building directly by jumping to [CLI&Tools](/cli-and-tools).
+
+<Cards
+  num={2}
+  children={Object.keys(guides).map((key, i) => (
+    <Card
+      key={i}
+      title={guides[key].title}
+      description={guides[key].description}
+      icon={guides[key].icon}
+      href={guides[key].href}
+    />
+  ))}
+/>

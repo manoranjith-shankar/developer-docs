@@ -1,0 +1,123 @@
+---
+title: 'Home'
+---
+
+import Link from '@components/core/Link';
+import { Tabs, Tab } from 'nextra-theme-docs';
+import { Header, HeaderVideo } from '@components/react/docs';
+import Card, { Cards } from '@components/core/Card';
+
+# Welcome to the DataverseOS Docs
+
+Explore our documentation and a variety of resources to help you get started building on dataverseos and
+powering your dapp with data sovereighty and content monetization.
+
+Join the [Discord
+community](https://discord.gg/BnCek4e6ny) for help along the way.
+
+<div className="mt-8">
+  <Tabs
+    items={[
+      '👋 Introduction',
+      '🛠️ CLI & Tools',
+      '🧑‍💻 SDK',
+      '❓ Why DataverseOS',
+      '🏗️ How it works',
+      '🫶 Support',
+    ]}
+  >
+    <Tab>
+      <div className="mb-8">
+        Explain what DataverseOS is and which kind of unique internet
+        experiences it could bring to the world. And how it could be used to
+        build dapps with user-centric data ownership.
+      </div>
+      <div className="mb-4 text-xl font-bold">Guides</div>
+      <Cards num={3}>
+        <Card
+          title="Overview"
+          description="A new kind of identity computer to visualize data files over dApps"
+          icon="🏆"
+          href="/introduction/"
+        />
+        <Card
+          title="Data Wallet"
+          description="World's distributed solution for safely hold user's Sign-in-with-ethereum signatures"
+          icon="💰"
+          href="/introduction/data-wallet"
+        />
+        <Card
+          title="Identity Computer"
+          description="Your pesonal computer in the cloud, powered by web3.0 techs, controlled by your identity."
+          icon="💻"
+          href="/introduction/identity-computer"
+        />
+        <Card
+          title="Ecosystem built with DataverseOS SDK"
+          description="A list of dapps built with DataverseOS SDK"
+          icon="📼"
+          href="/introduction/ecosystem"
+        />
+      </Cards>
+      <div className="text-right mt-4">
+        <Link href="/introduction">View all →</Link>
+      </div>
+    </Tab>
+    <Tab>
+      <div className="mb-8">
+        DataverseOS CLI and tools to help you create a dataverse application,
+        register to the network, and deploy your self-hosted dataverse-gated
+        ceramic node for your dapp.
+      </div>
+      <div className="mb-4 text-xl font-bold">Guides</div>
+      <Cards num={3}>
+        <Card
+          title="create-dataverse-app"
+          description="A CLI tool to help you create a dataverse application."
+          icon="🧩"
+          href="/cli-and-tools/create-dataverse-app"
+        />
+        <Card
+          title="dapp-backend"
+          description="Learn how to run your own dataverse-gated ceramic node."
+          icon="💾"
+          href="/cli-and-tools/dapp-backend"
+        />
+      </Cards>
+      <div className="text-right mt-4">
+        <Link href="/cli-and-tools">View all →</Link>
+      </div>
+    </Tab>
+    <Tab>
+      <div className="mb-8">
+        DataverseOS SDK is a collection of libraries that can power your app
+        with identity, storage, ACL, monetization, etc. It provides system calls
+        to access the DataverseOS kernel and its features.
+      </div>
+      <div className="mb-4 text-xl font-bold">Guides</div>
+      <Cards num={3}>
+        <Card
+          title="Quickstart"
+          description="Moving LPT from the Ethereum mainnet to Arbitrum and vice versa."
+          icon="🚀"
+          href="/sdk/quickstart"
+        />
+        <Card
+          title="Code examples"
+          description="Migrate stake from Ethereum Mainnet to Arbitrum."
+          icon="📝"
+          href="/sdk/code-examples"
+        />
+        <Card
+          title="APIs"
+          description="Migrate stake from Ethereum Mainnet to Arbitrum."
+          icon="📚"
+          href="/sdk/apis"
+        />
+      </Cards>
+      <div className="text-right mt-4">
+        <Link href="/guides/delegating">View all →</Link>
+      </div>
+    </Tab>
+  </Tabs>
+</div>
