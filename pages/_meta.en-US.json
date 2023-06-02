@@ -14,11 +14,13 @@
   },
   "guides": {
     "title": "Guides",
-    "type": "page"
+    "type": "page",
+    "display": "hidden"
   },
   "reference": {
     "title": "Reference",
-    "type": "page"
+    "type": "page",
+    "display": "hidden"
   },
   "API & SDKs": {
     "title": "API & SDKs",
@@ -37,17 +39,20 @@
         "href": "https://thegraph.com/hosted-service/subgraph/livepeer/arbitrum-one",
         "newWindow": true
       }
-    }
+    },
+    "display": "hidden"
   },
   "tutorials": {
     "title": "Tutorials",
-    "type": "page"
+    "type": "page",
+    "display": "hidden"
   },
   "studio_link": {
     "title": "Studio ↗",
     "href": "https://livepeer.studio/dashboard",
     "type": "page",
-    "newWindow": true
+    "newWindow": true,
+    "display": "hidden"
   },
   "404": {
     "type": "page",

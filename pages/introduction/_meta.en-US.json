@@ -14,13 +14,13 @@
   "identity-computer": {
     "title": "Identity Computer",
     "icon": "🖥️",
-    "description": "Know what dataverseos is and what changes it brings to today's internet",
+    "description": "Next-generation pc fully controlled by user identity",
     "href": "/introduction/identity-computer"
   },
   "ecosystem": {
     "title": "Ecosystem",
     "icon": "🏵️",
-    "description": "Know what dataverseos is and what changes it brings to today's internet",
+    "description": "DataverseOS empowers a bunch of dapps to reform today's internet experience together",
     "href": "/introduction/ecosystem"
   }
 }

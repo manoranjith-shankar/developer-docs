@@ -28,5 +28,11 @@
     "icon": "",
     "description": "",
     "href": "/sdk/apis/file-system/deleteFolder"
+  },
+  "uploadFile": {
+    "title": "uploadFile",
+    "icon": "",
+    "description": "",
+    "href": "/sdk/apis/file-system/uploadFile"
   }
 }

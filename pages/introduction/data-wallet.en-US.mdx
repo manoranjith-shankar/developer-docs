@@ -1,8 +1,3 @@
-{/* ---
-title: 'Quickstart'
-description: 'Learn how to create an API key and start building with Livepeer!'
---- */}
-
 import { Callout } from 'nextra-theme-docs';
 
 # Data Wallet
@@ -11,8 +6,34 @@ A gateway to explore Web3 internet
 
 Data Wallet is a place to safely store user identity and data resources.
 
+<img src="/images/introduction/data-wallet.png" width="36%" className="mx-auto my-2.5"/>
+
 
 ## Safely manage resources
+DataverseOS and the latest data networks are all built with EIP-4361 (Sign-in-with-Ethereum) standard. 
+`Sign-in-with-Ethereum` defines how users can create identities, authenticate with applications, 
+and manage data resources. However, the current implementations of `Sign-in-with-Ethereum` entirely 
+rely on a specific format of user signatures. We build Data Wallet to provide a safe and easy way for
+users to manage their identities and signatures. Meanwhile, Data Wallet also prevents malicious websites
+from stealing user signatures.
 
+<img src="/images/introduction/comparision.png" width="90%" className="mx-auto my-2.5"/>
+
+Like you need a wallet address to send transactions on blockchain, and therefore there are crypto wallets such
+as MetaMask to help manage private keys safely.
+You need a specific DID and Sign-in-with-Ethereum signature to interact with DataverseOS and other data networks.
+Therefore we build Data Wallet to help manage DID and Sign-in-with-Ethereum signature safely.
 
 ## Provide system calls
+Data Wallet also provides system calls for developers to interact with DataverseOS.
+Developers can use Data Wallet to connect with user identities, request user signatures,
+and build personalized services on top of user's data space.
+- identityOps
+- streamOps
+- ACLOps
+- FileOps
+- other system calls
+
+<Callout type="info">
+For more details about the composition of DataverseOS, please refer to the [System Composition](/how-it-works/composition).
+</Callout>
