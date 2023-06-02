@@ -2,7 +2,7 @@
   "quickstart": {
     "title": "Quickstart",
     "icon": "🔨",
-    "description": "Know what dataverseos is and what changes it brings to today's internet",
+    "description": "A quick trip of data in DataverseOS",
     "href": "/sdk/quickstart"
   },
   "code-examples": {
@@ -14,7 +14,7 @@
   "apis": {
     "title": "APIs",
     "icon": "📚",
-    "description": "Explore the APIs of dataverseos",
+    "description": "Find all the APIs of the runtime connector library",
     "href": "/sdk/apis"
   }
 }

@@ -1,0 +1,14 @@
+{
+  "about-us": {
+    "title": "About us",
+    "icon": "😆",
+    "description": "Introduce our team and our mission",
+    "href": "/support/about-us"
+  },
+  "contact": {
+    "title": "Contact",
+    "icon": "🎛️",
+    "description": "Join our community.We'd love to hear from you!",
+    "href": "/support/contact"
+  }
+}

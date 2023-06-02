@@ -12,6 +12,15 @@
   "sdk": {
     "title": "Runtime Connector SDK"
   },
+  "why": {
+    "title": "Why DataverseOS?"
+  },
+  "how-it-works": {
+    "title": "How it works?"
+  },
+  "support": {
+    "title": "Support"
+  },
   "guides": {
     "title": "Guides",
     "type": "page",
