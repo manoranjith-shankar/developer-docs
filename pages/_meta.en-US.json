@@ -9,6 +9,9 @@
   "cli-and-tools": {
     "title": "CLI & Tools"
   },
+  "sdk": {
+    "title": "Runtime Connector SDK"
+  },
   "guides": {
     "title": "Guides",
     "type": "page"

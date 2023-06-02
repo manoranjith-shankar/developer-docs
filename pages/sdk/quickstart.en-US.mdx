@@ -1,0 +1,270 @@
+import { Callout } from 'nextra-theme-docs';
+
+# Quickstart
+
+A quick guide to get you started with the dataverse runtime connector SDK.
+
+After reading this guide, you will be able to connect with the dataverse browser extension,
+create data streams, load data streams, update data streams, and monetize data.
+
+## Prerequisites
+
+### Install Data wallet
+Data Wallet is a Chrome browser extension. we need to make sure it's installed and 
+it's updated to the latest version before we proceed with the development.
+
+[Download on chrome store](https://chrome.google.com/webstore/detail/dataverse/kcigpjcafekokoclamfendmaapcljead)
+
+![quickstart-1](/images/sdk/chrome-store.png)
+You may sign in with MetaMask or Particle Social Account and create a new identity.
+
+### Install dependencies
+```bash
+npm install @dataverse/runtime-connector
+```
+
+## Step 1: initialize the connector
+
+```javascript
+After installation, you can import the SDK and initialize the runtime connector.
+/** Import Runtime Connector SDK */
+import { RuntimeConnector, Extension } from "@dataverse/runtime-connector";
+
+/** Initialize the runtime connector class object */
+const runtimeConnector = new RuntimeConnector(Extension);
+```
+The `Extension` specifies the target that runtime connector will connect to.
+Currently, the dataverseos kernel is running in the browser extension, so we use `Extension` as the target.
+
+## Step 2: Connect with user identity
+
+```javascript
+import React, { useState } from 'react';
+
+/** Import Runtime Connector SDK and constants */
+import {
+  RuntimeConnector,
+  Apps,
+  ModelNames,
+  Extension,
+  CRYPTO_WALLET_TYPE,
+  METAMASK,
+} from "@dataverse/runtime-connector";
+
+/**
+ * Define which application and models to connect to as well as read and write data
+ */
+const appName = Apps.Dataverse;
+const modelNames = [ModelNames.post];
+/**
+ * Initialize the Runtime Connector SDK class object:
+ */
+const runtimeConnector: RuntimeConnector = new RuntimeConnector(Extension);
+
+const App: React.FC = () => {
+  
+  /** Calls the Runtime Connector SDK and handle the results */
+  const connectIdentity = async () => {
+    /** connect dentity */
+    try {
+      const did = await runtimeConnector.connectIdentity({
+        wallet: { name: METAMASK, type: CRYPTO_WALLET_TYPE },
+        appName,
+        modelNames,
+      });
+    } catch (e) {
+      console.error("Error connecting identity", e);
+    }
+  };
+
+  return (
+    <button onClick={connectIdentity}>
+      Connect Identity
+    </button>
+  );
+};
+
+export default App;
+```
+This will open a popup window to ask for user permission to connect with the application.
+We use Sign-in-with-Ethereum signatures to authenticate the user approvement.
+The popup shall be like this:
+<div className="flex">
+<img src="/images/sdk/siwe1.png" width="50%" />
+<img src="/images/sdk/siwe2.png" width="50%" />
+</div>
+
+## Step 3: Create a data stream
+
+```javascript
+const encrypted = JSON.stringify({
+  text: false,
+  images: false,
+  videos: false,
+});
+
+await runtimeConnector.createStream({
+  modelId,
+  streamContent: {
+    appVersion: '0.0.1',
+    text: 'hello',
+    images: [
+      'https://bafkreib76wz6wewtkfmp5rhm3ep6tf4xjixvzzyh64nbyge5yhjno24yl4.ipfs.w3s.link',
+    ],
+    videos: [],
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    encrypted,
+  },
+});
+```
+
+return example
+```json
+{
+  "streamId": "kjzl6kcym7w8y4z4zbls96busy5xwn4kvxr1nvcejsitslzmq683aplp3td1uny",
+  "streamContent": {
+    "text": "hello",
+    "images": [
+      "https://bafkreib76wz6wewtkfmp5rhm3ep6tf4xjixvzzyh64nbyge5yhjno24yl4.ipfs.w3s.link"
+    ],
+    "videos": [],
+    "createdAt": "2023-06-02T03:22:55.262Z",
+    "encrypted": "{\"text\":false,\"images\":false,\"videos\":false}",
+    "updatedAt": "2023-06-02T03:22:55.262Z",
+    "appVersion": "0.0.1"
+  },
+  "newFile": {
+    "appVersion": "0.2.0",
+    "contentId": "kjzl6kcym7w8y4z4zbls96busy5xwn4kvxr1nvcejsitslzmq683aplp3td1uny",
+    "contentType": "kjzl6hvfrbw6c7gkypf9654o0vu1jd1q85fcnyrpc1koobuys71zhp0m7kbmrvs",
+    "comment": { "mirrorName": "fxy001_post", "note": "", "tags": [] },
+    "fileType": 0,
+    "createdAt": "2023-06-02T03:22:57.398Z",
+    "updatedAt": "2023-06-02T03:22:57.398Z",
+    "indexFileId": "kjzl6kcym7w8y70tx56dxcy8cgdqd8q7xjt7mm9g2zz0bufrboxb95kwrbouk4m"
+  }
+}
+```
+
+<Callout emoji="❗">
+To create a data stream under a specific model, you need to specify the model id.
+and ensure current identity has the permission to create data stream under the model.
+if not, please use `createCapability` to create a capability for the model first.
+</Callout>
+
+## Step 4: Load a data stream
+
+You can load a stream's content by stream id.
+```javascript
+await runtimeConnector.loadStream({
+  app: 'APP_NAME',
+  streamId: 'kjzl6kcym7w8ya8g9cj5764kll6veldqws40ub29r1odut2pxiqxet80sl9p6th',  // for example
+});
+```
+The dataverse app name `app` needs to be specified to boost the the network indexing speed and
+improve the user experience.
+
+You can also load multiple streams under a model.
+```javascript
+await runtimeConnector.loadStreamsBy({
+  modelId,
+  pkh: "did:pkh:eip155:137:0x5915e293823FCa840c93ED2E1E5B4df32d699999",
+});
+```
+The `pkh` is optional. If not specified, will return all streams under the model.
+
+
+## Step 5: Update a data stream
+
+```javascript
+const date = new Date().toISOString();
+
+    const encrypted = JSON.stringify({
+      text: true,
+      images: true,
+      videos: false,
+    });
+
+    const res = await runtimeConnector.updateStream({
+      app,
+      streamId,
+      streamContent: {
+        appVersion: "0.0.1",
+        text: "hello world!",
+        images: [
+          "https://bafkreib76wz6wewtkfmp5rhm3ep6tf4xjixvzzyh64nbyge5yhjno24yl4.ipfs.w3s.link",
+        ],
+        videos: [],
+        createdAt: date,
+        updatedAt: date,
+        encrypted,
+      },
+    });
+```
+`updateStream` shares the same parameters as `createStream`, except the `streamId` is required.
+and the return value is the same as `createStream`.
+
+## Step 6: Monetize
+    
+```javascript
+const pkh = await runtimeConnector.createCapability({ app, wallet });
+
+const profileId = await getProfileId({ pkh, lensHandle: "YOUR_LENS_HANDLE" });  // you'll need a lens handle to monetize data
+
+const res = await runtimeConnector.monetizeFile({
+  app,  // your app name
+  streamId, // get the streamId from createStream return
+  datatokenVars: {
+    profileId,
+    collectLimit: 100,
+    amount: 0.0001,
+    currency: Currency.WMATIC,
+  },
+  decryptionConditions: [...],
+});
+```
+**Why lens profile is needed to monetize data?**
+
+To put it simply, data monetization is to deploy a collection of NFTs on the blockchain.
+and use the NFT as access credentials to the data. In this case, we use lens protocol to
+turn off-chain data into on-chain `lens post`, and program the NFT smart contract around
+the post.
+
+**Explain `decryptionConditions`**
+
+`decryptionConditions` specifies a set of conditions to limit the access to the data.
+For example
+```javascript
+[
+  {
+    conditionType: 'evmBasic',
+    contractAddress: '',
+    standardContractType: '',
+    chain: 'filecoin',
+    method: '',
+    parameters: [':userAddress'],
+    returnValueTest: {
+      comparator: '=',
+      value: '0x3c6216caE32FF6691C55cb691766220Fd3f55555',
+    },
+  },
+];
+```
+This condition specifies that the data can only be accessed by the 
+wallet address `0x3c6216caE32FF6691C55cb691766220Fd3f55555` on filecoin chain.
+
+## Step 7: Unlock
+
+```javascript
+await runtimeConnector.unlock({
+  app,
+  indexFileId:
+    "kjzl6kcym7w8y5xf0j7kmies5i30f86xlerbfp42qnxju2vfno1io6i04sy2p2d",
+});
+```
+This will send a transaction to mint a NFT to the user's wallet address.
+The NFT is the access credential to the data.
+<Callout>
+`monetize` and `unlock` functions are currently on Mumbai testnet.
+</Callout>
