@@ -21,6 +21,34 @@
   "support": {
     "title": "Support"
   },
+  "Participate": {
+    "title": "Participate",
+    "type": "menu",
+    "items": {
+      "dc": {
+        "title": "Discord",
+        "href": "https://discord.gg/BnCek4e6ny"
+      },
+      "twitter": {
+        "title": "Twitter",
+        "href": "https://twitter.com/DataverseOS"
+      }
+    }
+  },
+  "Hackathon": {
+    "title": "Build",
+    "type": "menu",
+    "items": {
+      "rebuild-ownership": {
+        "title": "Rebuild Ownership",
+        "href": "https://rebuild-ownership.devfolio.co/"
+      },
+      "hackfs": {
+        "title": "ETH Global HackFS 2023",
+        "href": "https://ethglobal.com/events/hackfs2023"
+      }
+    }
+  },
   "guides": {
     "title": "Guides",
     "type": "page",

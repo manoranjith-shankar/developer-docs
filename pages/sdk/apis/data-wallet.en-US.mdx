@@ -1,1 +1,18 @@
+import Link from '@components/core/Link';
+import Card, { Cards } from '@components/core/Card';
+import guides from './data-wallet/_meta.en-US.json';
+
 # Data Wallet
+
+<Cards
+  num={2}
+  children={Object.keys(guides).map((key, i) => (
+    <Card
+      key={i}
+      title={guides[key].title}
+      description={guides[key].description}
+      icon={guides[key].icon}
+      href={guides[key].href}
+    />
+  ))}
+/>
