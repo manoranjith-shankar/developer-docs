@@ -18,7 +18,7 @@
     "href": "/sdk/apis/data-wallet/getCurrentWallet"
   },
   "switchNetwork": {
-    "title": "selectNetwork",
+    "title": "switchNetwork",
     "icon": "",
     "description": "",
     "href": "/sdk/apis/data-wallet/switchNetwork"
