@@ -1,0 +1,26 @@
+{
+  "data-wallet": {
+    "title": "Data Wallet",
+    "icon": "🔨",
+    "description": "Know what dataverseos is and what changes it brings to today's internet",
+    "href": "/sdk/apis/data-wallet"
+  },
+  "primitives": {
+    "title": "System Primitives",
+    "icon": "📚",
+    "description": "Explore the APIs of dataverseos",
+    "href": "/sdk/apis/primitives"
+  },
+  "dapp-table": {
+    "title": "Dapp Table",
+    "icon": "📫",
+    "description": "A gateway to explore Web3 internet",
+    "href": "/sdk/apis/dapp-table"
+  },
+  "file-system": {
+    "title": "File System",
+    "icon": "📚",
+    "description": "Explore the APIs of dataverseos",
+    "href": "/sdk/apis/file-system"
+  }
+}

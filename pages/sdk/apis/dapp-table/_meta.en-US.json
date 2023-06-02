@@ -1,0 +1,20 @@
+{
+  "getDappTable": {
+    "title": "getDappTable",
+    "icon": "",
+    "description": "",
+    "href": "/sdk/apis/dapp-table/getDappTable"
+  },
+  "getDappInfo": {
+    "title": "getDappInfo",
+    "icon": "",
+    "description": "",
+    "href": "/sdk/apis/dapp-table/getDappInfo"
+  },
+  "getModelBaseInfo": {
+    "title": "getModelBaseInfo",
+    "icon": "",
+    "description": "",
+    "href": "/sdk/apis/dapp-table/getModelBaseInfo"
+  }
+}

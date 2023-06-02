@@ -1,0 +1,22 @@
+# createCapability
+
+Function for asking for user's authorization to user's data.
+
+## Usage
+
+```js
+await runtimeConnector.createCapability({
+  wallet,
+  app,
+});
+```
+
+## Parameters
+- `wallet`: `enum CRYPTO_WALLET` - Wallet to use for sign the authorization message.
+- `app`: `string` - which app is asking for authorization.
+
+## Returns
+`string` - user identity
+```json
+did:pkh:eip155:137:0x29761660d6Cb26a08e9A9c7de12E0038eE9cb623
+```

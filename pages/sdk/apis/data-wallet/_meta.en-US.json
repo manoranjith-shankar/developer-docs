@@ -1,0 +1,8 @@
+{
+  "getDappTable": {
+    "title": "getDappTable",
+    "icon": "🔨",
+    "description": "",
+    "href": "/sdk/apis/dapp-table/getDappTable"
+  }
+}

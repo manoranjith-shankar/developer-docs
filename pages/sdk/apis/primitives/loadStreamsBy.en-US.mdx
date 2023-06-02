@@ -1,0 +1,46 @@
+# loadStreamsBy
+
+load multiple streams under a data model
+
+## Usage
+```js
+await runtimeConnector.loadStreamsBy({
+  modelId,
+  pkh
+});
+```
+
+## Parameters
+- `modelId`: `string` - the data model id
+- `pkh?`: `string` - user did, if not provided, will return all streams under the data model
+
+## Returns
+```json
+{
+  "kjzl6kcym7w8y9bpn9dybvos7g52mowaq33fom5fq6x19k89fe57cyvnop6ppm0": {
+    "text": "hello",
+    "images": [
+      "https://bafkreib76wz6wewtkfmp5rhm3ep6tf4xjixvzzyh64nbyge5yhjno24yl4.ipfs.w3s.link"
+    ],
+    "videos": [],
+    "createdAt": "2023-05-30T01:55:27.809Z",
+    "encrypted": "{\"text\":false,\"images\":false,\"videos\":false}",
+    "updatedAt": "2023-05-30T01:55:27.809Z",
+    "appVersion": "0.0.1",
+    "controller": "did:pkh:eip155:137:0x5915e293823FCa840c93ED2E1E5B4df32d699999"
+  },
+  "kjzl6kcym7w8y8s27vvv8hgwm5ibjtuulngjnrm6iq744ncetwm2o7820gjwwhe": {
+    "text": "5yhKagBECFTyebUeNyWYS9K56a8AoDyzz8GZDkL5AX4",
+    "images": [
+      "kwxffW6E07Fg9njT1_a52a9G9KvKd1bdqfIlpDBHcxvHmuykFeLSUzUxNnrpPQ2_BIxw8tk9Bgl4frvecO5m2XivYmb0TEkbOAA2MVQEMRnHjJglKAxfKgK8ZQQ299rWzwjrqGDvWRIYM1argu9cLg"
+    ],
+    "videos": [],
+    "createdAt": "2023-05-30T01:55:33.017Z",
+    "encrypted": "{\"text\":true,\"images\":true,\"videos\":false}",
+    "updatedAt": "2023-05-30T01:55:33.017Z",
+    "appVersion": "0.0.1",
+    "controller": "did:pkh:eip155:137:0x5915e293823FCa840c93ED2E1E5B4df32d699999"
+  },
+  ...
+}
+```
