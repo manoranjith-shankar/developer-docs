@@ -1,8 +1,50 @@
 {
-  "getDappTable": {
-    "title": "getDappTable",
+  "selectWallet": {
+    "title": "selectWallet",
     "icon": "",
     "description": "",
-    "href": "/sdk/apis/dapp-table/getDappTable"
+    "href": "/sdk/apis/data-wallet/selectWallet"
+  },
+  "connectWallet": {
+    "title": "connectWallet",
+    "icon": "",
+    "description": "",
+    "href": "/sdk/apis/data-wallet/connectWallet"
+  },
+  "getCurrentWallet": {
+    "title": "getCurrentWallet",
+    "icon": "",
+    "description": "",
+    "href": "/sdk/apis/data-wallet/getCurrentWallet"
+  },
+  "switchNetwork": {
+    "title": "selectNetwork",
+    "icon": "",
+    "description": "",
+    "href": "/sdk/apis/data-wallet/swichNetwork"
+  },
+  "sign": {
+    "title": "sign",
+    "icon": "",
+    "description": "",
+    "href": "/sdk/apis/data-wallet/sign"
+  },
+  "contractCall": {
+    "title": "contractCall",
+    "icon": "",
+    "description": "",
+    "href": "/sdk/apis/data-wallet/contractCall"
+  },
+  "ethereumRequest": {
+    "title": "ethereumRequest",
+    "icon": "",
+    "description": "",
+    "href": "/sdk/apis/data-wallet/ethereumRequest"
+  },
+  "getCurrentPkh": {
+    "title": "getCurrentPkh",
+    "icon": "",
+    "description": "",
+    "href": "/sdk/apis/data-wallet/getCurrentPkh"
   }
 }

@@ -1,0 +1,24 @@
+# selectWallet
+
+DataverseOS has integrated multiple wallets.
+This function will head to the wallet selection page and users can select the wallet they want to use.
+
+<img src="/images/sdk/option-page.png" className="mx-auto my-2.5" width="90%"/>
+
+## Usage
+
+```javascript
+await runtimeConnector.selectWallet()
+```
+
+## Parameters
+void
+
+## Returns
+`CRYPTO_WALLET`
+```js
+{
+    name: "MetaMask"
+    type: "CRYPTO_WALLET"
+}
+```
