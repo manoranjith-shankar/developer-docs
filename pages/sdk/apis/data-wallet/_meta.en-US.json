@@ -21,7 +21,7 @@
     "title": "selectNetwork",
     "icon": "",
     "description": "",
-    "href": "/sdk/apis/data-wallet/swichNetwork"
+    "href": "/sdk/apis/data-wallet/switchNetwork"
   },
   "sign": {
     "title": "sign",
