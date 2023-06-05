@@ -52,5 +52,11 @@
     "icon": "",
     "description": "",
     "href": "/sdk/apis/file-system/monetizeFile"
+  },
+  "unlock": {
+    "title": "unlock",
+    "icon": "",
+    "description": "",
+    "href": "/sdk/apis/file-system/unlock"
   }
 }
