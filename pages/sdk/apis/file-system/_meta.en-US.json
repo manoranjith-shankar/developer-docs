@@ -34,5 +34,11 @@
     "icon": "",
     "description": "",
     "href": "/sdk/apis/file-system/uploadFile"
+  },
+  "updateFileBaseInfo": {
+    "title": "updateFileBaseInfo",
+    "icon": "",
+    "description": "",
+    "href": "/sdk/apis/file-system/updateFileBaseInfo"
   }
 }

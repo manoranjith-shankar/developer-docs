@@ -1,0 +1,61 @@
+# updateFileBaseInfo
+
+To update the base information of a file.
+
+## Usage
+
+```js
+await runtimeConnector.updateFileBaseInfo({
+  app,
+  indexFileId,
+  fileInfo: {
+    mirrorName
+  },
+  syncImmediately: true,
+});
+```
+
+## Parameters
+```js
+{
+    app?: string;
+    indexFileId: string;
+    fileInfo?: Omit<
+        FileInfo,
+        | "datatokenId"
+        | "fileKey"
+        | "encryptedSymmetricKey"
+        | "decryptionConditions"
+        | "decryptionConditionsType"
+    >;
+    syncImmediately?: boolean;
+}
+```
+- `app`: `string` - The app name.
+- `indexFileId`: `string` - The indexfile id.
+- `fileInfo`: `Omit<FileInfo, | "datatokenId" | "fileKey" | "encryptedSymmetricKey" | "decryptionConditions" | "decryptionConditionsType">` - detailed information of the file.
+    ```js
+    interface FileInfo {
+        contentId?: string;
+        contentType?: IndexFileContentType;
+        mirrorName?: string;
+        note?: string;
+        tags?: string[];
+        originType?: OriginType;
+        originURL?: string;
+        originDate?: string;
+        embedURL?: string;
+        contentURL?: string;
+        fileType?: FileType;
+    }
+    ```
+- `syncImmediately`: `boolean` - Whether to sync to data networks immediately or wait for the os scheduler.
+
+## Returns
+```js
+{
+    currentFile: MirrorFile;
+    currentFolder: StructuredFolder;
+    allFolders: StructuredFolders;
+}
+```
