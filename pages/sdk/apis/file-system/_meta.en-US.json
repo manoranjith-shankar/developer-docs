@@ -40,5 +40,17 @@
     "icon": "",
     "description": "",
     "href": "/sdk/apis/file-system/updateFileBaseInfo"
+  },
+  "removeFiles": {
+    "title": "removeFiles",
+    "icon": "",
+    "description": "",
+    "href": "/sdk/apis/file-system/removeFiles"
+  },
+  "monetizeFile": {
+    "title": "monetizeFile",
+    "icon": "",
+    "description": "",
+    "href": "/sdk/apis/file-system/monetizeFile"
   }
 }
