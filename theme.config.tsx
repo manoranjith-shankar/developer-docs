@@ -169,7 +169,7 @@ const config: DocsThemeConfig = {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     return (
       <div className="flex items-center gap-2">
-        <Logo width={32} height={32} />
+        <Logo width={28} height={28} />
       </div>
     );
   },
