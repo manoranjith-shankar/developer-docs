@@ -9,7 +9,7 @@ await runtimeConnector.uploadFile({
   fileBase64,
   fileName,
   encrypted: false,
-  uploadProvider,
+  storageProvider,
 });
 ```
 
@@ -20,7 +20,7 @@ await runtimeConnector.uploadFile({
     fileBase64: string;
     fileName: string;
     encrypted: boolean;
-    uploadProvider: UploadProvider;
+    storageProvider: StorageProvider;
     syncImmediately?: boolean;
 }
 ```
@@ -28,14 +28,14 @@ await runtimeConnector.uploadFile({
 - `fileBase64`: `string` - The file data in base64 format.
 - `fileName`: `string` - The file name.
 - `encrypted`: `boolean` - Whether the file is encrypted.
-- `uploadProvider`: `UploadProvider` - The upload provider. this field specifies
+- `storageProvider`: `StorageProvider` - The upload provider. this field specifies
 which IPFS gateway to use. developers can choose between `web3.storage` and `lighthouse`.
     ```js
-    interface UploadProvider {
-        name: UploadProviderName;
+    interface storageProvider {
+        name: StorageProviderName;
         apiKey: string;
     }
-    enum UploadProviderName {
+    enum StorageProviderName {
         Web3Storage,
         Lighthouse,
     }

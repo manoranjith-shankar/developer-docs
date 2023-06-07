@@ -15,7 +15,7 @@ await runtimeConnector.monetizeFile({
     amount,
     currency: Currency.WMATIC,
   },
-  uploadProvider,
+  storageProvider,
   decryptionConditions: [
     {
       conditionType: "evmBasic",
@@ -46,7 +46,7 @@ await runtimeConnector.monetizeFile({
     indexFileId?: string;
     datatokenVars: Omit<DatatokenVars, "streamId">;
     decryptionConditions?: DecryptionConditions;
-    uploadProvider?: UploadProvider;
+    storageProvider?: storageProvider;
 }
 ```
 - `streamId`: `string` - stream id, pass in the stream id if you want to monetize a stream
@@ -66,7 +66,7 @@ await runtimeConnector.monetizeFile({
     ```
 - `decryptionConditions`: `DecryptionConditions` - decryption conditions configured to make sure only when these conditions are meet,
     an address can mint a `Collect NFT`
-- `uploadProvider`: `UploadProvider` - when you are monetizing a file which is an IPFS CID, you may choose
+- `storageProvider`: `StorageProvider` - when you are monetizing a file which is an IPFS CID, you may choose
     to reupload the to IPFS via a custom upload provider such as [web3.storage](https://web3.storage/) or
      [lighthouse](https://www.lighthouse.storage/)
 
