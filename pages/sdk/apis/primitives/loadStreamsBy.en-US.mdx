@@ -15,31 +15,44 @@ await runtimeConnector.loadStreamsBy({
 - `pkh?`: `string` - user did, if not provided, will return all streams under the data model
 
 ## Returns
+return a `<streamid, content>` map
 ```json
 {
   "kjzl6kcym7w8y9bpn9dybvos7g52mowaq33fom5fq6x19k89fe57cyvnop6ppm0": {
-    "text": "hello",
-    "images": [
-      "https://bafkreib76wz6wewtkfmp5rhm3ep6tf4xjixvzzyh64nbyge5yhjno24yl4.ipfs.w3s.link"
-    ],
-    "videos": [],
-    "createdAt": "2023-05-30T01:55:27.809Z",
-    "encrypted": "{\"text\":false,\"images\":false,\"videos\":false}",
-    "updatedAt": "2023-05-30T01:55:27.809Z",
-    "appVersion": "0.0.1",
-    "controller": "did:pkh:eip155:137:0x5915e293823FCa840c93ED2E1E5B4df32d699999"
+    "pkh": "did:pkh:eip155:137:0xDB627Db44609f4e7A96278104DFC3a2b06c7160B",
+    "app": "test001",
+    "modelId": "kjzl6hvfrbw6c7gkypf9654o0vu1jd1q85fcnyrpc1koobuys71zhp0m7kbmrvs",
+    "streamContent": {
+      "content": {
+        "text": "6cT8cDi4izyiZLt6xfpu53PN3Bjm51Iqfovki1sAZA4",
+        "images": [
+          "iEuGqD798f6yvNdsbFbQD7coPgIRueYOVIGfAWWJi6RG6y0pUQ6IuMYRx_jAEAmFUWD3QOH9qFCE2Q0Hm4KRHm6klkObPmie-miNvjBXWHOlRaD6eSV4X67b2DgKsqcPxb_OBdN36DpKVRNI9c17tQ"
+        ],
+        "videos": [],
+        "createdAt": "2023-05-31T15:53:27.346Z",
+        "encrypted": "{\"text\":true,\"images\":true,\"videos\":false}",
+        "updatedAt": "2023-05-31T15:53:27.346Z",
+        "appVersion": "0.0.1"
+      },
+      "indexFileId": "kjzl6kcym7w8y9uhgvww9vt2mgdquqw2e3jfd72uy7oo55bw4hxb0mjg77brphd",
+      "comment": { "mirrorName": "fxy001_post", "note": "", "tags": [] },
+      "fileType": 2,
+      "contentId": "kjzl6kcym7w8ya8g9cj5764kll6veldqws40ub29r1odut2pxiqxet80sl9p6th",
+      "createdAt": "2023-05-31T15:53:29.254Z",
+      "updatedAt": "2023-05-31T15:54:15.759Z",
+      "appVersion": "0.2.0",
+      "contentType": "kjzl6hvfrbw6c7gkypf9654o0vu1jd1q85fcnyrpc1koobuys71zhp0m7kbmrvs",
+      "decryptionConditions": [
+        ...
+      ],
+      "encryptedSymmetricKey": "83d55ce4fd4de125e89fc57c81e5636b13d1dcca1e10b1384c6f2e175bfac44a0f9397b0efc431314760a845d4da200ddabff710d8e14d8e15574701e9fa5d3ed86d73382a9a4c528ebfc258c69682b8ad592837c008494b98733c3fb24abeaf07187d7ec7306259ba668b2d05b572e5539a327392edc538c598115d165b36f10000000000000020f3b5f47285d9bcd10d6ad574e69b6b2b5b21480716fbd04c0af2d3f18f1237fb03a57b913f16d9d3116942c4f6d706a2",
+      "decryptionConditionsType": "UnifiedAccessControlCondition",
+      "datatokenId": "0x6aE6564fD9918244F743717D5d1637c1ef9C603E",
+      "controller": "did:pkh:eip155:137:0xDB627Db44609f4e7A96278104DFC3a2b06c7160B"
+    }
   },
   "kjzl6kcym7w8y8s27vvv8hgwm5ibjtuulngjnrm6iq744ncetwm2o7820gjwwhe": {
-    "text": "5yhKagBECFTyebUeNyWYS9K56a8AoDyzz8GZDkL5AX4",
-    "images": [
-      "kwxffW6E07Fg9njT1_a52a9G9KvKd1bdqfIlpDBHcxvHmuykFeLSUzUxNnrpPQ2_BIxw8tk9Bgl4frvecO5m2XivYmb0TEkbOAA2MVQEMRnHjJglKAxfKgK8ZQQ299rWzwjrqGDvWRIYM1argu9cLg"
-    ],
-    "videos": [],
-    "createdAt": "2023-05-30T01:55:33.017Z",
-    "encrypted": "{\"text\":true,\"images\":true,\"videos\":false}",
-    "updatedAt": "2023-05-30T01:55:33.017Z",
-    "appVersion": "0.0.1",
-    "controller": "did:pkh:eip155:137:0x5915e293823FCa840c93ED2E1E5B4df32d699999"
+    ...
   },
   ...
 }

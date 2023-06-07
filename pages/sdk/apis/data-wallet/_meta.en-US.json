@@ -3,7 +3,8 @@
     "title": "selectWallet",
     "icon": "",
     "description": "",
-    "href": "/sdk/apis/data-wallet/selectWallet"
+    "href": "/sdk/apis/data-wallet/selectWallet",
+    "type": "hidden"
   },
   "connectWallet": {
     "title": "connectWallet",

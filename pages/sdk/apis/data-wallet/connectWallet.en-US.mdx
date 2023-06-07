@@ -4,20 +4,28 @@ Connet wallet.
 
 ## Usage
 ```js
-await runtimeConnector.connectWallet(wallet)
+import { WALLET } from "@dataverse/runtime-connector";
+
+const pkh = await runtimeConnector.connectWallet(WALLET.METAMASK);
 ```
 
 ## Parameters
-`CRYPTO_WALLET`
+`enum WALLET`
 ```js
-{
-    name: "MetaMask"
-    type: "CRYPTO_WALLET"
+enum WALLET{
+    METAMASK,
+    PARTICLE
 }
 ```
 
 ## Returns
-`string` - wallet address
-```js
-0xb4D93398f6F3FB5EE4436D1aE93b32d65693a799
+```json
+{
+    "address": "0x312eA852726E3A9f633A0377c0ea882086d66666",
+    "chain": {
+        "chainId": 80001,
+        "chainName": "mumbai"
+    },
+    "wallet": "MetaMask"
+}
 ```
