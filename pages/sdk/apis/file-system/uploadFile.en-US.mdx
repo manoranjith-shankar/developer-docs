@@ -5,20 +5,17 @@ Upload a file to a folder.
 ## Usage
 ```js
 await runtimeConnector.uploadFile({
-  app,
   folderId,
   fileBase64,
   fileName,
   encrypted: false,
   uploadProvider,
-  syncImmediately: true,
 });
 ```
 
 ## Parameters
 ```js
 {
-    app?: string;
     folderId: string;
     fileBase64: string;
     fileName: string;
@@ -27,7 +24,6 @@ await runtimeConnector.uploadFile({
     syncImmediately?: boolean;
 }
 ```
-- `app`: `string` - The app name.
 - `folderId`: `string` - The folder id.
 - `fileBase64`: `string` - The file data in base64 format.
 - `fileName`: `string` - The file name.

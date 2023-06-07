@@ -6,7 +6,6 @@ create a public/private folder
 
 ```js
 await runtimeConnector.createFolder({
-  app,
   folderType: FolderType.Private,
   folderName,
 });
@@ -15,13 +14,11 @@ await runtimeConnector.createFolder({
 ## Parameters
 ```js
 {
-    app?: string;
     folderType: FolderType;
     folderName: string;
     folderDescription?: string;
 }
 ```
-- `app`: `string` - app name
 - `folderType`: `FolderType` - folder type
     ```js
     enum FolderType {

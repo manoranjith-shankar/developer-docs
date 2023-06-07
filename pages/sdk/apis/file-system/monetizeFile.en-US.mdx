@@ -6,8 +6,7 @@ use this function to empower users&applications with the ability to earn from th
 ## Usage
 ```javascript
 await runtimeConnector.monetizeFile({
-  app,
-  indexFileId,
+  indexFileId,  // or streamId
   datatokenVars: {
     profileId,  // lens handle profile id
     collectLimit,
@@ -16,15 +15,31 @@ await runtimeConnector.monetizeFile({
   },
   uploadProvider,
   decryptionConditions: [
-    ...
-  ],
+    {
+      conditionType: "evmBasic",
+      contractAddress: "",
+      standardContractType: "",
+      chain: "filecoin",
+      method: "",
+      parameters: [":userAddress"],
+      returnValueTest: {
+        comparator: "=",
+        value: "0x3c6216caE32FF6691C55cb691766220Fd3f55555",
+      }
+    },
+		{ "operator": "and" },
+    [
+       { ... },
+       {"operator": "or"},
+       { ... }
+    ]
+  ], // customize a ACL using FIL <-> collectors & "0x3c..." can unlock
 });
 ```
 
 ## Parameters
 ```js
 {
-    app?: string;
     streamId?: string;
     indexFileId?: string;
     datatokenVars: Omit<DatatokenVars, "streamId">;
@@ -32,7 +47,6 @@ await runtimeConnector.monetizeFile({
     uploadProvider?: UploadProvider;
 }
 ```
-- `app`: `string` - app name
 - `streamId`: `string` - stream id, pass in the stream id if you want to monetize a stream
 - `indexFileId`: `string` - index file id, pass in the indexfile id if you want to monetize a file
 - `datatokenVars`: `Omit<DatatokenVars, "streamId">` - configure the datatoken
@@ -61,3 +75,7 @@ await runtimeConnector.monetizeFile({
     currentFile: MirrorFile;
 }
 ```
+<Callout>
+This function will ask users to sign a transaction to mint NFTs. Currently the transaction will be sent to mumbai.
+And the monetized folder will be returned after the transaction is confirmed.
+</Callout>

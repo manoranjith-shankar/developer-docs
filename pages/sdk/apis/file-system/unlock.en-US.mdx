@@ -8,7 +8,6 @@ if so, will mint a Collect NFT and unlock the file/folder.
 ## Usage
 ```js
 await runtimeConnector.unlock({
-  app,
   indexFileId:
     "kjzl6kcym7w8y5xf0j7kmies5i30f86xlerbfp42qnxju2vfno1io6i04sy2p2d",
 });
@@ -18,12 +17,10 @@ await runtimeConnector.unlock({
 ## Parameters
 ```js
 {
-    app?: string;
     streamId?: string;
     indexFileId?: string;
 }
 ```
-- `app`: `string` - The app name
 - `streamId`: `string` - The stream id if you are unlocking a data stream
 - `indexFileId`: `string` - The index file id if you are unlocking a file
 

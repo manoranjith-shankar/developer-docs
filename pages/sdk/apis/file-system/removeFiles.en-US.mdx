@@ -5,23 +5,19 @@ Delete specified files.
 ## Usage
 ```js
 await runtimeConnector.removeFiles({
-  app,
   indexFileIds: [indexFileId],
-  syncImmediately: true,
 });
 ```
 
 ## Parameters
 ```js
 {
-    app?: string;
     indexFileIds: string[];
     syncImmediately?: boolean;
 }
 ```
-- `app`: `string` - app name.
 - `indexFileIds`: `string[]` - array of file ids to delete.
-- `syncImmediately`: `boolean` - Whether to sync to data networks immediately or wait for the os scheduler.
+- `syncImmediately`: `boolean` - Whether to sync to data networks immediately or wait for the os scheduler. Default is `false`.
 
 
 ## Returns

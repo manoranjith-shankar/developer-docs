@@ -9,7 +9,6 @@ use this function to empower users&applications with the ability to earn from th
 
 ```javascript
 await runtimeConnector.monetizeFolder({
-  app,
   folderId,
   folderDescription,
   datatokenVars: {
@@ -24,13 +23,11 @@ await runtimeConnector.monetizeFolder({
 ## Parameters
 ```js
 {
-    app?: string;
     folderId: string;
     folderDescription: string;
     datatokenVars: Omit<DatatokenVars, "streamId">;
 }
 ```
-- `app`: `string` - the app name
 - `folderId`: `string` - the folder id
 - `folderDescription`: `string` - the folder description
 - `datatokenVars`: `Omit<DatatokenVars, "streamId">` - configure the datatoken
@@ -55,6 +52,6 @@ await runtimeConnector.monetizeFolder({
 }
 ```
 <Callout>
-This function will ask users to sign a transaction to mint NFTs. The transaction will be sent to mumbai.
+This function will ask users to sign a transaction to mint NFTs. Currently the transaction will be sent to mumbai.
 And the monetized folder will be returned after the transaction is confirmed.
 </Callout>

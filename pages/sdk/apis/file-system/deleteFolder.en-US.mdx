@@ -5,21 +5,17 @@ Mark a folder as `deleted`.
 ## Usage
 ```js
 await runtimeConnector.deleteFolder({
-  app,
   folderId,
-  syncImmediately: true,
 });
 ```
 
 ## Parameters
 ```js
 {
-    app?: string;
     folderId: string;
     syncImmediately?: boolean;
 }
 ```
-- `app` - The app name.
 - `folderId` - The folder id.
 - `syncImmediately` - Whether to sync the deletion to data network immediately or wait for os schedule. Default is `false`.
 

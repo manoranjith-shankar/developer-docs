@@ -6,25 +6,21 @@ update the metadata of a folder
 ## Usage
 ```js
 await runtimeConnector.updateFolderBaseInfo({
-    app,
     folderId,
     newFolderName,
     newFolderDescription,
-    syncImmediately: true
 });
 ```
 
 ## Parameters
 ```js
 {
-    app?: string;
     folderId: string;
     newFolderName?: string;
     newFolderDescription?: string;
     syncImmediately?: boolean;
 }
 ```
-- `app`: `string` - the app id
 - `folderId`: `string` - id of the folder to update
 - `newFolderName`: `string` - new name of the folder
 - `newFolderDescription`: `string` - new description of the folder
