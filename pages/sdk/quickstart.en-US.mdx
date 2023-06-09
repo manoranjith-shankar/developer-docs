@@ -26,7 +26,7 @@ npm install @dataverse/runtime-connector
 ## Step 1: initialize the connector
 
 ```javascript
-After installation, you can import the SDK and initialize the runtime connector.
+// After installation, you can import the SDK and initialize the runtime connector.
 /** Import Runtime Connector SDK */
 import { RuntimeConnector, Extension } from "@dataverse/runtime-connector";
 
@@ -36,56 +36,71 @@ const runtimeConnector = new RuntimeConnector(Extension);
 The `Extension` specifies the target that runtime connector will connect to.
 Currently, the dataverseos kernel is running in the browser extension, so we use `Extension` as the target.
 
-## Step 2: Connect with user identity
+## Step 2: Connect with user wallet
 
 ```javascript
 import React, { useState } from 'react';
 
-/** Import Runtime Connector SDK and constants */
+/** Import Runtime Connector SDK and types */
 import {
   RuntimeConnector,
-  Apps,
-  ModelNames,
   Extension,
-  CRYPTO_WALLET_TYPE,
-  METAMASK,
+  WALLET
 } from "@dataverse/runtime-connector";
 
 /**
- * Define which application and models to connect to as well as read and write data
- */
-const appName = Apps.Dataverse;
-const modelNames = [ModelNames.post];
-/**
- * Initialize the Runtime Connector SDK class object:
+ * Initialize the Runtime Connector
  */
 const runtimeConnector: RuntimeConnector = new RuntimeConnector(Extension);
 
 const App: React.FC = () => {
+  const [wallet, setWallet] = useState<WALLET>();
   
-  /** Calls the Runtime Connector SDK and handle the results */
-  const connectIdentity = async () => {
-    /** connect dentity */
+  const connectWallet = async () => {
     try {
-      const did = await runtimeConnector.connectIdentity({
-        wallet: { name: METAMASK, type: CRYPTO_WALLET_TYPE },
-        appName,
-        modelNames,
-      });
-    } catch (e) {
-      console.error("Error connecting identity", e);
+      const res = await runtimeConnector.connectWallet();
+      setWallet(res.wallet);
+      return address;
+    } catch (error) {
+      console.error(error);
     }
   };
 
   return (
-    <button onClick={connectIdentity}>
-      Connect Identity
+    <button onClick={Wallet}>
+      Connect Wallet
     </button>
   );
 };
 
 export default App;
 ```
+The `connectWallet` function receive an optional parameter `wallet` to specify which wallet to use.
+```js
+enum WALLET {
+  METAMASK = "MetaMask",
+  PARTICLE = "Particle"
+}
+```
+if not specified(pass in no parameters), the function will open an option page for users to choose which wallet to use.
+<img src="/images/sdk/option-page.png" className="mx-auto my-2.5" width="90%"/>
+
+## Step 3: Create capability
+```js
+import { RESOURCE } from "@dataverse/runtime-connector";
+
+const app = "YOUR_APP_NAME"
+
+const createCapability = async () => {
+  const pkh = await runtimeConnector.createCapability({
+    app,
+    resource: RESOURCE.CERAMIC,
+    wallet,
+  });
+  return pkh;
+};
+```
+
 This will open a popup window to ask for user permission to connect with the application.
 We use Sign-in-with-Ethereum signatures to authenticate the user approvement.
 The popup shall be like this:
@@ -94,7 +109,11 @@ The popup shall be like this:
 <img src="/images/sdk/siwe2.png" width="50%" />
 </div>
 
-## Step 3: Create a data stream
+## Step 4: Create a data stream
+Data stream is the smallest unit of data in our system. 
+Unlike IPFS CID which cannot be changed after upload, data streams can be updated and linked between each other. 
+Each data stream belongs to a data model. For example, if you have created a data model called `post` as a data structure for posts in a social app, 
+`createStream` under this `post` model is how you create posts.
 
 ```javascript
 const encrypted = JSON.stringify({
@@ -122,48 +141,50 @@ await runtimeConnector.createStream({
 return example
 ```json
 {
-  "streamId": "kjzl6kcym7w8y4z4zbls96busy5xwn4kvxr1nvcejsitslzmq683aplp3td1uny",
+  "pkh": "did:pkh:eip155:137:0xb4D93398f6F3FB5EE4436D1aE93b32d65693a799",
+  "app": "fxy001",
+  "modelId": "kjzl6hvfrbw6c7gkypf9654o0vu1jd1q85fcnyrpc1koobuys71zhp0m7kbmrvs",
+  "streamId": "kjzl6kcym7w8y7nfklssfuv1o8p32use2psysup1khcm6k6bfzpcm3bb8fcc2iu",
   "streamContent": {
-    "text": "hello",
-    "images": [
-      "https://bafkreib76wz6wewtkfmp5rhm3ep6tf4xjixvzzyh64nbyge5yhjno24yl4.ipfs.w3s.link"
-    ],
-    "videos": [],
-    "createdAt": "2023-06-02T03:22:55.262Z",
-    "encrypted": "{\"text\":false,\"images\":false,\"videos\":false}",
-    "updatedAt": "2023-06-02T03:22:55.262Z",
-    "appVersion": "0.0.1"
-  },
-  "newFile": {
-    "appVersion": "0.2.0",
-    "contentId": "kjzl6kcym7w8y4z4zbls96busy5xwn4kvxr1nvcejsitslzmq683aplp3td1uny",
-    "contentType": "kjzl6hvfrbw6c7gkypf9654o0vu1jd1q85fcnyrpc1koobuys71zhp0m7kbmrvs",
-    "comment": { "mirrorName": "fxy001_post", "note": "", "tags": [] },
-    "fileType": 0,
-    "createdAt": "2023-06-02T03:22:57.398Z",
-    "updatedAt": "2023-06-02T03:22:57.398Z",
-    "indexFileId": "kjzl6kcym7w8y70tx56dxcy8cgdqd8q7xjt7mm9g2zz0bufrboxb95kwrbouk4m"
+    "content": {
+      "text": "hello",
+      "images": [
+        "https://bafkreib76wz6wewtkfmp5rhm3ep6tf4xjixvzzyh64nbyge5yhjno24yl4.ipfs.w3s.link"
+      ],
+      "videos": [],
+      "createdAt": "2023-06-09T06:18:00.716Z",
+      "encrypted": "{\"text\":false,\"images\":false,\"videos\":false}",
+      "updatedAt": "2023-06-09T06:18:00.716Z",
+      "appVersion": "0.0.1"
+    },
+    "file": {
+      "appVersion": "0.2.0",
+      "contentId": "kjzl6kcym7w8y7nfklssfuv1o8p32use2psysup1khcm6k6bfzpcm3bb8fcc2iu",
+      "contentType": "kjzl6hvfrbw6c7gkypf9654o0vu1jd1q85fcnyrpc1koobuys71zhp0m7kbmrvs",
+      "comment": { "mirrorName": "fxy001_post", "note": "", "tags": [] },
+      "fileType": 0,
+      "createdAt": "2023-06-09T06:18:02.556Z",
+      "updatedAt": "2023-06-09T06:18:02.556Z",
+      "indexFileId": "kjzl6kcym7w8y50qam78fms8q5vneg9zuxm8advu3v5b6ke24opn6fv5muczw63"
+    }
   }
 }
 ```
 
 <Callout emoji="❗">
 To create a data stream under a specific model, you need to specify the model id.
-and ensure current identity has the permission to create data stream under the model.
+and ensure current `pkh` has the permission to create data stream under the model.
 if not, please use `createCapability` to create a capability for the model first.
 </Callout>
 
-## Step 4: Load a data stream
+## Step 5: Load a data stream
 
 You can load a stream's content by stream id.
 ```javascript
 await runtimeConnector.loadStream({
-  app: 'APP_NAME',
   streamId: 'kjzl6kcym7w8ya8g9cj5764kll6veldqws40ub29r1odut2pxiqxet80sl9p6th',  // for example
 });
 ```
-The dataverse app name `app` needs to be specified to boost the the network indexing speed and
-improve the user experience.
 
 You can also load multiple streams under a model.
 ```javascript
@@ -175,53 +196,52 @@ await runtimeConnector.loadStreamsBy({
 The `pkh` is optional. If not specified, will return all streams under the model.
 
 
-## Step 5: Update a data stream
+## Step 6: Update a data stream
 
 ```javascript
 const date = new Date().toISOString();
 
-    const encrypted = JSON.stringify({
-      text: true,
-      images: true,
-      videos: false,
-    });
+const encrypted = JSON.stringify({
+  text: true,
+  images: true,
+  videos: false,
+});
 
-    const res = await runtimeConnector.updateStream({
-      app,
-      streamId,
-      streamContent: {
-        appVersion: "0.0.1",
-        text: "hello world!",
-        images: [
-          "https://bafkreib76wz6wewtkfmp5rhm3ep6tf4xjixvzzyh64nbyge5yhjno24yl4.ipfs.w3s.link",
-        ],
-        videos: [],
-        createdAt: date,
-        updatedAt: date,
-        encrypted,
-      },
-    });
+const res = await runtimeConnector.updateStream({
+  streamId,
+  streamContent: {
+    appVersion: "0.0.1",
+    text: "hello world!",
+    images: [
+      "https://bafkreib76wz6wewtkfmp5rhm3ep6tf4xjixvzzyh64nbyge5yhjno24yl4.ipfs.w3s.link",
+    ],
+    videos: [],
+    createdAt: date,
+    updatedAt: date,
+    encrypted,
+  },
+});
 ```
 `updateStream` shares the same parameters as `createStream`, except the `streamId` is required.
 and the return value is the same as `createStream`.
 
-## Step 6: Monetize
+## Step 7: Monetize
     
 ```javascript
-const pkh = await runtimeConnector.createCapability({ app, wallet });
-
-const profileId = await getProfileId({ pkh, lensHandle: "YOUR_LENS_HANDLE" });  // you'll need a lens handle to monetize data
+import { Currency } from "@dataverse/runtime-connector";
 
 const res = await runtimeConnector.monetizeFile({
-  app,  // your app name
-  streamId, // get the streamId from createStream return
+  streamId,
   datatokenVars: {
-    profileId,
+    profileId: "LENS_HANDLE_PROFILE_ID",
     collectLimit: 100,
     amount: 0.0001,
     currency: Currency.WMATIC,
   },
-  decryptionConditions: [...],
+  storageProvider,
+  decryptionConditions: [
+    ...
+  ],
 });
 ```
 **Why lens profile is needed to monetize data?**
@@ -258,7 +278,6 @@ wallet address `0x3c6216caE32FF6691C55cb691766220Fd3f55555` on filecoin chain.
 
 ```javascript
 await runtimeConnector.unlock({
-  app,
   indexFileId:
     "kjzl6kcym7w8y5xf0j7kmies5i30f86xlerbfp42qnxju2vfno1io6i04sy2p2d",
 });
