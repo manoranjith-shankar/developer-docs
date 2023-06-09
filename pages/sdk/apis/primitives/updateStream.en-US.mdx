@@ -5,7 +5,6 @@ update an existing stream
 ## Usage
 ```js
 await runtimeConnector.updateStream({
-  app,
   streamId,
   streamContent: {
     appVersion,
@@ -22,7 +21,6 @@ await runtimeConnector.updateStream({
 ```
 
 ## Parameters
-- `app`: `string` - the app name
 - `streamId`: `string` - id of the stream to be updated
 - `streamContent` - `object` - the content of the stream, fields under this object are decided by the data model you are using,
 here is an example:
@@ -59,37 +57,32 @@ your `streamContent` shall be:
 ```json
 {
   "streamContent": {
-    "text": "CNKwbsvX09ELyd9WSG4PanQv0vLFx35-UROS3CLOSzE",
-    "images": [
-      "ajKfFMOcglr_Ay_ApDD1VCAAU-AdVXoZDOB_N6Rpc4Rra6uUFZ3A8R2HpXbohiy8tikdCgo_EWiMqMz2ORDRBSW4sEJXldG4XklBux7vuCt1eIUDOC9GRzqZEL5f_GzppDOBgfiWxD0PJ6Gnljquxg"
-    ],
-    "videos": [],
-    "createdAt": "2023-06-02T09:18:08.295Z",
-    "encrypted": "{\"text\":true,\"images\":true,\"videos\":false}",
-    "updatedAt": "2023-06-02T09:18:08.295Z",
-    "appVersion": "0.0.1"
-  },
-  "currentFile": {
     "content": {
-      "text": "CNKwbsvX09ELyd9WSG4PanQv0vLFx35-UROS3CLOSzE",
+      "text": "qSjXcpEHog4LMRUDlx9oG78sldRt9Xt1nlsrMgikXs4",
       "images": [
-        "ajKfFMOcglr_Ay_ApDD1VCAAU-AdVXoZDOB_N6Rpc4Rra6uUFZ3A8R2HpXbohiy8tikdCgo_EWiMqMz2ORDRBSW4sEJXldG4XklBux7vuCt1eIUDOC9GRzqZEL5f_GzppDOBgfiWxD0PJ6Gnljquxg"
+        "GOstbsqhH6WwQfrMNldlBfmNYqui3ddvljEN38xefHPATj1GMHqCg8LHU0-me_Jwl2kODFNHXai3LR9_-nx7TX6NVBuNeaxlXxLBMJosIApIXMlLLgSPF6KlGpkX_4bRx6Mju6Pflb7qzipYLKkPTw"
       ],
       "videos": [],
-      "createdAt": "2023-06-02T09:18:08.295Z",
+      "createdAt": "2023-06-09T09:34:59.282Z",
       "encrypted": "{\"text\":true,\"images\":true,\"videos\":false}",
-      "updatedAt": "2023-06-02T09:18:08.295Z",
+      "updatedAt": "2023-06-09T09:34:59.282Z",
       "appVersion": "0.0.1"
     },
-    "indexFileId": "kjzl6kcym7w8y5vbbct6iv4t2nwp3j5wsfz7nuhed1wrjeubh2wqtn3l7lkhsnw",
-    "comment": { "mirrorName": "fxy001_post", "note": "", "tags": [] },
-    "fileType": 0,
-    "contentId": "kjzl6kcym7w8y82cnlb5ecm5y71o1lpsmnd6f9ie6hw23rort0r9nab2u2gsknu",
-    "createdAt": "2023-06-02T09:18:04.670Z",
-    "updatedAt": "2023-06-02T09:18:04.670Z",
-    "appVersion": "0.2.0",
-    "contentType": "kjzl6hvfrbw6c7gkypf9654o0vu1jd1q85fcnyrpc1koobuys71zhp0m7kbmrvs"
+    "file": {
+      "indexFileId": "kjzl6kcym7w8y9r79gnnj4bagyn0atwb1rurmnlzv0splask1n9tr3mhfekcloo",
+      "appVersion": "0.2.0",
+      "contentId": "kjzl6kcym7w8y50yw43qgp2vk05rooezfl6fyx9hfa57rn5ij0alsl6i5am0kl4",
+      "contentType": "kjzl6hvfrbw6c7gkypf9654o0vu1jd1q85fcnyrpc1koobuys71zhp0m7kbmrvs",
+      "comment": { "mirrorName": "fxy001_post", "note": "", "tags": [] },
+      "fileType": 1,
+      "encryptedSymmetricKey": "4a8507d65b1c9215c1dc4a22878d32de1f463525e6d7d50592a5ec79bb7925d514701ea26034f515e4afa58089da69141971758eb232fa957f88c9ccae72bf9e3647ba58dd923001da33fe6214b7c6f8bffce66f75975d7237df2015895daba26c219e139386ddcea92a9c74a01c0b8d3c84ade3b22aba9a5012fdffc326224e0000000000000020565067da382927492ea2a1855616cf4a0b536434d6dd4e3d9c2d9759657c0b707198d7d467f9d85e8937fcb6f2138d86",
+      "decryptionConditions": [
+        ...
+      ],
+      "decryptionConditionsType": "AccessControlCondition",
+      "createdAt": "2023-06-09T09:30:55.908Z",
+      "updatedAt": "2023-06-09T09:35:03.587Z"
+    }
   }
 }
-
 ```

@@ -1,6 +1,6 @@
 # loadStreamsBy
 
-load multiple streams under a data model
+Load multiple streams under a data model
 
 ## Usage
 ```js
@@ -11,6 +11,12 @@ await runtimeConnector.loadStreamsBy({
 ```
 
 ## Parameters
+```js
+{
+  modelId: string;
+  pkh?: string;
+}
+```
 - `modelId`: `string` - the data model id
 - `pkh?`: `string` - user did, if not provided, will return all streams under the data model
 
