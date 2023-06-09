@@ -5,6 +5,8 @@ create a public/private folder
 ## Usage
 
 ```js
+import { FolderType } from "@dataverse/runtime-connector";
+
 await runtimeConnector.createFolder({
   folderType: FolderType.Private,
   folderName,
@@ -31,6 +33,13 @@ await runtimeConnector.createFolder({
 - `folderDescription`: `string` - folder description
 
 ## Returns
+```js
+{
+  newFolder: StructuredFolder;
+  allFolders: StructuredFolders;
+}
+```
+Example:
 ```json
 {
   "newFolder": {

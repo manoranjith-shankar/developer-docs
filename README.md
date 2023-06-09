@@ -6,20 +6,20 @@
 </p>
 
 <h3 align="center">
-  Livepeer Documentation
+  DataverseOS Documentation
 </h3>
 
 ## Documentation
 
-For our documentation, visit [docs.livepeer.org](https://docs.livepeer.org).
+For our documentation, visit [docs.dataverse-os.com](https://docs.dataverse-os.com).
 
 ## Community
 
-Check out the following places for more livepeer-related content:
+Check out the following places for more related content:
 
-- Take a look at our [GitHub](https://github.com/livepeer)
-- Follow [@livepeer](https://twitter.com/livepeer) on Twitter for project updates
-- Jump into our [Discord](https://discord.gg/livepeer)
+- Take a look at our [GitHub](https://github.com/dataverse-os) repositories
+- Follow [@DataverseOS](https://twitter.com/DataverseOS) on Twitter for project updates
+- Jump into our [Discord](https://discord.gg/BnCek4e6ny)
 
 ## Contributing
 
