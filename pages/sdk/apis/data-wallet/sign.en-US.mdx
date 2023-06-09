@@ -4,8 +4,10 @@ To open a popup and sign a message.
 
 ## Usage
 ```js
+import { SignMethod } from "@dataverse/runtime-connector";
+
 await runtimeConnector.sign({
-  method: "signMessage",
+  method: SignMethod.signMessage,
   params: ["test"],
 });
 ```

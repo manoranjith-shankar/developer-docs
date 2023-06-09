@@ -16,7 +16,8 @@
     "title": "getCurrentWallet",
     "icon": "",
     "description": "",
-    "href": "/sdk/apis/data-wallet/getCurrentWallet"
+    "href": "/sdk/apis/data-wallet/getCurrentWallet",
+    "type": "hidden"
   },
   "switchNetwork": {
     "title": "switchNetwork",
@@ -46,6 +47,19 @@
     "title": "getCurrentPkh",
     "icon": "",
     "description": "",
-    "href": "/sdk/apis/data-wallet/getCurrentPkh"
+    "href": "/sdk/apis/data-wallet/getCurrentPkh",
+    "type": "hidden"
+  },
+  "connectPKPWallet": {
+    "title": "connectPKPWallet",
+    "icon": "",
+    "description": "",
+    "href": "/sdk/apis/data-wallet/connectPKPWallet"
+  },
+  "executeLitAction": {
+    "title": "executeLitAction",
+    "icon": "",
+    "description": "",
+    "href": "/sdk/apis/data-wallet/executeLitAction"
   }
 }

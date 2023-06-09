@@ -6,7 +6,9 @@ import guides from './data-wallet/_meta.en-US.json';
 
 <Cards
   num={2}
-  children={Object.keys(guides).map((key, i) => (
+  children={Object.keys(guides).map((key, i) => {
+    if(guides[key].type === "hidden") return null;
+    return (
     <Card
       key={i}
       title={guides[key].title}
@@ -14,5 +16,6 @@ import guides from './data-wallet/_meta.en-US.json';
       icon={guides[key].icon}
       href={guides[key].href}
     />
-  ))}
+  )
+  })}
 />
