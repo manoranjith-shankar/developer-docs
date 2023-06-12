@@ -10,7 +10,8 @@ create data streams, load data streams, update data streams, and monetize data.
 ## Prerequisites
 
 ### Install Data wallet
-Data Wallet is a Chrome browser extension. we need to make sure it's installed and 
+
+Data Wallet is a Chrome browser extension. we need to make sure it's installed and
 it's updated to the latest version before we proceed with the development.
 
 [Download on chrome store](https://chrome.google.com/webstore/detail/dataverse/kcigpjcafekokoclamfendmaapcljead)
@@ -19,6 +20,7 @@ it's updated to the latest version before we proceed with the development.
 You may sign in with MetaMask or Particle Social Account and create a new identity.
 
 ### Install dependencies
+
 ```bash
 npm install @dataverse/runtime-connector
 ```
@@ -28,11 +30,12 @@ npm install @dataverse/runtime-connector
 ```javascript
 // After installation, you can import the SDK and initialize the runtime connector.
 /** Import Runtime Connector SDK */
-import { RuntimeConnector, Extension } from "@dataverse/runtime-connector";
+import { RuntimeConnector, Extension } from '@dataverse/runtime-connector';
 
 /** Initialize the runtime connector class object */
 const runtimeConnector = new RuntimeConnector(Extension);
 ```
+
 The `Extension` specifies the target that runtime connector will connect to.
 Currently, the dataverseos kernel is running in the browser extension, so we use `Extension` as the target.
 
@@ -55,7 +58,7 @@ const runtimeConnector: RuntimeConnector = new RuntimeConnector(Extension);
 
 const App: React.FC = () => {
   const [wallet, setWallet] = useState<WALLET>();
-  
+
   const connectWallet = async () => {
     try {
       const res = await runtimeConnector.connectWallet();
@@ -67,7 +70,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <button onClick={Wallet}>
+    <button onClick={connectWallet}>
       Connect Wallet
     </button>
   );
@@ -75,21 +78,26 @@ const App: React.FC = () => {
 
 export default App;
 ```
+
 The `connectWallet` function receive an optional parameter `wallet` to specify which wallet to use.
+
 ```js
 enum WALLET {
   METAMASK = "MetaMask",
   PARTICLE = "Particle"
 }
 ```
+
 if not specified(pass in no parameters), the function will open an option page for users to choose which wallet to use.
-<img src="/images/sdk/option-page.png" className="mx-auto my-2.5" width="90%"/>
+
+<img src="/images/sdk/option-page.png" className="mx-auto my-2.5" width="90%" />
 
 ## Step 3: Create capability
-```js
-import { RESOURCE } from "@dataverse/runtime-connector";
 
-const app = "YOUR_APP_NAME"
+```js
+import { RESOURCE } from '@dataverse/runtime-connector';
+
+const app = 'YOUR_APP_NAME';
 
 const createCapability = async () => {
   const pkh = await runtimeConnector.createCapability({
@@ -104,15 +112,17 @@ const createCapability = async () => {
 This will open a popup window to ask for user permission to connect with the application.
 We use Sign-in-with-Ethereum signatures to authenticate the user approvement.
 The popup shall be like this:
+
 <div className="flex">
-<img src="/images/sdk/siwe1.png" width="50%" />
-<img src="/images/sdk/siwe2.png" width="50%" />
+  <img src="/images/sdk/siwe1.png" width="50%" />
+  <img src="/images/sdk/siwe2.png" width="50%" />
 </div>
 
 ## Step 4: Create a data stream
-Data stream is the smallest unit of data in our system. 
-Unlike IPFS CID which cannot be changed after upload, data streams can be updated and linked between each other. 
-Each data stream belongs to a data model. For example, if you have created a data model called `post` as a data structure for posts in a social app, 
+
+Data stream is the smallest unit of data in our system.
+Unlike IPFS CID which cannot be changed after upload, data streams can be updated and linked between each other.
+Each data stream belongs to a data model. For example, if you have created a data model called `post` as a data structure for posts in a social app,
 `createStream` under this `post` model is how you create posts.
 
 ```javascript
@@ -139,6 +149,7 @@ await runtimeConnector.createStream({
 ```
 
 return example
+
 ```json
 {
   "pkh": "did:pkh:eip155:137:0xb4D93398f6F3FB5EE4436D1aE93b32d65693a799",
@@ -172,29 +183,32 @@ return example
 ```
 
 <Callout emoji="❗">
-To create a data stream under a specific model, you need to specify the model id.
-and ensure current `pkh` has the permission to create data stream under the model.
-if not, please use `createCapability` to create a capability for the model first.
+  To create a data stream under a specific model, you need to specify the model
+  id. and ensure current `pkh` has the permission to create data stream under
+  the model. if not, please use `createCapability` to create a capability for
+  the model first.
 </Callout>
 
 ## Step 5: Load a data stream
 
 You can load a stream's content by stream id.
+
 ```javascript
 await runtimeConnector.loadStream({
-  streamId: 'kjzl6kcym7w8ya8g9cj5764kll6veldqws40ub29r1odut2pxiqxet80sl9p6th',  // for example
+  streamId: 'kjzl6kcym7w8ya8g9cj5764kll6veldqws40ub29r1odut2pxiqxet80sl9p6th', // for example
 });
 ```
 
 You can also load multiple streams under a model.
+
 ```javascript
 await runtimeConnector.loadStreamsBy({
   modelId,
-  pkh: "did:pkh:eip155:137:0x5915e293823FCa840c93ED2E1E5B4df32d699999",
+  pkh: 'did:pkh:eip155:137:0x5915e293823FCa840c93ED2E1E5B4df32d699999',
 });
 ```
-The `pkh` is optional. If not specified, will return all streams under the model.
 
+The `pkh` is optional. If not specified, will return all streams under the model.
 
 ## Step 6: Update a data stream
 
@@ -210,10 +224,10 @@ const encrypted = JSON.stringify({
 const res = await runtimeConnector.updateStream({
   streamId,
   streamContent: {
-    appVersion: "0.0.1",
-    text: "hello world!",
+    appVersion: '0.0.1',
+    text: 'hello world!',
     images: [
-      "https://bafkreib76wz6wewtkfmp5rhm3ep6tf4xjixvzzyh64nbyge5yhjno24yl4.ipfs.w3s.link",
+      'https://bafkreib76wz6wewtkfmp5rhm3ep6tf4xjixvzzyh64nbyge5yhjno24yl4.ipfs.w3s.link',
     ],
     videos: [],
     createdAt: date,
@@ -222,11 +236,12 @@ const res = await runtimeConnector.updateStream({
   },
 });
 ```
+
 `updateStream` shares the same parameters as `createStream`, except the `streamId` is required.
 and the return value is the same as `createStream`.
 
 ## Step 7: Monetize
-    
+
 ```javascript
 import { Currency } from "@dataverse/runtime-connector";
 
@@ -244,6 +259,7 @@ const res = await runtimeConnector.monetizeFile({
   ],
 });
 ```
+
 **Why lens profile is needed to monetize data?**
 
 To put it simply, data monetization is to deploy a collection of NFTs on the blockchain.
@@ -255,6 +271,7 @@ the post.
 
 `decryptionConditions` specifies a set of conditions to limit the access to the data.
 For example
+
 ```javascript
 [
   {
@@ -271,7 +288,8 @@ For example
   },
 ];
 ```
-This condition specifies that the data can only be accessed by the 
+
+This condition specifies that the data can only be accessed by the
 wallet address `0x3c6216caE32FF6691C55cb691766220Fd3f55555` on filecoin chain.
 
 ## Step 8: Unlock
@@ -279,11 +297,13 @@ wallet address `0x3c6216caE32FF6691C55cb691766220Fd3f55555` on filecoin chain.
 ```javascript
 await runtimeConnector.unlock({
   indexFileId:
-    "kjzl6kcym7w8y5xf0j7kmies5i30f86xlerbfp42qnxju2vfno1io6i04sy2p2d",
+    'kjzl6kcym7w8y5xf0j7kmies5i30f86xlerbfp42qnxju2vfno1io6i04sy2p2d',
 });
 ```
+
 This will send a transaction to mint a NFT to the user's wallet address.
 The NFT is the access credential to the data.
+
 <Callout>
-`monetize` and `unlock` functions are currently on Mumbai testnet.
+  `monetize` and `unlock` functions are currently on Mumbai testnet.
 </Callout>
