@@ -215,6 +215,59 @@ If successfully, you will see the following output:
 Create successfully, now you can run 'pnpm dev' to run react demo.
 ```
 
+And the details of your app deployment will be printed out to `/output/app.json`.
+An example here:
+
+```json
+{
+  "createDapp": {
+    "id": "0a008b3b-2c05-4d1b-bec4-646c787a9fce",
+    "streamIDs": [
+      {
+        "name": "zooey001_indexFolders",
+        "stream_id": "kjzl6hvfrbw6c75ohahxc0qmw1v55zskmxwbd8qa5in63tzo3efuaqn05wmdazv",
+        "isPublicDomain": false,
+        "encryptable": null
+      },
+      {
+        "name": "zooey001_indexFiles",
+        "stream_id": "kjzl6hvfrbw6c8nnqc8ah69t1fgdaaxceu72jp60t6wtz1y81e24qhk840bh2j6",
+        "isPublicDomain": false,
+        "encryptable": null
+      },
+      {
+        "name": "zooey001_post",
+        "stream_id": "kjzl6hvfrbw6c9vun6w8ajmfvwjfm2t6uh98o76haq5yg5z3jz47v3h0uyhym6l",
+        "isPublicDomain": false,
+        "encryptable": ["text", "images", "videos"]
+      },
+      {
+        "name": "zooey001_profile",
+        "stream_id": "kjzl6hvfrbw6c5gn98hiwma8g4qafhb0gf149l0l06rg7f6yhf1sq8l6xxe54od",
+        "isPublicDomain": true,
+        "encryptable": null
+      },
+      {
+        "name": "zooey001_contentFolders",
+        "stream_id": "kjzl6hvfrbw6c71b0vrr4rpg84mqcty530ycz3yfygndksybertu5cgethwtx94",
+        "isPublicDomain": false,
+        "encryptable": null
+      }
+    ],
+    "website": "http://localhost:3000",
+    "name": "zooey001",
+    "slug": "zooey001",
+    "logo": "https://venerable-queijadas-290c8d.netlify.app/logo.png",
+    "description": "A simple social media app",
+    "defaultFolderName": "Untitled",
+    "ceramic": "https://local1.dataverseceramicdaemon.com"
+  }
+}
+```
+
+Once the models are deployed, you will get the `stream_id` of each model. You can use the `stream_id` as the identifier of the models and
+use them in your app later.
+
 ## Step 5: Run your app
 
 ```sh
