@@ -2,20 +2,24 @@ import { Callout } from 'nextra-theme-docs';
 
 # Create dataverse application
 
-`create-dataverse-app` is a command line tool that helps you create a Dataverse app 
+`create-dataverse-app` is a command line tool that helps you create a Dataverse app
 with no build configuration.
 
 **requirements:**
+
 - [Git](https://git-scm.com/)
 - [nodejs](https://nodejs.org/en/) >= 16
 
 ## Step 1: Init framework
 
 In terminal, run
+
 ```typescript
 npx create-dataverse-app <APP_NAME>
 ```
+
 the output should be like
+
 ```sh
 Creating a new Dataverse app in /home/my-app.
 
@@ -31,7 +35,9 @@ pnpm dev
 ```
 
 ## Step 2: Configure your app
+
 Open the project created in the previous step. The project structure should be like
+
 ```json
 .
 ├── LICENSE
@@ -43,7 +49,7 @@ Open the project created in the previous step. The project structure should be l
 │   ├── fs  // file system data models
 │   ├── post.graphql   // post data model, an example as a post of web3 social app
 │   └── profile.graphql // profile data model, an example as user profile of web3 social
-├── output  
+├── output
 │   └── app.json    // generated after app creation, contains app information
 ├── package.json
 ├── scripts // tools to help you create your app and manage
@@ -62,45 +68,53 @@ Open the project created in the previous step. The project structure should be l
 ├── tsconfig.node.json
 └── vite.config.ts
 ```
+
 Open `dataverse.config.ts`, you can config your app basic information here.
+
 ```typescript
 export const config = {
-  slug: "", // app id, need to match this regular: `^[a-zA-Z][a-zA-Z0-9_]*$`
-  name: "", // app name should NOT contain "-"
-  logo: "",
-  website: "", // you can use localhost:(port) for testing
-  defaultFolderName: "Untitled",
-  description: "",
+  slug: '', // app id, need to match this regular: `^[a-zA-Z][a-zA-Z0-9_]*$`
+  name: '', // app name should NOT contain "-"
+  logo: '',
+  website: '', // you can use localhost:(port) for testing
+  defaultFolderName: 'Untitled',
+  description: '',
   models: [
     {
       isPublicDomain: false, // default
-      schemaName: "post.graphql",
-      encryptable: ["text", "images", "videos"], // strings within the schema and within the array represent fields that may be encrypted, while fields within the schema but not within the array represent fields that will definitely not be encrypted
+      schemaName: 'post.graphql',
+      encryptable: ['text', 'images', 'videos'], // strings within the schema and within the array represent fields that may be encrypted, while fields within the schema but not within the array represent fields that will definitely not be encrypted
     },
     {
       isPublicDomain: true,
-      schemaName: "profile.graphql",
+      schemaName: 'profile.graphql',
     },
   ],
   ceramicUrl: null, // leave null to use dataverse test Ceramic node. Set to {Your Ceramic node Url} for mainnet, should start with "https://".
 };
 ```
-You can config your app slug(as a unique identifier), name, logo image URL, description, 
-models, etc. here. For development and testing, you may set the website to 'localhost'. 
+
+You can config your app slug(as a unique identifier), name, logo image URL, description,
+models, etc. here. For development and testing, you may set the website to 'localhost'.
 For production usage, you should set the website to your app's domain name. The `defaultFolderName`
-is the default folder path when user creates data under your app. 
+is the default folder path when user creates data under your app.
 The `models` is the data models to use in your app. You can define your own data models in the `models` folder.
 The `ceramicUrl` is the Ceramic node url to use. If you leave it null, the app will use the test Ceramic node
 provided by dataverseos.
+
 <Callout>
-  Note that the test ceramic node of DataverseOS is just for developing and testing, and the data on it will be cleared regularly.
-  So you should use your own Ceramic node for production usage. And DON'T put any important data on test node.
+  Note that the test ceramic node of DataverseOS is just for developing and
+  testing, and the data on it will be cleared regularly. So you should use your
+  own Ceramic node for production usage. And DON'T put any important data on
+  test node.
 </Callout>
 
 ## Step 3: Customize data models
+
 A data model is a definition of data structure of key objects in your app. For example, in a social app,
 we may define a model for user profile, a model for post, a model for followings, etc.
 Data models should be defined in a GraphQL schema file. For example, we define a post model in `post.graphql`:
+
 ```graphql
 type post @createModel(accountRelation: LIST, description: "post") {
   author: DID! @documentAccount # DID of the user who created this post
@@ -114,52 +128,106 @@ type post @createModel(accountRelation: LIST, description: "post") {
   updatedAt: DateTime! # time when the post is updated
 }
 ```
+
 The `@createModel` directive is used to tell dataverseos to create a data model for this type.
 The `@documentAccount` directive is used to tell dataverseos to create a DID for this type.
 The `@documentVersion` directive is used to tell dataverseos to create a version for this type.
 
-`profile` and `post` are here to demonstrate how to define a data model. 
+`profile` and `post` are here to demonstrate how to define a data model.
 You can define your own data models under `models` folder.
 
+For example, if you want to add `comments` to the `post`, you can modify the `post.graphql` like this:
+
+```graphql
+type post @createModel(accountRelation: LIST, description: "post") {
+  author: DID! @documentAccount
+  version: CommitID! @documentVersion
+  appVersion: String! @string(maxLength: 100)
+  text: String @string(maxLength: 300000000)
+  images: [String] @list(maxLength: 10000000) @string(maxLength: 2000000)
+  videos: [String] @list(maxLength: 10000000) @string(maxLength: 2000000)
+  options: String @string(maxLength: 300000000)
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  comments: [String] @list(maxLength: 10000000) @string(maxLength: 2000000)
+}
+```
+
+Here is another example for a `note` model:
+
+```graphql
+type note @createModel(accountRelation: LIST, description: "post") {
+  author: DID! @documentAccount
+  title: String @string(maxLength: 100)
+  content: String @string(maxLength: 300000000)
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+```
+
 <Callout>
-    Models under `fs` folder are special models. They are used by dataverseos to fulfill the file system functions.
-    You should NOT modify them.
+  Models under `fs` folder are special models. They are used by dataverseos to
+  fulfill the file system functions. You should NOT modify them.
 </Callout>
 
-## Step 4: Run your app
+## Step 4: Register your app to dapp table
+
 Before running your app, you need to fill in your private key in `.env` file.
 The private key will be used to sign messages and manage your app as your authorization.
 You should keep the key safe as if it is leaked, your app may be stolen.
 if you are using self-hosted ceramic node, you should use the private key of the adminDID of your ceramic node.
 if you are using test ceramic node, you can use any private key here. We highly recommend you to use
 a new private key for testing. You can generate a new private key by running
+
 ```sh
 npm install ethereumjs-wallet --save
 ```
+
 create a js script `app.js` with the following content:
+
 ```javascript
 var Wallet = require('ethereumjs-wallet');
 const wallet = Wallet.generate();
-console.log("privateKey: " + wallet.getPrivateKeyString());
-console.log("address: " + wallet.getAddressString());
+console.log('privateKey: ' + wallet.getPrivateKeyString());
+console.log('address: ' + wallet.getAddressString());
 ```
+
 ```sh
 node app.js
 ```
 
 1. Install dependencies
+
 ```sh
 pnpm install
 ```
+
 2. deploy your app
+
 ```sh
 pnpm create-dataverse-app
 ```
-3. run your app
+
+This command will deploy your app to dataverseos testnet and register your app to dapp table.
+If successfully, you will see the following output:
+
+```sh
+Create successfully, now you can run 'pnpm dev' to run react demo.
+```
+
+## Step 5: Run your app
+
 ```sh
 pnpm dev
 ```
+
 The demo should start at http://localhost:5173.
 This demo shows some basic functions of dataverseos.
-![cli-and-tools-1](/images/cli-and-tools/demo.png)
+
+<img
+  alt="livepeer logo"
+  src="/images/cli-and-tools/demo.png"
+  width="50%"
+  className="mx-auto my-2.5"
+/>
 Welcome to have a try!
