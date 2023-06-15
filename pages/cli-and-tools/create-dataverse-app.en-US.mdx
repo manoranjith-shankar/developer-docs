@@ -295,3 +295,15 @@ This demo shows some basic functions of dataverseos.
   className="mx-auto my-2.5"
 />
 Welcome to have a try!
+
+## Step 6: Build your app in another framework [optional]
+
+`create-dataverse-app` is a framework to help you create a dataverse app, register it to dapp table and
+define the data models you want to use in your app. We also provide a React demo(`/src/App.tsx`) and React Hooks(`/src/hooks/`)
+SDK within this framework as en example to show how to build a web3 social app with dataverseos. You can use this demo
+as a reference to build your own app.
+
+Meanwhile, if you want to use other frameworks to build your app, you can also do that.
+Just install `runtime-connector` package and use it in your app.
+You can use the data models you defined in `models` folder and the `stream_id` of each model to access the data resources.
+And use the app name in functions like `createCapability` and `checkCapability`.
