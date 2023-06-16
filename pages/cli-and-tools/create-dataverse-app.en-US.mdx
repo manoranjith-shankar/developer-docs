@@ -170,12 +170,17 @@ Here is another example for a `note` model:
 ```graphql
 type note @createModel(accountRelation: LIST, description: "post") {
   author: DID! @documentAccount
+  version: CommitID! @documentVersion
   title: String @string(maxLength: 100)
   content: String @string(maxLength: 300000000)
   createdAt: DateTime!
   updatedAt: DateTime!
 }
 ```
+
+`author` and `version` are required fields for all data models.`author` is the DID of the user who created the data.
+`version` is used to maintain the update history of the data. These 2 fields will be used by DataverseOS. You should NOT modify them and do NOT
+need to set them manually when create a stream.
 
 <Callout>
   Models under `fs` folder are special models. They are used by dataverseos to
@@ -192,20 +197,8 @@ if you are using test ceramic node, you can use any private key here. We highly 
 a new private key for testing. You can generate a new private key by running
 
 ```sh
-npm install ethereumjs-wallet --save
-```
-
-create a js script `app.js` with the following content:
-
-```javascript
-var Wallet = require('ethereumjs-wallet');
-const wallet = Wallet.generate();
-console.log('privateKey: ' + wallet.getPrivateKeyString());
-console.log('address: ' + wallet.getAddressString());
-```
-
-```sh
-node app.js
+git clone https://github.com/hypotyposis/pk-tools
+cd pk-tools && npm install && node generate_eth_accounts.js
 ```
 
 1. Install dependencies
