@@ -47,8 +47,7 @@
     "title": "getCurrentPkh",
     "icon": "",
     "description": "",
-    "href": "/sdk/apis/data-wallet/getCurrentPkh",
-    "type": "hidden"
+    "href": "/sdk/apis/data-wallet/getCurrentPkh"
   },
   "connectPKPWallet": {
     "title": "connectPKPWallet",
