@@ -3,6 +3,9 @@
     "title": "Home",
     "type": "page"
   },
+  "overview": {
+    "title": "Overview"
+  },
   "introduction": {
     "title": "Introduction"
   },

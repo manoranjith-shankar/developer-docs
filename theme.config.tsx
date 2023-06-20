@@ -159,7 +159,7 @@ const config: DocsThemeConfig = {
     defaultTheme: 'dark',
   },
   primaryHue: {
-    dark: 162,
+    dark: 195,
     light: 212,
   },
   footer: {

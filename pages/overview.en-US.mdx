@@ -1,0 +1,178 @@
+import Link from '@components/core/Link';
+import { Tabs, Tab } from 'nextra-theme-docs';
+import { Header, HeaderVideo } from '@components/react/docs';
+import Card, { Cards } from '@components/core/Card';
+import { Callout } from 'nextra-theme-docs';
+
+# Overview
+
+Explore our documentation and a variety of resources to help you get started building on dataverseos and
+powering your dapp with data sovereighty and content monetization.
+
+<div className="mt-8">
+  <Tabs
+    items={[
+      '👋 Introduction',
+      '🛠️ CLI & Tools',
+      '🧑‍💻 SDK',
+      '❓ Why DataverseOS',
+      '🏗️ How it works',
+      '🫶 Support',
+    ]}
+  >
+    <Tab>
+      <div className="mb-8">
+        Explain what DataverseOS is and which kind of unique internet
+        experiences it could bring to the world. And how it could be used to
+        build dapps with user-centric data ownership.
+      </div>
+      <div className="mb-4 text-xl font-bold">Guides</div>
+      <Cards num={3}>
+        <Card
+          title="Overview"
+          description="A new kind of identity computer to visualize data files over dApps"
+          icon="🏆"
+          href="/introduction/"
+        />
+        <Card
+          title="Data Wallet"
+          description="World's distributed solution for safely hold user's Sign-in-with-ethereum signatures"
+          icon="💰"
+          href="/introduction/data-wallet"
+        />
+        <Card
+          title="Identity Computer"
+          description="Your pesonal computer in the cloud, powered by web3.0 techs, controlled by your identity."
+          icon="💻"
+          href="/introduction/identity-computer"
+        />
+        <Card
+          title="Ecosystem built with DataverseOS SDK"
+          description="A list of dapps built with DataverseOS SDK"
+          icon="📼"
+          href="/introduction/ecosystem"
+        />
+      </Cards>
+      <div className="text-right mt-4">
+        <Link href="/introduction">View all →</Link>
+      </div>
+    </Tab>
+    <Tab>
+      <div className="mb-8">
+        DataverseOS CLI and tools to help you create a dataverse application,
+        register to the network, and deploy your self-hosted dataverse-gated
+        ceramic node for your dapp.
+      </div>
+      <div className="mb-4 text-xl font-bold">Guides</div>
+      <Cards num={3}>
+        <Card
+          title="create-dataverse-app"
+          description="A CLI tool to help you create a dataverse application."
+          icon="🧩"
+          href="/cli-and-tools/create-dataverse-app"
+        />
+        <Card
+          title="dapp-backend"
+          description="Learn how to run your own dataverse-gated ceramic node."
+          icon="💾"
+          href="/cli-and-tools/dapp-backend"
+        />
+      </Cards>
+      <div className="text-right mt-4">
+        <Link href="/cli-and-tools">View all →</Link>
+      </div>
+    </Tab>
+    <Tab>
+      <div className="mb-8">
+        DataverseOS SDK is a collection of libraries that can power your app
+        with identity, storage, ACL, monetization, etc. It provides system calls
+        to access the DataverseOS kernel and its features.
+      </div>
+      <div className="mb-4 text-xl font-bold">Guides</div>
+      <Cards num={3}>
+        <Card
+          title="Quickstart"
+          description="Moving LPT from the Ethereum mainnet to Arbitrum and vice versa."
+          icon="🚀"
+          href="/sdk/quickstart"
+        />
+        <Card
+          title="Code examples"
+          description="Migrate stake from Ethereum Mainnet to Arbitrum."
+          icon="📝"
+          href="/sdk/code-examples"
+        />
+        <Card
+          title="APIs"
+          description="Migrate stake from Ethereum Mainnet to Arbitrum."
+          icon="📚"
+          href="/sdk/apis"
+        />
+      </Cards>
+      <div className="text-right mt-4">
+        <Link href="/sdk">View all →</Link>
+      </div>
+    </Tab>
+    <Tab>
+      <div className="mb-8">
+        DataverseOS builds security and privacy into today's data network
+        systems.
+      </div>
+      <div className="mb-4 text-xl font-bold">Guides</div>
+      <Cards num={2}>
+        <Card
+          title="Why DataverseOS?"
+          description="Protect SIWE signatures & data"
+          icon="🔒"
+          href="/why"
+        />
+      </Cards>
+      <div className="text-right mt-4">
+        <Link href="/why">View all →</Link>
+      </div>
+    </Tab>
+    <Tab>
+      <div className="mb-8">
+        DataverseOS controls and coordinates multiple web3 protocols to build a
+        new kind of identity computer, which powers storage-based dApp around
+        identity.
+      </div>
+      <div className="mb-4 text-xl font-bold">Guides</div>
+      <Cards num={2}>
+        <Card
+          title="How it works"
+          description="control and coordinate multiple web3 protocols"
+          icon="👉"
+          href="/how-it-works"
+        />
+      </Cards>
+      <div className="text-right mt-4">
+        <Link href="/how-it-works">View all →</Link>
+      </div>
+    </Tab>
+    <Tab>
+      <div className="mb-8">
+        Welcome to contact us for any questions or feedbacks or seeking for
+        potential partnership.
+      </div>
+      <div className="mb-4 text-xl font-bold">Guides</div>
+      <Cards num={2}>
+        <Card
+          title="About us"
+          description="Ownership Labs is dedicated to rebuild ownership for Web3."
+          icon="😼"
+          href="/support/about-us"
+        />
+        <Card
+          title="Contact"
+          description="Welcome to provide us with your feedback or ask any questions you may have"
+          icon="💌"
+          href="/support/contact"
+        />
+      </Cards>
+      <div className="text-right mt-4">
+        <Link href="/how-it-works">View all →</Link>
+      </div>
+    </Tab>
+  </Tabs>
+</div>
