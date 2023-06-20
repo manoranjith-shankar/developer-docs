@@ -25,13 +25,13 @@ it's updated to the latest version before we proceed with the development.
 ![quickstart-1](/images/sdk/chrome-store.png)
 You may sign in with MetaMask or Particle Social Account and create a new identity.
 
-### Install dependencies
+### Install JS SDK
 
 ```bash
 npm install @dataverse/runtime-connector
 ```
 
-## Step 1: initialize the connector
+## Step 1: Initialize the connector
 
 ```javascript
 // After installation, you can import the SDK and initialize the runtime connector.
@@ -128,7 +128,22 @@ The popup shall be like this:
 
 Data stream is the smallest unit of data in our system.
 Unlike IPFS CID which cannot be changed after upload, data streams can be updated and linked between each other.
-Each data stream belongs to a data model. For example, if you have created a data model called `post` as a data structure for posts in a social app,
+Each data stream belongs to a data model. For example, if you have created a data model called `post` as a data structure for posts in a social app
+
+```graphql
+type post @createModel(accountRelation: LIST, description: "post") {
+  author: DID! @documentAccount # DID of the user who created this post
+  version: CommitID! @documentVersion
+  appVersion: String! @string(maxLength: 100)
+  text: String @string(maxLength: 300000000) # text content of the post
+  images: [String] @list(maxLength: 10000000) @string(maxLength: 2000000) # images of the post
+  videos: [String] @list(maxLength: 10000000) @string(maxLength: 2000000) # videos of the post
+  options: String @string(maxLength: 300000000)
+  createdAt: DateTime! # time when the post is created
+  updatedAt: DateTime! # time when the post is updated
+}
+```
+
 `createStream` under this `post` model is how you create posts.
 
 ```javascript
@@ -190,9 +205,8 @@ return example
 
 <Callout emoji="❗">
   To create a data stream under a specific model, you need to specify the model
-  id. and ensure current `pkh` has the permission to create data stream under
-  the model. if not, please use `createCapability` to create a capability for
-  the model first.
+  id and ensure your app has the capability to write data under this model. if
+  not, please use `createCapability` to create a capability for the model first.
 </Callout>
 
 ## Step 5: Load a data stream
