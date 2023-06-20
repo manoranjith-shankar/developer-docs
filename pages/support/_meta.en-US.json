@@ -1,4 +1,11 @@
 {
+  "faq": {
+    "title": "FAQ",
+    "icon": "😆",
+    "description": "Answers to common questions",
+    "href": "/support/faq",
+    "type": "hidden"
+  },
   "about-us": {
     "title": "About us",
     "icon": "😆",

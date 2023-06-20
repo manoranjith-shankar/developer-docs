@@ -2,8 +2,14 @@ import { Callout } from 'nextra-theme-docs';
 
 # Create dataverse application
 
-`create-dataverse-app` is a command line tool that helps you create a Dataverse app
-with no build configuration.
+`create-dataverse-app` is a command line tool that helps you create a Dataverse application,
+register it to dapp table and define the data models you want to use in your app. It also comes
+with a React demo(`/src/App.tsx`) and React Hooks(`/src/hooks/`) SDK to show how to publish web3 social posts on DataverseOS.
+You can modify this demo and develop your application under this framework.
+
+If you want to use other frameworks like `next.js` or `vue.js`,
+you can use this tool to deploy your customized data models and create your app first and then get the model ids.
+After that you can install [`runtime-connector`](/sdk) in your project and use the registered app name and model ids to access the data resources.
 
 **requirements:**
 
@@ -100,6 +106,7 @@ models, etc. here. For development and testing, you may set the website to 'loca
 For production usage, you should set the website to your app's domain name. The `defaultFolderName`
 is the default folder path when user creates data under your app.
 The `models` is the data models to use in your app. You can define your own data models in the `models` folder.
+For more info about data models, please refer to [Step 3](#step-3-customize-data-models).
 
 `isPublicDomain` specifies whether the data model can be used by other apps. If you set it to true, other developers
 can use your data model in their apps. If you set it to false, other developers can NOT use your data model, only
@@ -108,8 +115,19 @@ your app can use it and access the data resources under this model.
 `schemaName` refers to the data model file name under `models` folder. For example, if you want to use the `post` model,
 `schemaName` should be `post.graphql`.
 
-The `encryptable` is used to specify which fields in the data model can be encrypted. Fields not in the `encryptable` list
-will always be open and can be accessed by anyone. Fields in the `encryptable` list can be encrypted when user monetize the data stream.
+The `encryptable` is an array used to specify which fields in the data model can be encrypted. Fields not in the `encryptable` list
+will always be open and can be accessed by anyone. Fields in the `encryptable` list can be encrypted by the app developers.
+For example, if you set `encryptable` to `['text', 'images', 'videos']`, the `text`, `images` and `videos` fields in the `post` model
+can be encrypted by the app developers. They are not necessarily encrypted, but can be encrypted if the app developers want to.
+Meanwhile, the fields not in the `encryptable` array will always be open and can be accessed by anyone.
+
+<Callout type="info">
+  Note that if a model is configured as `isPublicDomain: true`, the
+  `encryptable` field will be ignored, because the whole model is public and
+  thus all fields need to be open. And if a model is configured as
+  `isPublicDomain: false`, the `encryptable` field is required. if you don't
+  want to encrypt any fields, you can set `encryptable` to an empty array `[]`.
+</Callout>
 
 The `ceramicUrl` is the Ceramic node url to use. If you leave it null, the app will use the test Ceramic node
 provided by dataverseos.
@@ -123,8 +141,9 @@ provided by dataverseos.
 
 ## Step 3: Customize data models
 
-A data model is a definition of data structure of key objects in your app. For example, in a social app,
-we may define a model for user profile, a model for post, a model for followings, etc.
+A data model is a conceptual representation of the data structure that will be used under your app.
+For example, if you are building a blog app, you might have a `blog` model that represents a blog article.
+If you are building a social network, you might have a `profile` model that represents a user profile.
 Data models should be defined in a GraphQL schema file. For example, we define a post model in `post.graphql`:
 
 ```graphql
@@ -140,6 +159,8 @@ type post @createModel(accountRelation: LIST, description: "post") {
   updatedAt: DateTime! # time when the post is updated
 }
 ```
+
+This represents a post of a web3 social app. A post may contain text, images, and video content.
 
 The `@createModel` directive is used to tell dataverseos to create a data model for this type.
 The `@documentAccount` directive is used to tell dataverseos to create a DID for this type.
@@ -165,10 +186,10 @@ type post @createModel(accountRelation: LIST, description: "post") {
 }
 ```
 
-Here is another example for a `note` model:
+Here is another example for a `blog` model:
 
 ```graphql
-type note @createModel(accountRelation: LIST, description: "post") {
+type blog @createModel(accountRelation: LIST, description: "post") {
   author: DID! @documentAccount
   version: CommitID! @documentVersion
   title: String @string(maxLength: 100)
@@ -182,9 +203,12 @@ type note @createModel(accountRelation: LIST, description: "post") {
 `version` is used to maintain the update history of the data. These 2 fields will be used by DataverseOS. You should NOT modify them and do NOT
 need to set them manually when create a stream.
 
+Data models define the important data types in an application. You can use the data models to create data streams and access the data resources.
+Creating a data stream under the corresponding model means creating a structured data in the application. For example, creating a data stream using the [`createStream`](/sdk/apis/primitives/createStream) method under the `post` model means publishing a tweet on a social network.
+
 <Callout>
-  Models under `fs` folder are special models. They are used by dataverseos to
-  fulfill the file system functions. You should NOT modify them.
+  Models under `fs` folder are special models. They are used by DataverseOS to
+  fulfill the encrypted file system. You should NOT modify or delete them.
 </Callout>
 
 ## Step 4: Register your app to dapp table
@@ -278,6 +302,16 @@ An example here:
 
 Once the models are deployed, you will get the `stream_id` of each model. You can use the `stream_id` as the identifier of the models and
 use them in your app later.
+
+For more information like the schema of each model, you can visit [graphql panel](https://gateway.beta.dataverse.art/v1/dapp-table/graphql/sandbox)
+and use the `getDapp` query to get the details of your app.
+
+<img
+  alt="livepeer logo"
+  src="/images/cli-and-tools/graphql.png"
+  width="95%"
+  className="mx-auto my-2.5"
+/>
 
 ## Step 5: Run your app
 
