@@ -187,7 +187,7 @@ const config: DocsThemeConfig = {
     const title = frontMatter?.title || 'Build on DataverseOS';
     const description =
       frontMatter?.description ||
-      'Explore guides and a variety of resources to help you get started adding live and on demand video experiences to your application using the open and decentralized Livepeer Protocol.';
+      'Explore guides and a variety of resources to help you get started building on DataverseOS and powering your app with data privacy and sovereignty.';
     const image = frontMatter?.type
       ? `https://docs.livepeer.org/api/og?title=${frontMatter?.ogImageText}&category=Developing`
       : frontMatter?.image || '/og.jpg';
