@@ -1,0 +1,73 @@
+import { Callout } from 'nextra-theme-docs';
+
+# Key Concepts
+
+This section explains several key concepts of DataverseOS.
+
+## Data model
+
+```graphql
+type post @createModel(accountRelation: LIST, description: "post") {
+  text: String @string(maxLength: 300000000)
+  images: [String] @list(maxLength: 10000000) @string(maxLength: 2000000)
+  videos: [String] @list(maxLength: 10000000) @string(maxLength: 2000000)
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+```
+
+A data model is a GraphQL schema that defines a database table structure. For example, the above schema defines a `post` table with the following columns:
+
+`post` table:
+| column_name | data_type | is_nullable |
+| ----------- | ------------- | ----------- |
+| text | String | YES |
+| images | Array\<String\> | YES |
+| videos | Array\<String\> | YES |
+| createdAt | DataTime | NO |
+| updatedAt | DateTime | NO |
+
+## Data stream
+
+You can create data streams under a data model. It is like creating records in a database table. For example, the following data stream is a post with text and images.
+
+```js
+await runtimeConnector.createStream({
+  modelId,
+  streamContent: {
+    text: 'hello',
+    images: [
+      'https://bafkreib76wz6wewtkfmp5rhm3ep6tf4xjixvzzyh64nbyge5yhjno24yl4.ipfs.w3s.link',
+    ],
+    videos: [],
+    createdAt,
+    updatedAt,
+  },
+});
+```
+
+After creating the data stream, the `post` table will have the following record:
+| streamId | text | images | videos | createdAt | updatedAt |
+| -------- | ----- | ------------------------------------------------------------------------------------- | ------ | ------------------------ | ------------------------ |
+| kjzl...k41 | hello | ["https://bafk..."] | [] | 2023-06-27T09:59:20.915Z | 2023-06-27T09:59:20.915Z |
+| ... | ... | ... | ... | ... | ... |
+
+and you can load, update, encrypt, and delete the data stream using the streamId and APIs [here](/sdk/apis/primitives).
+
+## Dapp table
+
+<img
+  src="/images/key-concepts/dapp-table-overview.png"
+  width="96%"
+  className="mx-auto my-2.5"
+/>
+
+Dapp table is a application registry table to record which data models belong to a specific dApp. For example,
+if you have a dApp `dTwitter` and create data model `post` and `comment` for it, these 2 models belong to `dTwitter`.
+Only `dTwitter` can create data streams under these 2 models. Dapp table is a table to record this relationship and prevent other dApps(maybe bad) from
+accessing data resources of `dTwitter`.
+
+- **private key**: developer's private key to administrate a dApp and (if the dApp is in production) the self-hosted ceramic node.
+- **dApp**: an application on DataverseOS.
+- **data model**: a GraphQL schema that defines a database table structure.
+- **schema**: one model could have multiple version of schemas. Each schema has a unique commitId.
