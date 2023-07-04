@@ -3,62 +3,62 @@
     "title": "selectWallet",
     "icon": "",
     "description": "",
-    "href": "/sdk/apis/data-wallet/selectWallet",
+    "href": "/system-calls/data-wallet/selectWallet",
     "type": "hidden"
   },
   "connectWallet": {
     "title": "connectWallet",
     "icon": "",
     "description": "",
-    "href": "/sdk/apis/data-wallet/connectWallet"
+    "href": "/system-calls/data-wallet/connectWallet"
   },
   "getCurrentWallet": {
     "title": "getCurrentWallet",
     "icon": "",
     "description": "",
-    "href": "/sdk/apis/data-wallet/getCurrentWallet",
+    "href": "/system-calls/data-wallet/getCurrentWallet",
     "type": "hidden"
   },
   "switchNetwork": {
     "title": "switchNetwork",
     "icon": "",
     "description": "",
-    "href": "/sdk/apis/data-wallet/switchNetwork"
+    "href": "/system-calls/data-wallet/switchNetwork"
   },
   "sign": {
     "title": "sign",
     "icon": "",
     "description": "",
-    "href": "/sdk/apis/data-wallet/sign"
+    "href": "/system-calls/data-wallet/sign"
   },
   "contractCall": {
     "title": "contractCall",
     "icon": "",
     "description": "",
-    "href": "/sdk/apis/data-wallet/contractCall"
+    "href": "/system-calls/data-wallet/contractCall"
   },
   "ethereumRequest": {
     "title": "ethereumRequest",
     "icon": "",
     "description": "",
-    "href": "/sdk/apis/data-wallet/ethereumRequest"
+    "href": "/system-calls/data-wallet/ethereumRequest"
   },
   "getCurrentPkh": {
     "title": "getCurrentPkh",
     "icon": "",
     "description": "",
-    "href": "/sdk/apis/data-wallet/getCurrentPkh"
+    "href": "/system-calls/data-wallet/getCurrentPkh"
   },
   "connectPKPWallet": {
     "title": "connectPKPWallet",
     "icon": "",
     "description": "",
-    "href": "/sdk/apis/data-wallet/connectPKPWallet"
+    "href": "/system-calls/data-wallet/connectPKPWallet"
   },
   "executeLitAction": {
     "title": "executeLitAction",
     "icon": "",
     "description": "",
-    "href": "/sdk/apis/data-wallet/executeLitAction"
+    "href": "/system-calls/data-wallet/executeLitAction"
   }
 }

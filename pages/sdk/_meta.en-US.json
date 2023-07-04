@@ -15,6 +15,7 @@
     "title": "APIs",
     "icon": "📚",
     "description": "Find all the APIs of the runtime connector library",
-    "href": "/sdk/apis"
+    "href": "/sdk/apis",
+    "type": "hidden"
   }
 }
