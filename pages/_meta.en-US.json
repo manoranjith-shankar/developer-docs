@@ -13,16 +13,20 @@
     "title": "Key Concepts"
   },
   "cli-and-tools": {
-    "title": "CLI & Tools"
+    "title": "Create Dataverse App"
   },
   "sdk": {
-    "title": "Runtime Connector SDK"
+    "title": "Dataverse Connector SDK"
   },
   "why": {
-    "title": "Why DataverseOS?"
+    "title": "Why DataverseOS?",
+    "type": "hidden"
   },
   "how-it-works": {
     "title": "How it works?"
+  },
+  "system-calls": {
+    "title": "System Calls"
   },
   "support": {
     "title": "Support"

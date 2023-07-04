@@ -1,0 +1,78 @@
+# Step 4: Register your app to dapp table
+
+Before running your app, you need to fill in your private key in `.env` file.
+The private key will be used to sign messages and manage your app as your authorization.
+You should keep the key safe as if it is leaked, your app may be stolen.
+if you are using self-hosted ceramic node, you should use the private key of the adminDID of your ceramic node.
+if you are using test ceramic node, you can use any private key here. We highly recommend you to use
+a new private key for testing. You can generate a new private key by running
+
+```sh
+git clone https://github.com/hypotyposis/pk-tools
+cd pk-tools && npm install && node generate_eth_accounts.js
+```
+
+or use docker:
+
+```sh
+docker run hypotyposis/pk-tools
+```
+
+1. Install dependencies
+
+```sh
+pnpm install
+```
+
+2. deploy your app
+
+```sh
+pnpm create-dataverse-app
+```
+
+This command will deploy your app to dataverseos testnet and register your app to dapp table.
+If successfully, you will see the following output:
+
+```sh
+Create successfully, now you can run 'pnpm dev' to run react demo.
+```
+
+And the details of your app deployment will be printed out to `/output/app.json`.
+An example here:
+
+```json
+{
+  "createDapp": {
+    "id": "0a008b3b-2c05-4d1b-bec4-646c787a9fce",
+    "streamIDs": [
+      {
+        "name": "zooey001_indexFolders",
+        "stream_id": "kjzl6hvfrbw6c75ohahxc0qmw1v55zskmxwbd8qa5in63tzo3efuaqn05wmdazv",
+        "isPublicDomain": false,
+        "encryptable": null
+      },
+      ...
+    ],
+    "website": "http://localhost:3000",
+    "name": "zooey001",
+    "slug": "zooey001",
+    "logo": "https://venerable-queijadas-290c8d.netlify.app/logo.png",
+    "description": "A simple social media app",
+    "defaultFolderName": "Untitled",
+    "ceramic": "https://local1.dataverseceramicdaemon.com"
+  }
+}
+```
+
+Once the models are deployed, you will get the `stream_id` of each model. You can use the `stream_id` as the identifier of the models and
+use them in your app later.
+
+For more information like the schema of each model, you can visit [graphql panel](https://gateway.beta.dataverse.art/v1/dapp-table/graphql/sandbox)
+and use the `getDapp` query to get the details of your app.
+
+<img
+  alt="livepeer logo"
+  src="/images/cli-and-tools/graphql.png"
+  width="95%"
+  className="mx-auto my-2.5"
+/>

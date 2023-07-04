@@ -1,14 +1,52 @@
 {
+  "1": {
+    "title": "Init framework",
+    "icon": "🔨",
+    "description": "A frontend framework to help create dataverse apps and get started",
+    "href": "/cli-and-tools/1"
+  },
+  "2": {
+    "title": "Configure your app",
+    "icon": "🔨",
+    "description": "A frontend framework to help create dataverse apps and get started",
+    "href": "/cli-and-tools/2"
+  },
+  "3": {
+    "title": "Customize data models",
+    "icon": "🔨",
+    "description": "A frontend framework to help create dataverse apps and get started",
+    "href": "/cli-and-tools/3"
+  },
+  "4": {
+    "title": "Register to dapp table",
+    "icon": "🔨",
+    "description": "A frontend framework to help create dataverse apps and get started",
+    "href": "/cli-and-tools/4"
+  },
+  "5": {
+    "title": "Run your app",
+    "icon": "🔨",
+    "description": "A frontend framework to help create dataverse apps and get started",
+    "href": "/cli-and-tools/5"
+  },
+  "6": {
+    "title": "Self-host ceramic node",
+    "icon": "🔨",
+    "description": "A frontend framework to help create dataverse apps and get started",
+    "href": "/cli-and-tools/6"
+  },
   "create-dataverse-app": {
     "title": "Create dataverse app",
     "icon": "🔨",
     "description": "A frontend framework to help create dataverse apps and get started",
-    "href": "/cli-and-tools/create-dataverse-app"
+    "href": "/cli-and-tools/create-dataverse-app",
+    "type": "hidden"
   },
   "dapp-backend": {
     "title": "Self-host ceramic node",
     "icon": "📫",
     "description": "Help deploy dataverse-gated ceramic node on your own server",
-    "href": "/cli-and-tools/dapp-backend"
+    "href": "/cli-and-tools/dapp-backend",
+    "type": "hidden"
   }
 }

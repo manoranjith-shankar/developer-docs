@@ -1,0 +1,36 @@
+import { Callout } from 'nextra-theme-docs';
+
+# Step 1: Init framework
+
+<Callout type="warning">
+  Make sure you have all the [requirements](/cli-and-tools) installed before you
+  start.
+</Callout>
+
+In terminal, run
+
+```typescript
+npx create-dataverse-app <APP_NAME>
+```
+
+the output should be like
+
+```sh
+Creating a new Dataverse app in /home/app.
+
+Done!
+
+To get started:
+
+cd helloworld
+
+add your data models under the models folder
+
+configure your app in the dataverse.config.ts file
+
+set your private key in the .env file, then run
+
+pnpm install
+
+pnpm dev
+```

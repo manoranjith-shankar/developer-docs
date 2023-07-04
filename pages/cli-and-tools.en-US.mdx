@@ -1,18 +1,29 @@
-import Link from '@components/core/Link';
-import Card, { Cards } from '@components/core/Card';
-import guides from './cli-and-tools/_meta.en-US.json';
+import { Callout } from 'nextra-theme-docs';
 
-# CLI&Tools
+# Create dataverse application
 
-<Cards
-  num={2}
-  children={Object.keys(guides).map((key, i) => (
-    <Card
-      key={i}
-      title={guides[key].title}
-      description={guides[key].description}
-      icon={guides[key].icon}
-      href={guides[key].href}
-    />
-  ))}
-/>
+`create-dataverse-app` is a command line tool that helps you create a Dataverse application,
+register it to dapp table and define the data models you want to use in your app. It also comes
+with a React demo(`/src/App.tsx`) and React Hooks(`/src/hooks/`) SDK to show how to publish web3 social posts on DataverseOS.
+You can modify this demo and develop your application under this framework.
+
+## Requirements
+
+- [Git](https://git-scm.com/)
+- [nodejs](https://nodejs.org/en/) >= 16
+- [pnpm](https://pnpm.io/) >= 6
+  ```sh
+  # install pnpm
+  npm install -g pnpm
+  ```
+- [Data Wallet](https://chrome.google.com/webstore/detail/dataverse/kcigpjcafekokoclamfendmaapcljead) - the data wallet extension needs to be installed in your browser.
+
+`create-dataverse-app` is a framework to help you create a dataverse app, register it to dapp table and
+define the data models you want to use in your app. We also provide a React demo(`/src/App.tsx`) and React Hooks(`/src/hooks/`)
+SDK within this framework as an example to show how to build a web3 social app upon DataverseOS. You can use this demo
+as a reference to build your own app.
+
+Meanwhile, If you want to use other frameworks like `next.js` or `vue.js`,
+you can use this tool to deploy your customized data models and create your app first and then get the model ids.
+After that you can install [`runtime-connector`](/sdk) in your project and use the data models you defined in `models` folder and the `stream_id` of each model to access the data resources.
+And pass in the app name in functions like `createCapability` and `checkCapability`.
