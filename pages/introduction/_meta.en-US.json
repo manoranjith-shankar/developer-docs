@@ -1,21 +1,21 @@
 {
   "overview": {
-    "title": "Overview",
+    "title": "What is DataverseOS?",
     "icon": "🏁",
     "description": "Know what dataverseos is and what changes it brings to today's internet",
     "href": "/introduction/overview"
-  },
-  "data-wallet": {
-    "title": "Data Wallet",
-    "icon": "💽",
-    "description": "A gateway to explore Web3 internet",
-    "href": "/introduction/data-wallet"
   },
   "identity-computer": {
     "title": "Identity Computer",
     "icon": "🖥️",
     "description": "Next-generation pc fully controlled by user identity",
     "href": "/introduction/identity-computer"
+  },
+  "data-wallet": {
+    "title": "Data Wallet",
+    "icon": "💽",
+    "description": "A gateway to explore Web3 internet",
+    "href": "/introduction/data-wallet"
   },
   "ecosystem": {
     "title": "Ecosystem",
