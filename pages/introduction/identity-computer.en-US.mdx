@@ -4,19 +4,84 @@ import { Callout } from 'nextra-theme-docs';
 
 Next-generation pc fully controlled by user identity.
 
+## Data desktop
+
+Identity computer comes with an online desktop.
+It is a cloud-based data window that can be opened in a web browser.
+Users can sign into this desktop with their own DID to view and manage their data and activities.
+They can browse various applications and open them directly within this desktop,
+with the applications automatically inheriting the user's identity from the system.
+
+We have built this desktop to enable users to explore the web3 network in one place.
+
+<img
+  src="/images/introduction/desktop.jpg"
+  width="80%"
+  className="mx-auto my-2.5"
+/>
+
 ## Encrypted file system
+
 A decentralized file system that is encrypted and only accessible by the user or with the user's permission.
 We believe that the user should be in control of their data and not the other way around. All data within
 DataverseOS will be saved in this one safe place. It's a file system to visualize and manage all your data
 over different applications.
-<img src="/images/introduction/finder.jpg" width="90%" className="mx-auto my-2.5"/>
 
-***Everything is a file.*** Your creations, interests, contribution, social interactions, and more. All of these
+**_Everything is a file._** Your creations, interests, contribution, social interactions, and more. All of these
 will automactically be saved in this file system. With this private data space, we want to help everyone
 gain back control of internet.
-## Dapp launchpad
-A decentralized application launchpad that is fully controlled by the user. The user can choose which
-applications they want to use and which ones they don't. The user can also choose which applications
-to stay in their dashboard. All apps can be launched in the OS directly in a OS-powered mode for smooth
-UX.
-<img src="/images/introduction/launchpad.png" width="90%" className="mx-auto my-2.5"/>
+
+<img
+  src="/images/introduction/finder.jpg"
+  width="80%"
+  className="mx-auto my-2.5"
+/>
+
+## Provide system calls
+
+The identity computer runs an underlying kernel and exposes system calls for developers to
+interact with the kernel. System calls can be categorized into the following types:
+
+- identityOps
+- streamOps
+- ACLOps
+- FileOps
+- other system calls
+
+<Callout type="info">
+  For more details about the composition of DataverseOS, please refer to the
+  [System Composition](/how-it-works#os-composition).
+</Callout>
+
+## Why are we building identity computer?
+
+If we look back at the history of **DATA**, we can divide it into three stages:
+
+### Stage 1: The invention of personal computer
+
+During this time, we interacted with software on our personal computers,
+and the data generated was stored on our hard disks. At that stage,
+we had actual control over our own data(no one else can steal data from our hard drive).
+However, the challenge was that it wasn't easy for others to access it.
+There was no effective means for sharing and facilitating data flow.
+
+### Stage 2: The emergence of the Internet
+
+Subsequently, the advent of the internet completely transformed the landscape.
+Suddenly, data had the ability to flow seamlessly between various devices,
+granting us access to a plethora of captivating online resources.
+However, this marked the beginning of a shift where we gradually relinquished control over our own data due to the centralized nature of today's internet infrastructure.
+Presently, computing and storage predominantly occur in a centralized manner.
+Consequently, in this stage, we have willingly exchanged our data sovereignty for the unparalleled convenience offered by the internet.
+
+### Stage 3: The rise of Web3 era
+
+Now, let's turn our attention to web3, the internet where data is computed and stored in a decentralized manner.
+The forthcoming generation of personal computers aims to combine the convenience of cloud computing with the security and privacy of a local PC.
+
+In summary, we designed identity computer the next generation of PC
+– decentralized, cloud-based, and self-controlled.
+Essentially, our system is designed by replacing traditional PC hardware components such as the CPU,
+memory, and hard disk with decentralized infrastructures, including blockchains,
+decentralized storage and databases.
+This change empower us to restore complete control over data to the users.
