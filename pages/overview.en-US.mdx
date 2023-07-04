@@ -1,10 +1,14 @@
+---
+title: 'Home'
+---
+
 import Link from '@components/core/Link';
 import { Tabs, Tab } from 'nextra-theme-docs';
 import { Header, HeaderVideo } from '@components/react/docs';
 import Card, { Cards } from '@components/core/Card';
 import { Callout } from 'nextra-theme-docs';
 
-# Overview
+# Welcome to the DataverseOS Docs
 
 Explore our documentation and a variety of resources to help you get started building on dataverseos and
 powering your dapp with data sovereighty and content monetization.
@@ -13,10 +17,10 @@ powering your dapp with data sovereighty and content monetization.
   <Tabs
     items={[
       '👋 Introduction',
-      '🛠️ CLI & Tools',
+      '🛠️ Create Dataverse App',
       '🧑‍💻 SDK',
-      '❓ Why DataverseOS',
-      '🏗️ How it works',
+      '❓ How it works',
+      '🏗️ System Calls',
       '🫶 Support',
     ]}
   >
@@ -27,9 +31,9 @@ powering your dapp with data sovereighty and content monetization.
         build dapps with user-centric data ownership.
       </div>
       <div className="mb-4 text-xl font-bold">Guides</div>
-      <Cards num={3}>
+      <Cards num={2}>
         <Card
-          title="Overview"
+          title="What is DataverseOS?"
           description="A new kind of identity computer to visualize data files over dApps"
           icon="🏆"
           href="/introduction/"
@@ -64,18 +68,12 @@ powering your dapp with data sovereighty and content monetization.
         ceramic node for your dapp.
       </div>
       <div className="mb-4 text-xl font-bold">Guides</div>
-      <Cards num={3}>
+      <Cards num={2}>
         <Card
           title="create-dataverse-app"
           description="A CLI tool to help you create a dataverse application."
           icon="🧩"
-          href="/cli-and-tools/create-dataverse-app"
-        />
-        <Card
-          title="dapp-backend"
-          description="Learn how to run your own dataverse-gated ceramic node."
-          icon="💾"
-          href="/cli-and-tools/dapp-backend"
+          href="/cli-and-tools"
         />
       </Cards>
       <div className="text-right mt-4">
@@ -89,24 +87,18 @@ powering your dapp with data sovereighty and content monetization.
         to access the DataverseOS kernel and its features.
       </div>
       <div className="mb-4 text-xl font-bold">Guides</div>
-      <Cards num={3}>
+      <Cards num={2}>
         <Card
           title="Quickstart"
-          description="Moving LPT from the Ethereum mainnet to Arbitrum and vice versa."
+          description="Start with our JavaScript SDK in 10 minutes."
           icon="🚀"
           href="/sdk/quickstart"
         />
         <Card
           title="Code examples"
-          description="Migrate stake from Ethereum Mainnet to Arbitrum."
+          description="Example applications to demonstrate how to build data apps upon our system."
           icon="📝"
           href="/sdk/code-examples"
-        />
-        <Card
-          title="APIs"
-          description="Migrate stake from Ethereum Mainnet to Arbitrum."
-          icon="📚"
-          href="/sdk/apis"
         />
       </Cards>
       <div className="text-right mt-4">
@@ -121,14 +113,14 @@ powering your dapp with data sovereighty and content monetization.
       <div className="mb-4 text-xl font-bold">Guides</div>
       <Cards num={2}>
         <Card
-          title="Why DataverseOS?"
-          description="Protect SIWE signatures & data"
+          title="How it works?"
+          description="Protect SIWE signatures & data. Control and coordinate multiple web3 protocols"
           icon="🔒"
-          href="/why"
+          href="/how-it-works"
         />
       </Cards>
       <div className="text-right mt-4">
-        <Link href="/why">View all →</Link>
+        <Link href="/how-it-works">View all →</Link>
       </div>
     </Tab>
     <Tab>
@@ -140,14 +132,32 @@ powering your dapp with data sovereighty and content monetization.
       <div className="mb-4 text-xl font-bold">Guides</div>
       <Cards num={2}>
         <Card
-          title="How it works"
+          title="Data Wallet"
           description="control and coordinate multiple web3 protocols"
-          icon="👉"
-          href="/how-it-works"
+          icon="💵"
+          href="/system-calls/data-wallet"
+        />
+        <Card
+          title="System Primitives"
+          description="control and coordinate multiple web3 protocols"
+          icon="🔖"
+          href="/system-calls/system-primitives"
+        />
+        <Card
+          title="Dapp Table"
+          description="control and coordinate multiple web3 protocols"
+          icon="🎲"
+          href="/system-calls/dapp-table"
+        />
+        <Card
+          title="File System"
+          description="control and coordinate multiple web3 protocols"
+          icon="🗃️"
+          href="/system-calls/file-system"
         />
       </Cards>
       <div className="text-right mt-4">
-        <Link href="/how-it-works">View all →</Link>
+        <Link href="/system-calls">View all →</Link>
       </div>
     </Tab>
     <Tab>
@@ -158,10 +168,10 @@ powering your dapp with data sovereighty and content monetization.
       <div className="mb-4 text-xl font-bold">Guides</div>
       <Cards num={2}>
         <Card
-          title="About us"
-          description="Ownership Labs is dedicated to rebuild ownership for Web3."
+          title="FAQ"
+          description="Frequently asked questions"
           icon="😼"
-          href="/support/about-us"
+          href="/support/faq"
         />
         <Card
           title="Contact"
