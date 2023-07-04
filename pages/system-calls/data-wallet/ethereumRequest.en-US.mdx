@@ -1,0 +1,34 @@
+# ethereumRequest
+
+Use this method to submit RPC API requests to Ethereum. 
+It returns a promise that resolves to the result of the RPC method call.
+
+## Usage
+```js
+await runtimeConnector.ethereumRequest({
+  method: "eth_sendTransaction",
+  params: [
+    {
+      from: address, // The user's active address.
+      to: address, // Required except during contract publications.
+      value: "0xE8D4A50FFD41E", // Only required to send ether to the recipient from the initiating external account.
+    },
+  ],
+});
+```
+
+## Parameters
+```js
+{
+    method: string;
+    params?: any;
+}
+```
+- `method`: `string` - RPC method name
+- `params`: `any` - RPC method parameters
+
+## Returns
+`string` - The transaction hash
+```js
+0x02fd22723a5ac35a6a386b6e4d973b6118c37144dcd546015ba6dd2ce76107bc
+```

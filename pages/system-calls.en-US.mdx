@@ -1,0 +1,23 @@
+import Link from '@components/core/Link';
+import Card, { Cards } from '@components/core/Card';
+import guides from './system-calls/_meta.en-US.json';
+
+# System calls
+
+Welcome to the API reference section. Here you'll find all the endpoints exposed on the
+runtime connector library, learn how to use them and what they return.
+
+Our APIs can be catogorized into 4 main groups:
+
+<Cards
+  num={2}
+  children={Object.keys(guides).map((key, i) => (
+    <Card
+      key={i}
+      title={guides[key].title}
+      description={guides[key].description}
+      icon={guides[key].icon}
+      href={guides[key].href}
+    />
+  ))}
+/>

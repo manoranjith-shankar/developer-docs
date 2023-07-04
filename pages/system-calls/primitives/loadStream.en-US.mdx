@@ -1,0 +1,46 @@
+import { Callout } from 'nextra-theme-docs';
+
+# loadStream
+
+Load a data stream by stream id
+
+## Usage
+
+```javascript
+await runtimeConnector.loadStream({
+  streamId: 'kjzl6kcym7w8ya8g9cj5764kll6veldqws40ub29r1odut2pxiqxet80sl9p6th',
+});
+```
+
+<Callout type="info">
+  Note that this is just an example. Executing this directly will fail because
+  that stream id does not exist on your app. You need to replace the stream id
+  with a data stream created by your app.
+</Callout>
+
+## Parameters
+
+- `streamId`: `string` - the stream id
+
+## Returns
+
+```json
+{
+  "pkh": "did:pkh:eip155:137:0xDB627Db44609f4e7A96278104DFC3a2b06c7160B",
+  "app": "test001",
+  "modelId": "kjzl6hvfrbw6c7gkypf9654o0vu1jd1q85fcnyrpc1koobuys71zhp0m7kbmrvs",
+  "streamContent": {
+    "content": {
+      ...,
+      "encrypted": "..."
+    },
+    "file": {
+      "indexFileId": "kjzl6kcym7w8y9uhgvww9vt2mgdquqw2e3jfd72...mjg77brphd",
+      ...,
+      "datatokenId": "0x6aE6564fD9918244F743717D5d1637c1ef9C603E",
+      "decryptionConditions": [...],
+      "encryptedSymmetricKey": "..."
+    }
+  }
+}
+```

@@ -3,14 +3,14 @@
     "title": "FAQ",
     "icon": "😆",
     "description": "Answers to common questions",
-    "href": "/support/faq",
-    "type": "hidden"
+    "href": "/support/faq"
   },
   "about-us": {
     "title": "About us",
     "icon": "😆",
     "description": "Introduce our team and our mission",
-    "href": "/support/about-us"
+    "href": "/support/about-us",
+    "type": "hidden"
   },
   "contact": {
     "title": "Contact",

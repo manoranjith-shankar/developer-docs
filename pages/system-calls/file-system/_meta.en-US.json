@@ -1,0 +1,62 @@
+{
+  "createFolder": {
+    "title": "createFolder",
+    "icon": "",
+    "description": "",
+    "href": "/sdk/apis/file-system/createFolder"
+  },
+  "readFolders": {
+    "title": "readFolders",
+    "icon": "",
+    "description": "",
+    "href": "/sdk/apis/file-system/readFolders"
+  },
+  "updateFolderBaseInfo": {
+    "title": "updateFolderBaseInfo",
+    "icon": "",
+    "description": "",
+    "href": "/sdk/apis/file-system/updateFolderBaseInfo"
+  },
+  "monetizeFolder": {
+    "title": "monetizeFolder",
+    "icon": "",
+    "description": "",
+    "href": "/sdk/apis/file-system/monetizeFolder"
+  },
+  "deleteFolder": {
+    "title": "deleteFolder",
+    "icon": "",
+    "description": "",
+    "href": "/sdk/apis/file-system/deleteFolder"
+  },
+  "uploadFile": {
+    "title": "uploadFile",
+    "icon": "",
+    "description": "",
+    "href": "/sdk/apis/file-system/uploadFile"
+  },
+  "updateFileBaseInfo": {
+    "title": "updateFileBaseInfo",
+    "icon": "",
+    "description": "",
+    "href": "/sdk/apis/file-system/updateFileBaseInfo"
+  },
+  "removeFiles": {
+    "title": "removeFiles",
+    "icon": "",
+    "description": "",
+    "href": "/sdk/apis/file-system/removeFiles"
+  },
+  "monetizeFile": {
+    "title": "monetizeFile",
+    "icon": "",
+    "description": "",
+    "href": "/sdk/apis/file-system/monetizeFile"
+  },
+  "unlock": {
+    "title": "unlock",
+    "icon": "",
+    "description": "",
+    "href": "/sdk/apis/file-system/unlock"
+  }
+}
