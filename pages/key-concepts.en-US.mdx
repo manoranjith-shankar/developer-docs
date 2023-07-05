@@ -4,6 +4,52 @@ import { Callout } from 'nextra-theme-docs';
 
 This section explains several key concepts of DataverseOS.
 
+## Sign-in-with-ethereum (SIWE)
+
+`Sign-In with Ethereum` is a feature that allows users to authenticate and access various off-chain services using their blockchain wallet addresses.
+Similar to other popular social login options like "Sign-In with Google" or "Sign-In with Facebook," "Sign-In with Ethereum" leverages the blockchain network for authentication purposes.
+
+By utilizing this authentication method, DataverseOS provides a secure, user-centric method for identity and data access authorization.
+
+## Resource
+
+OS defines several kinds of resources that can be considered as composable modules in a personal computer.
+These resources serve different system functions, such as **storage**, **computation**, and more.
+Developers can request access to these resources from users.
+
+### Ceramic Database
+
+The OS is storing data on Ceramic ComposeDB - a decentralized graph database built on ceramic network.
+And we are using SIWE to authenticate users and authorize their access to data resources.
+A SIWE message may look like this:
+
+<div className="flex">
+  <img
+    src="/images/key-concepts/siwe1.png"
+    width="40%"
+    className="mx-auto my-2.5"
+  />
+
+  <img
+    src="/images/key-concepts/siwe2.png"
+    width="40%"
+    className="mx-auto my-2.5"
+  />
+</div>
+
+The `Resources` in this message content specifies the tables in ceramic database that you are giving access to.
+Each `ceramic://model` refers to a table.
+
+<img
+  src="/images/key-concepts/database.png"
+  width="80%"
+  className="mx-auto my-2.5"
+/>
+
+### Lit Action
+
+Coming soon...
+
 ## Data model
 
 ```graphql
@@ -27,7 +73,7 @@ A data model is a GraphQL schema that defines a database table structure. For ex
 | createdAt | DataTime | NO |
 | updatedAt | DateTime | NO |
 
-## Data stream
+### Data stream
 
 You can create data streams under a data model. It is like creating records in a database table.
 Each data stream has a unique `streamId` and you can load, update, encrypt, and delete the data stream using the streamId and APIs [here](/sdk/apis/primitives).

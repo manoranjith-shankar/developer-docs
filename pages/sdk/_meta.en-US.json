@@ -6,7 +6,7 @@
     "href": "/sdk/dataverse-connector"
   },
   "dweb-toolkits": {
-    "title": "dWeb Toolkits",
+    "title": "DWeb Toolkits",
     "icon": "📫",
     "description": "A toolbox to integrate DataverseOS with web3 protocols",
     "href": "/sdk/dweb-toolkits"
