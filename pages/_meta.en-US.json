@@ -16,7 +16,10 @@
     "title": "Create Dataverse App"
   },
   "sdk": {
-    "title": "Dataverse Connector"
+    "title": "SDKs"
+  },
+  "code-examples": {
+    "title": "Code Examples"
   },
   "why": {
     "title": "Why DataverseOS?",

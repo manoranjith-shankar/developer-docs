@@ -29,30 +29,29 @@ A data model is a GraphQL schema that defines a database table structure. For ex
 
 ## Data stream
 
-You can create data streams under a data model. It is like creating records in a database table. For example, the following data stream is a post with text and images.
+You can create data streams under a data model. It is like creating records in a database table.
+Each data stream has a unique `streamId` and you can load, update, encrypt, and delete the data stream using the streamId and APIs [here](/sdk/apis/primitives).
+What is different from a traditional database table is that each record belongs to the specific DID who creates it. For example, if you create a data stream under the `post` model:
 
-```js
-await runtimeConnector.createStream({
-  modelId,
-  streamContent: {
-    text: 'hello',
-    images: [
-      'https://bafkreib76wz6wewtkfmp5rhm3ep6tf4xjixvzzyh64nbyge5yhjno24yl4.ipfs.w3s.link',
-    ],
-    videos: [],
-    createdAt,
-    updatedAt,
-  },
-});
+```json
+{
+  "text": "hello",
+  "images": ["https://bafk..."],
+  "videos": [],
+  "createdAt": "2023-06-27T09:59:20.915Z",
+  "updatedAt": "2023-06-27T09:59:20.915Z"
+}
 ```
 
 After creating the data stream, the `post` table will have the following record:
-| streamId | text | images | videos | createdAt | updatedAt |
-| -------- | ----- | ------------------------------------------------------------------------------------- | ------ | ------------------------ | ------------------------ |
-| kjzl...k41 | hello | ["https://bafk..."] | [] | 2023-06-27T09:59:20.915Z | 2023-06-27T09:59:20.915Z |
-| ... | ... | ... | ... | ... | ... |
 
-and you can load, update, encrypt, and delete the data stream using the streamId and APIs [here](/sdk/apis/primitives).
+<img
+  src="/images/key-concepts/table.png"
+  width="96%"
+  className="mx-auto my-2.5"
+/>
+
+and **only your DID** can write to this record.
 
 ## Dapp table
 

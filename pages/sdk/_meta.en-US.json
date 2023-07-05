@@ -1,15 +1,15 @@
 {
-  "quickstart": {
-    "title": "Quickstart",
+  "dataverse-connector": {
+    "title": "Dataverse Connector",
     "icon": "🔨",
     "description": "A quick trip of data in DataverseOS",
-    "href": "/sdk/quickstart"
+    "href": "/sdk/dataverse-connector"
   },
-  "code-examples": {
-    "title": "Code Examples",
+  "dweb-toolkits": {
+    "title": "dWeb Toolkits",
     "icon": "📫",
-    "description": "A gateway to explore Web3 internet",
-    "href": "/sdk/code-examples"
+    "description": "A toolbox to integrate DataverseOS with web3 protocols",
+    "href": "/sdk/dweb-toolkits"
   },
   "apis": {
     "title": "APIs",

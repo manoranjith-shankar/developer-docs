@@ -3,7 +3,7 @@
  */
 import { useRouter } from 'next/router';
 
-const github = 'https://github.com/dataverse-os';
+const github = 'https://github.com/dataverse-os/developer-docs';
 
 const EDIT_LINK_WITH_TRANSLATIONS = {
   'en-US': 'Edit this page on GitHub →',
