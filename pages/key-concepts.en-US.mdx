@@ -4,7 +4,7 @@ import { Callout } from 'nextra-theme-docs';
 
 This section explains several key concepts of DataverseOS.
 
-## Sign-in-with-ethereum (SIWE)
+## Sign-in-with-Ethereum (SIWE)
 
 `Sign-In with Ethereum` is a feature that allows users to authenticate and access various off-chain services using their blockchain wallet addresses.
 Similar to other popular social login options like "Sign-In with Google" or "Sign-In with Facebook," "Sign-In with Ethereum" leverages the blockchain network for authentication purposes.
@@ -19,7 +19,7 @@ Developers can request access to these resources from users.
 
 ### Ceramic Database
 
-The OS is storing data on Ceramic ComposeDB - a decentralized graph database built on ceramic network.
+The OS is storing data on Ceramic ComposeDB - a decentralized graph database built on Ceramic network.
 And we are using SIWE to authenticate users and authorize their access to data resources.
 A SIWE message may look like this:
 
@@ -107,12 +107,11 @@ and **only your DID** can write to this record.
   className="mx-auto my-2.5"
 />
 
-Dapp table is a application registry table to record which data models belong to a specific dApp. For example,
+Dapp table is an application registry table to record which data models belong to a specific dApp. For example,
 if you have a dApp `dTwitter` and create data model `post` and `comment` for it, these 2 models belong to `dTwitter`.
-Only `dTwitter` can create data streams under these 2 models. Dapp table is a table to record this relationship and prevent other dApps(maybe bad) from
-accessing data resources of `dTwitter`.
+Only `dTwitter` can create data streams under these 2 models. The Dapp table is a table to record this relationship and prevent other dApps (maybe bad) from accessing data resources of `dTwitter`.
 
 - **private key**: developer's private key to administrate a dApp and (if the dApp is in production) the self-hosted ceramic node.
 - **dApp**: an application on DataverseOS.
 - **data model**: a GraphQL schema that defines a database table structure.
-- **schema**: one model could have multiple version of schemas. Each schema has a unique commitId.
+- **schema**: one model could have multiple versions of schemas. Each schema has a unique commitId.
