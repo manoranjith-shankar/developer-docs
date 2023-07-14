@@ -6,7 +6,7 @@ This section will work you through a brief overview of what web3 infras we are u
 
 DataverseOS is similar to modern operating systems such as Linux, consisting of four important components
 
-- `kernel`, manages the underlying resources and ensure system stability&security
+- `kernel`, manages the underlying resources and ensures system stability & security
 - `system calls`, provides a set of APIs for applications to interact with the kernel
 - `protocol drivers`, an open architecture for 3rd-party protocol integration
 - `user interface`, UI for users to interact with the system, manage their data, and use applications
@@ -20,13 +20,13 @@ DataverseOS is similar to modern operating systems such as Linux, consisting of 
 ## Plug into Dataverse
 
 DataverseOS integrates and coordinates many protocols such as [Ceramic](https://ceramic.network/),
-[Lit Protocol](https://litprotocol.com/), [Lens Protocol](https://lens.xyz/), [filecoin](https://fvm.filecoin.io/) etc.
+[Lit Protocol](https://litprotocol.com/), [Lens Protocol](https://lens.xyz/), [Filecoin](https://fvm.filecoin.io/) etc.
 
 <img src="/images/how-it-works/1.png" width="80%" className="mx-auto my-2.5" />
 
 The encrypted file system is able to carry all files within DataverseOS over different applications by linking data streams on ceramic.
-Everytime a data stream is created, DataverseOS will automatically create a corresponding file stream,
-bind the data stream to it and save to the file system. Every byte of data is part of a file in DataverseOS.
+Every time a data stream is created, DataverseOS will automatically create a corresponding file stream,
+bind the data stream to it and save it to the file system. Every byte of data is part of a file in DataverseOS.
 Users can manage their data via the file system.
 
 On top of the file stream, DataverseOS fulfills programmability like `access control` by
@@ -42,14 +42,14 @@ is a complete proof of access rights to data resources. Therefore, it is importa
 For if the signature is stolen, the attacker can access the data resources and do all the bad things.
 So we are building DataverseOS to take the duty of keeping everything safe and beyond the control of malicious applications.
 
-## How we ensure the security?
+## How do we ensure security?
 
 DataverseOS provides isolated data environments for each application. Each application has its own independent file system and
-a scope of which data resources it can access. This scope will be specified clearly when the user is signing in.
+scope of which data resources it can access. This scope will be specified clearly when the user is signing in.
 
 <img src="/images/why/1.png" width="80%" className="mx-auto my-2.5" />
 
-User data will first be encrypted before putting in the file system. In another word, the applications will never see the raw data
+User data will first be encrypted before putting in the file system. In other words, the applications will never see the raw data
 for all user data are encrypted.
 
 When an application is requesting access to a data resource, the user will be notified and asked for permission.
@@ -63,5 +63,5 @@ If the request is valid, the application will be granted access to the data reso
 In summary, DataverseOS is able to protect data security by:
 
 1. Isolating data environments for each application
-2. Encrypting user data before putting in the file system
+2. Encrypting user data before putting it in the file system
 3. Checking the scope of data access requests to ensure the validity
