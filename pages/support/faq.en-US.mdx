@@ -6,15 +6,15 @@ This section lists some frequently asked questions and the answers to them.
 
 ### Why must Data Wallet manage capabilities?
 
-(Instead of returning capabilities to applications and let applications use to access data resources directly.)
+(Instead of returning capabilities to applications and let applications use to access data resources directly)
 
 To ensure the atomicity of operations.
-We build Data Wallet to assume control of a series operations like creating data streams, adding access control modules, monetizing into on-chain
+We build Data Wallet to assume control of a series of operations like creating data streams, adding access control modules, monetizing into on-chain
 assets and so on.
 If we return capabilities to applications, we cannot ensure the atomicity of these operations. For the following situations may occur:
 
 - The cross domain data sharing standard fails, can not create data streams or bind to the right folder/files.
-- Data streams won't be protected by application permission scope mechanism, data may be leaked or stolen.
+- Data streams won't be protected by the application permission scope mechanism, data may be leaked or stolen.
 - Wrong/invalid access control conditions may be assigned to data, causing failure of data monetization.
 
 ## Development
