@@ -1,10 +1,10 @@
-# Step 4: Register your app to dapp table
+# Step 4: Register your app to the dapp table
 
 Before running your app, you need to fill in your private key in `.env` file.
 The private key will be used to sign messages and manage your app as your authorization.
 You should keep the key safe as if it is leaked, your app may be stolen.
-if you are using self-hosted ceramic node, you should use the private key of the adminDID of your ceramic node.
-if you are using test ceramic node, you can use any private key here. We highly recommend you to use
+If you are using a self-hosted ceramic node, you should use the private key of the adminDID of your ceramic node.
+If you are using a test ceramic node, you can use any private key here. We highly recommend you to use
 a new private key for testing. You can generate a new private key by running
 
 ```sh
@@ -24,13 +24,13 @@ docker run hypotyposis/pk-tools
 pnpm install
 ```
 
-2. deploy your app
+2. Deploy your app
 
 ```sh
 pnpm create-dataverse-app
 ```
 
-This command will deploy your app to dataverseos testnet and register your app to dapp table.
+This command will deploy your app to the DataverseOS testnet and register your app to the dapp table.
 If successfully, you will see the following output:
 
 ```sh
