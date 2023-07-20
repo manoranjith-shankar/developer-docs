@@ -13,6 +13,7 @@ Open the project created in the previous step. The project structure should be l
 ├── logo.svg
 ├── models  // data models pre-defined here
 │   ├── fs  // file system data models
+│   ├── toolkits // external toolkits
 │   ├── post.graphql   // post data model, an example as a post of web3 social app
 │   └── profile.graphql // profile data model, an example as user profile of web3 social
 ├── output
@@ -23,19 +24,22 @@ Open the project created in the previous step. The project structure should be l
 │   ├── tool.ts
 │   └── types.ts
 ├── src // demo source code
+│   ├── components
+│   ├── context
+│   ├── hooks // React Hooks SDK of DataverseOS
+│   ├── pages / toolkits
+│   ├── types
+│   ├── utils
 │   ├── App.css
 │   ├── App.tsx
-│   ├── hooks   // React Hooks SDK of DataverseOS
 │   ├── index.css
 │   ├── main.tsx
-│   ├── types.ts
-│   └── utils.ts
 ├── tsconfig.json
 ├── tsconfig.node.json
 └── vite.config.ts
 ```
 
-Open `dataverse.config.ts`, you can config your app basic information here.
+Open `dataverse.config.ts`, you can configure your app's basic information here.
 
 ```typescript
 export const config = {
@@ -60,18 +64,18 @@ export const config = {
 };
 ```
 
-You can config your app slug(as a unique identifier), name, logo image URL, description,
+You can config your app slug (as a unique identifier), name, logo image URL, description,
 models, etc. here. For development and testing, you may set the website to 'localhost'.
 For production usage, you should set the website to your app's domain name. The `defaultFolderName`
-is the default folder path when user creates data under your app.
-The `models` is the data models to use in your app. You can define your own data models in the `models` folder.
+is the default folder path when a user creates data under your app.
+The `models` are the data models to use in your app. You can define your own data models in the `models` folder.
 For more info about data models, please refer to [Step 3](#step-3-customize-data-models).
 
 `isPublicDomain` specifies whether the data model can be used by other apps. If you set it to true, other developers
 can use your data model in their apps. If you set it to false, other developers can NOT use your data model, only
 your app can use it and access the data resources under this model.
 
-`schemaName` refers to the data model file name under `models` folder. For example, if you want to use the `post` model,
+`schemaName` refers to the data model file name under the `models` folder. For example, if you want to use the `post` model,
 `schemaName` should be `post.graphql`.
 
 The `encryptable` is an array used to specify which fields in the data model can be encrypted. Fields not in the `encryptable` list
@@ -89,11 +93,11 @@ Meanwhile, the fields not in the `encryptable` array will always be open and can
 </Callout>
 
 The `ceramicUrl` is the Ceramic node url to use. If you leave it null, the app will use the test Ceramic node
-provided by dataverseos.
+provided by DataverseOS.
 
 <Callout>
-  Note that the test ceramic node of DataverseOS is just for developing and
+  Note that the test ceramic node of DataverseOS is just for development and
   testing, and the data on it will be cleared regularly. So you should use your
   own Ceramic node for production usage. And DON'T put any important data on
-  test node.
+  the test node.
 </Callout>
