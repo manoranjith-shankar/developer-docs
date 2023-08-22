@@ -9,28 +9,39 @@ import { Callout } from 'nextra-theme-docs';
 
 In the terminal, run
 
-```typescript
-npx create-dataverse-app <APP_NAME>
+```bash
+pnpm install -g create-dataverse-app
 ```
 
-the output should be like
+We install the `create-dataverse-app` package globally to enable developers to initialize a dataverse app project and deploy it to DataverseOS.
+
+After installation, use --help to see more features.
+
+```bash
+dataverseos --help
+```
+
+You get the following output
 
 ```sh
-Creating a new Dataverse app in /home/app.
+Usage: dataverseos [options] [command]
 
-Done!
+CLI for dataverse OS interaction
 
-To get started:
+Options:
+  -V, --version             output the version number
+  -h, --help                display help for command
 
-cd helloworld
+Commands:
+  init <project-directory>  Init dataverse project.
+  deploy                    Deloy a dataverse project.
+  update                    Update an exsiting dataverse project.
+  keypair                   Generate private key pair.
+  help [command]            display help for command
+```
 
-add your data models under the models folder
+Initialize the dataverse project by running the command
 
-configure your app in the dataverse.config.ts file
-
-set your private key in the .env file, then run
-
-pnpm install
-
-pnpm dev
+```bash
+dataverseos init <project_directory>
 ```
