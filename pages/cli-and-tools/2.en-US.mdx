@@ -2,40 +2,53 @@ import { Callout } from 'nextra-theme-docs';
 
 # Step 2: Configure your app
 
+After initialising the project, you can also add the dweb toolkits to your project.
+
+```sh
+👉 Add toolkits? [y/n]: y
+🚧 Checking package version...
+🚥 The latest version of create-dataverse-app is 1.0.6.
+🚔 Validating app name...
+🚎 Initing dataverse app...
+🛟 Preparing...
+✅ Done!
+✨ To get started:
+
+📦 cd demo
+🔧 add your data models into ./models
+🔧 configure your dapp in dataverse.config.ts
+   dataverseos deploy
+   pnpm install
+   pnpm build
+   pnpm dev
+```
+
 Open the project created in the previous step. The project structure should be like
 
 ```json
 .
 ├── LICENSE
 ├── README.md
-├── dataverse.config.ts // config your app basic information here
+├── dataverse.config.ts  // config your app basic information here
 ├── index.html
-├── logo.svg
 ├── models  // data models pre-defined here
 │   ├── fs  // file system data models
-│   ├── toolkits // external toolkits
-│   ├── post.graphql   // post data model, an example as a post of web3 social app
-│   └── profile.graphql // profile data model, an example as user profile of web3 social
+│   ├── toolkits  // dweb toolkits
+│   ├── post.graphql  // post data model, an example as a post of web3 social app
+│   └── profile.graphql  // profile data model, an example as user profile of web3 social
 ├── output
-│   └── app.json    // generated after app creation, contains app information
+│   └── app.json  // generated after app creation, contains app information
 ├── package.json
-├── scripts // tools to help you create your app and manage
-│   ├── createDapp.ts
-│   ├── tool.ts
-│   └── types.ts
-├── src // demo source code
+├── .env.example
+├── src  // demo source code
 │   ├── components
-│   ├── context
-│   ├── hooks // React Hooks SDK of DataverseOS
-│   ├── pages / toolkits
-│   ├── types
-│   ├── utils
-│   ├── App.css
+│   ├── pages
+│   ├── global.css
 │   ├── App.tsx
 │   ├── index.css
 │   ├── main.tsx
 ├── tsconfig.json
-├── tsconfig.node.json
+├── vite.svg
 └── vite.config.ts
 ```
 
@@ -43,21 +56,81 @@ Open `dataverse.config.ts`, you can configure your app's basic information here.
 
 ```typescript
 export const config = {
-  slug: '', // app id, need to match this regular: `^[a-zA-Z][a-zA-Z0-9_]*$`
-  name: '', // app name should NOT contain "-"
-  logo: '',
-  website: '', // you can use localhost:(port) for testing
-  defaultFolderName: 'Untitled',
-  description: '',
+  name: "dataverse_app_with_toolkits_example", // app name should NOT contain "-"
+  logo: "https://bafybeifozdhcbbfydy2rs6vbkbbtj3wc4vjlz5zg2cnqhb2g4rm2o5ldna.ipfs.w3s.link/dataverse.svg",
+  website: [], // you can use localhost:(port) for testing
+  defaultFolderName: "Main",
+  description: "This is dataverse app example.",
   models: [
     {
-      isPublicDomain: false, // default is false
-      schemaName: 'post.graphql',
-      encryptable: ['text', 'images', 'videos'], // strings within the schema and within the array represent fields that may be encrypted, while fields within the schema but not within the array represent fields that will definitely not be encrypted
+      isPublicDomain: false, // default
+      schemaName: "post.graphql",
+      encryptable: ["text", "images", "videos"], // strings within the schema and within the array represent fields that may be encrypted, while fields within the schema but not within the array represent fields that will definitely not be encrypted
     },
     {
       isPublicDomain: true,
-      schemaName: 'profile.graphql',
+      schemaName: "profile.graphql",
+      encryptable: [],
+    },
+    {
+      isPublicDomain: false,
+      schemaName: "channel.graphql",
+      encryptable: [],
+    },
+    {
+      isPublicDomain: false,
+      schemaName: "chatmessage.graphql",
+      encryptable: ["link", "cid"],
+    },
+    {
+      isPublicDomain: false,
+      schemaName: "notification.graphql",
+      encryptable: [],
+    },
+    {
+      isPublicDomain: false,
+      schemaName: "chatgpgkey.graphql",
+      encryptable: ["pgp_key"],
+    },
+    {
+      isPublicDomain: false,
+      schemaName: "livepeerasset.graphql",
+      encryptable: ["storage", "playback_id"],
+    },
+    {
+      isPublicDomain: false,
+      schemaName: "table.graphql",
+      encryptable: [],
+    },
+    {
+      isPublicDomain: false,
+      schemaName: "xmtpmessage.graphql",
+      encryptable: ["content"],
+    },
+    {
+      isPublicDomain: false,
+      schemaName: "xmtpkeycache.graphql",
+      encryptable: ["keys"],
+    },
+    {
+      isPublicDomain: false,
+      schemaName: "lenspublication.graphql",
+      encryptable: [],
+    },
+    {
+      isPublicDomain: false,
+      schemaName: "lenscollection.graphql",
+      encryptable: [],
+    },
+    {
+      isPublicDomain: false, // default
+      schemaName: "snapshotproposal.graphql",
+      encryptable: [], // strings within the schema and within the array represent fields that may be encrypted, while fields within the schema but not within the array represent fields that will definitely not be encrypted
+    },
+    {
+      isPublicDomain: false, // default
+      schemaName: "snapshotvote.graphql",
+      encryptable: [], // strings within the schema and within the array represent fields that may be encrypted, while fields within the schema but not within the array represent fields that will definitely not be encrypted
     },
   ],
   ceramicUrl: null, // leave null to use dataverse test Ceramic node. Set to {Your Ceramic node Url} for mainnet, should start with "https://".
@@ -92,7 +165,7 @@ Meanwhile, the fields not in the `encryptable` array will always be open and can
   want to encrypt any fields, you can set `encryptable` to an empty array `[]`.
 </Callout>
 
-The `ceramicUrl` is the Ceramic node url to use. If you leave it null, the app will use the test Ceramic node
+The `ceramicUrl` is the Ceramic node URL to use. If you leave it null, the app will use the test Ceramic node
 provided by DataverseOS.
 
 <Callout>
