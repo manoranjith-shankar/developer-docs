@@ -5,7 +5,7 @@ To update the base information of a file.
 ## Usage
 
 ```js
-await runtimeConnector.updateFileBaseInfo({
+await dataverseConnector.updateFileBaseInfo({
   indexFileId,
   fileInfo: {
     mirrorName
@@ -29,7 +29,7 @@ await runtimeConnector.updateFileBaseInfo({
 }
 ```
 - `indexFileId`: `string` - The indexfile id.
-- `fileInfo`: `Omit<FileInfo, | "datatokenId" | "fileKey" | "encryptedSymmetricKey" | "decryptionConditions" | "decryptionConditionsType">` - detailed information of the file.
+- OPTIONAL - `fileInfo`: `Omit<FileInfo, | "datatokenId" | "fileKey" | "encryptedSymmetricKey" | "decryptionConditions" | "decryptionConditionsType">` - detailed information of the file.
     ```js
     interface FileInfo {
         contentId?: string;
@@ -45,7 +45,7 @@ await runtimeConnector.updateFileBaseInfo({
         fileType?: FileType;
     }
     ```
-- `syncImmediately`: `boolean` - Whether to sync to data networks immediately or wait for the os scheduler.
+- OPTIONAL - `syncImmediately`: `boolean` - Whether to sync to data networks immediately or wait for the os scheduler.
 
 ## Returns
 ```js
