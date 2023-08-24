@@ -5,12 +5,11 @@ Function for asking for user's authorization to user's data.
 ## Usage
 
 ```js
-import { RESOURCE } from '@dataverse/runtime-connector'
+import { RESOURCE } from '@dataverse/dataverse-connector'
 
-await runtimeConnector.createCapability({
+await dataverseConnector.createCapability({
   app,
   resource: RESOURCE.CERAMIC,
-  wallet,
 })
 ```
 
@@ -19,7 +18,6 @@ await runtimeConnector.createCapability({
 {
   app: string;
   resource?: RESOURCE;
-  wallet?: WALLET;
 }
 ```
 - `app`: `string` - which app is asking for authorization.
@@ -29,7 +27,6 @@ await runtimeConnector.createCapability({
     CERAMIC,
   }
   ```
-- `wallet`: `enum CRYPTO_WALLET` - Wallet to use for sign the authorization message.
 
 ## Returns
 `string` - pkh
