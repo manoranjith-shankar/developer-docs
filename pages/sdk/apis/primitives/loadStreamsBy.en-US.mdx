@@ -4,7 +4,7 @@ Load multiple streams under a data model
 
 ## Usage
 ```js
-await runtimeConnector.loadStreamsBy({
+await dataverseConnector.loadStreamsBy({
   modelId,
   pkh
 });
@@ -18,7 +18,7 @@ await runtimeConnector.loadStreamsBy({
 }
 ```
 - `modelId`: `string` - the data model id
-- `pkh?`: `string` - user did, if not provided, will return all streams under the data model
+- OPTIONAL - `pkh?`: `string` - user did, if not provided, will return all streams under the data model
 
 ## Returns
 return a `<streamid, content>` map
