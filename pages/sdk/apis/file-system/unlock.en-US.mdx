@@ -2,12 +2,12 @@ import { Callout } from 'nextra-theme-docs';
 
 # unlock
 
-Unlock a monetized file/folder, first will check if the decryptionConditions have been meet,
-if so, will mint a Collect NFT and unlock the file/folder.
+Unlock a monetized file/folder. First will check if the decryptionConditions have been met.
+If so, will mint a Collect NFT and unlock the file/folder.
 
 ## Usage
 ```js
-await runtimeConnector.unlock({
+await dataverseConnector.unlock({
   indexFileId:
     "kjzl6kcym7w8y5xf0j7kmies5i30f86xlerbfp42qnxju2vfno1io6i04sy2p2d",  // or indexFileId | streamId
 });
@@ -26,7 +26,6 @@ await runtimeConnector.unlock({
 
 ## Returns
 ```js
-CollectOutput &
 {
   streamContent: {
     file: Omit<MirrorFile, "fileKey" | "content">;
@@ -35,7 +34,7 @@ CollectOutput &
 }
 ```
 <Callout>
-    This function will send a transaction to mint a NFT, currently on Mumbai(Polygon Testnet).
+    This function will send a transaction to mint an NFT, currently on Mumbai (Polygon Testnet).
 </Callout>
 
 Example:
