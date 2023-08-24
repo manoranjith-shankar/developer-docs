@@ -7,7 +7,7 @@ create a public or encrypted stream under a data model.
 ## Usage
 
 ```js
-await runtimeConnector.createStream({
+await dataverseConnector.createStream({
   modelId,
   streamContent: {
     appVersion,
@@ -26,9 +26,9 @@ await runtimeConnector.createStream({
 ## Parameters
 
 - `modelId`: `string` - the id of the data model
-- `streamContent` - `object` - the content of the stream, fields under this object are decided by the data model you are using,
-  here is an example:
-  if you data model looks like this:
+- `streamContent` - `object` - the content of the stream, fields under this object are decided by the data model you are using.
+  Here is an example -
+  If your data model looks like this:
 
 ```graphql
 type post @createModel(accountRelation: LIST, description: "post") {
