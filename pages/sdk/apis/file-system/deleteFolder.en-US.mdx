@@ -4,7 +4,7 @@ Mark a folder as `deleted`.
 
 ## Usage
 ```js
-await runtimeConnector.deleteFolder({
+await dataverseConnector.deleteFolder({
   folderId,
 });
 ```
@@ -17,7 +17,7 @@ await runtimeConnector.deleteFolder({
 }
 ```
 - `folderId` - The folder id.
-- `syncImmediately` - Whether to sync the deletion to data network immediately or wait for os schedule. Default is `false`.
+- OPTIONAL - `syncImmediately` - Whether to sync the deletion to data network immediately or wait for os schedule. Default is `false`.
 
 ## Returns
 ```js
