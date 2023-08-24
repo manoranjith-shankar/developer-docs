@@ -17,57 +17,53 @@ create data streams, load data streams, update data streams, and monetize data.
 
 ### Install Data wallet
 
-Data Wallet is a Chrome browser extension. we need to make sure it's installed and
+Data Wallet is a Chrome browser extension. We need to make sure it's installed and
 it's updated to the latest version before we proceed with the development.
 
 [Download on chrome store](https://chrome.google.com/webstore/detail/dataverse/kcigpjcafekokoclamfendmaapcljead)
 
 ![quickstart-1](/images/sdk/chrome-store.png)
-You may sign in with MetaMask or Particle Social Account and create a new identity.
+You may sign in with MetaMask, WalletConnect, Coinbase Wallet or Particle Social Account and create a new identity.
 
 ### Install JS SDK
 
 ```bash
-npm install @dataverse/runtime-connector
+pnpm install @dataverse/dataverse-connector
 ```
 
 ## Step 1: Initialize the connector
 
 ```javascript
-// After installation, you can import the SDK and initialize the runtime connector.
-/** Import Runtime Connector SDK */
-import { RuntimeConnector, Extension } from '@dataverse/runtime-connector';
+// After installation, you can import the SDK and initialize the dataverse connector.
+/** Import Dataverse Connector SDK */
+import { DataverseConnector } from "@dataverse/dataverse-connector";
 
-/** Initialize the runtime connector class object */
-const runtimeConnector = new RuntimeConnector(Extension);
+/** Initialize the dataverse connector class object */
+const dataverseConnector = new DataverseConnector();
 ```
-
-The `Extension` specifies the target that runtime connector will connect to.
-Currently, the dataverseos kernel is running in the browser extension, so we use `Extension` as the target.
 
 ## Step 2: Connect with user wallet
 
 ```javascript
 import React, { useState } from 'react';
 
-/** Import Runtime Connector SDK and types */
+/** Import Dataverse Connector SDK and types */
 import {
-  RuntimeConnector,
-  Extension,
+  DataverseConnector,
   WALLET
-} from "@dataverse/runtime-connector";
+} from "@dataverse/dataverse-connector";
 
 /**
- * Initialize the Runtime Connector
+ * Initialize the Dataverse Connector
  */
-const runtimeConnector: RuntimeConnector = new RuntimeConnector(Extension);
+const dataverseConnector: DataverseConnector = new DataverseConnector();
 
 const App: React.FC = () => {
   const [wallet, setWallet] = useState<WALLET>();
 
   const connectWallet = async () => {
     try {
-      const res = await runtimeConnector.connectWallet();
+      const res = await dataverseConnector.connectWallet();
       setWallet(res.wallet);
       return(res.address);
     } catch (error) {
@@ -85,28 +81,30 @@ const App: React.FC = () => {
 export default App;
 ```
 
-The `connectWallet` function receive an optional parameter `wallet` to specify which wallet to use.
+The `connectWallet` function receives an optional parameter `wallet` to specify which wallet to use.
 
 ```js
 enum WALLET {
   METAMASK = "MetaMask",
+  WALLETCONNECT = "WalletConnect",
+  COINBASE = "Coinbase",
   PARTICLE = "Particle"
 }
 ```
 
-if not specified(pass in no parameters), the function will open an option page for users to choose which wallet to use.
+if not specified (pass in no parameters), the function will open an option page for users to choose which wallet to use.
 
 <img src="/images/sdk/option-page.png" className="mx-auto my-2.5" width="90%" />
 
 ## Step 3: Create capability
 
 ```js
-import { RESOURCE } from '@dataverse/runtime-connector';
+import { RESOURCE } from '@dataverse/dataverse-connector';
 
 const app = 'YOUR_APP_NAME';
 
 const createCapability = async () => {
-  const pkh = await runtimeConnector.createCapability({
+  const pkh = await dataverseConnector.createCapability({
     app,
     resource: RESOURCE.CERAMIC,
     wallet,
@@ -123,6 +121,9 @@ The popup shall be like this:
   <img src="/images/sdk/siwe1.png" width="50%" />
   <img src="/images/sdk/siwe2.png" width="50%" />
 </div>
+
+It returns:
+pkh: string - a pkh 'DID' you may use to interact with the data resources later.
 
 ## Step 4: Create a data stream
 
@@ -153,7 +154,7 @@ const encrypted = JSON.stringify({
   videos: false,
 });
 
-await runtimeConnector.createStream({
+await dataverseConnector.createStream({
   modelId,
   streamContent: {
     appVersion: '0.0.1',
@@ -214,7 +215,7 @@ return example
 You can load a stream's content by stream id.
 
 ```javascript
-await runtimeConnector.loadStream({
+await dataverseConnector.loadStream({
   streamId: 'kjzl6kcym7w8ya8g9cj5764kll6veldqws40ub29r1odut2pxiqxet80sl9p6th', // for example
 });
 ```
@@ -222,13 +223,13 @@ await runtimeConnector.loadStream({
 You can also load multiple streams under a model.
 
 ```javascript
-await runtimeConnector.loadStreamsBy({
+await dataverseConnector.loadStreamsBy({
   modelId,
   pkh: 'did:pkh:eip155:137:0x5915e293823FCa840c93ED2E1E5B4df32d699999',
 });
 ```
 
-The `pkh` is optional. If not specified, will return all streams under the model.
+The `pkh` is optional. If not specified, it will return all streams under the model.
 
 ## Step 6: Update a data stream
 
@@ -241,7 +242,7 @@ const encrypted = JSON.stringify({
   videos: false,
 });
 
-const res = await runtimeConnector.updateStream({
+const res = await dataverseConnector.updateStream({
   streamId,
   streamContent: {
     appVersion: '0.0.1',
@@ -263,9 +264,9 @@ and the return value is the same as `createStream`.
 ## Step 7: Monetize
 
 ```javascript
-import { Currency } from "@dataverse/runtime-connector";
+import { Currency } from "@dataverse/dataverse-connector";
 
-const res = await runtimeConnector.monetizeFile({
+const res = await dataverseConnector.monetizeFile({
   streamId,
   datatokenVars: {
     profileId: "LENS_HANDLE_PROFILE_ID",
@@ -282,14 +283,12 @@ const res = await runtimeConnector.monetizeFile({
 
 **Why lens profile is needed to monetize data?**
 
-To put it simply, data monetization is to deploy a collection of NFTs on the blockchain.
+To put it simply, data monetization is to deploy a collection of NFTs on the blockchain
 and use the NFT as access credentials to the data. In this case, we use lens protocol to
 turn off-chain data into on-chain `lens post`, and program the NFT smart contract around
 the post.
 
-**Explain `decryptionConditions`**
-
-`decryptionConditions` specifies a set of conditions to limit the access to the data.
+`decryptionConditions` specifies a set of conditions to limit access to the data.
 For example
 
 ```javascript
@@ -315,13 +314,13 @@ wallet address `0x3c6216caE32FF6691C55cb691766220Fd3f55555` on filecoin chain.
 ## Step 8: Unlock
 
 ```javascript
-await runtimeConnector.unlock({
+await dataverseConnector.unlock({
   indexFileId:
     'kjzl6kcym7w8y5xf0j7kmies5i30f86xlerbfp42qnxju2vfno1io6i04sy2p2d',
 });
 ```
 
-This will send a transaction to mint a NFT to the user's wallet address.
+This will send a transaction to mint an NFT to the user's wallet address.
 The NFT is the access credential to the data.
 
 <Callout>
