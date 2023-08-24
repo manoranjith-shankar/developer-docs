@@ -4,11 +4,23 @@ check if your application has been authorized
 
 ## Usage
 ```javascript
-await runtimeConnector.checkCapability(app)
+await dataverseConnector.checkCapability(app)
 ```
 
 ## Parameters
-`app`: `string` - the name of the application you want to check
+```js
+{
+  app: string;
+  resource?: RESOURCE;
+}
+```
+- `app`: `string` - which app is asking for authorization.
+- OPTIONAL - `resource`: `RESOURCE` - Resource to give access to the capability.
+  ```js
+  enum RESOURCE {
+    CERAMIC,
+  }
+  ```
 
 ## Returns
 `boolean` - true if the application has been authorized, false otherwise
