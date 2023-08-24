@@ -2,27 +2,6 @@ import { Callout } from 'nextra-theme-docs';
 
 # Step 2: Configure your app
 
-After initialising the project, you can also add the dweb toolkits to your project.
-
-```sh
-👉 Add toolkits? [y/n]: y
-🚧 Checking package version...
-🚥 The latest version of create-dataverse-app is 1.0.6.
-🚔 Validating app name...
-🚎 Initing dataverse app...
-🛟 Preparing...
-✅ Done!
-✨ To get started:
-
-📦 cd demo
-🔧 add your data models into ./models
-🔧 configure your dapp in dataverse.config.ts
-   dataverseos deploy
-   pnpm install
-   pnpm build
-   pnpm dev
-```
-
 Open the project created in the previous step. The project structure should be like
 
 ```json
@@ -56,80 +35,80 @@ Open `dataverse.config.ts`, you can configure your app's basic information here.
 
 ```typescript
 export const config = {
-  name: "dataverse_app_with_toolkits_example", // app name should NOT contain "-"
-  logo: "https://bafybeifozdhcbbfydy2rs6vbkbbtj3wc4vjlz5zg2cnqhb2g4rm2o5ldna.ipfs.w3s.link/dataverse.svg",
+  name: 'dataverse_app_with_toolkits_example', // app name should NOT contain "-"
+  logo: 'https://bafybeifozdhcbbfydy2rs6vbkbbtj3wc4vjlz5zg2cnqhb2g4rm2o5ldna.ipfs.w3s.link/dataverse.svg',
   website: [], // you can use localhost:(port) for testing
-  defaultFolderName: "Main",
-  description: "This is dataverse app example.",
+  defaultFolderName: 'Main',
+  description: 'This is dataverse app example.',
   models: [
     {
       isPublicDomain: false, // default
-      schemaName: "post.graphql",
-      encryptable: ["text", "images", "videos"], // strings within the schema and within the array represent fields that may be encrypted, while fields within the schema but not within the array represent fields that will definitely not be encrypted
+      schemaName: 'post.graphql',
+      encryptable: ['text', 'images', 'videos'], // strings within the schema and within the array represent fields that may be encrypted, while fields within the schema but not within the array represent fields that will definitely not be encrypted
     },
     {
       isPublicDomain: true,
-      schemaName: "profile.graphql",
+      schemaName: 'profile.graphql',
       encryptable: [],
     },
     {
       isPublicDomain: false,
-      schemaName: "channel.graphql",
+      schemaName: 'channel.graphql',
       encryptable: [],
     },
     {
       isPublicDomain: false,
-      schemaName: "chatmessage.graphql",
-      encryptable: ["link", "cid"],
+      schemaName: 'chatmessage.graphql',
+      encryptable: ['link', 'cid'],
     },
     {
       isPublicDomain: false,
-      schemaName: "notification.graphql",
+      schemaName: 'notification.graphql',
       encryptable: [],
     },
     {
       isPublicDomain: false,
-      schemaName: "chatgpgkey.graphql",
-      encryptable: ["pgp_key"],
+      schemaName: 'chatgpgkey.graphql',
+      encryptable: ['pgp_key'],
     },
     {
       isPublicDomain: false,
-      schemaName: "livepeerasset.graphql",
-      encryptable: ["storage", "playback_id"],
+      schemaName: 'livepeerasset.graphql',
+      encryptable: ['storage', 'playback_id'],
     },
     {
       isPublicDomain: false,
-      schemaName: "table.graphql",
+      schemaName: 'table.graphql',
       encryptable: [],
     },
     {
       isPublicDomain: false,
-      schemaName: "xmtpmessage.graphql",
-      encryptable: ["content"],
+      schemaName: 'xmtpmessage.graphql',
+      encryptable: ['content'],
     },
     {
       isPublicDomain: false,
-      schemaName: "xmtpkeycache.graphql",
-      encryptable: ["keys"],
+      schemaName: 'xmtpkeycache.graphql',
+      encryptable: ['keys'],
     },
     {
       isPublicDomain: false,
-      schemaName: "lenspublication.graphql",
+      schemaName: 'lenspublication.graphql',
       encryptable: [],
     },
     {
       isPublicDomain: false,
-      schemaName: "lenscollection.graphql",
+      schemaName: 'lenscollection.graphql',
       encryptable: [],
     },
     {
       isPublicDomain: false, // default
-      schemaName: "snapshotproposal.graphql",
+      schemaName: 'snapshotproposal.graphql',
       encryptable: [], // strings within the schema and within the array represent fields that may be encrypted, while fields within the schema but not within the array represent fields that will definitely not be encrypted
     },
     {
       isPublicDomain: false, // default
-      schemaName: "snapshotvote.graphql",
+      schemaName: 'snapshotvote.graphql',
       encryptable: [], // strings within the schema and within the array represent fields that may be encrypted, while fields within the schema but not within the array represent fields that will definitely not be encrypted
     },
   ],
@@ -171,6 +150,6 @@ provided by DataverseOS.
 <Callout>
   Note that the test ceramic node of DataverseOS is just for development and
   testing, and the data on it will be cleared regularly. So you should use your
-  own Ceramic node for production usage. And DON'T put any important data on
-  the test node.
+  own Ceramic node for production usage. And DON'T put any important data on the
+  test node.
 </Callout>

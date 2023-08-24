@@ -42,6 +42,33 @@ Commands:
 
 Initialize the dataverse project by running the command
 
-```bash
+```javascript
 dataverseos init <project_directory>
+```
+
+While initialising the project, you can choose whether to add the [DWeb Toolkits](/sdk/dweb-toolkits) to your project.
+
+<Callout type="info">
+  DWeb Toolkits are series of SDKs to ease the integration of DataverseOS and
+  other Web3 protocols, automatically store data in Dataverse Cloud and simplify
+  the development of applications.
+</Callout>
+
+```sh
+👉 Add toolkits? [y/n]: y
+🚧 Checking package version...
+🚥 The latest version of create-dataverse-app is 1.x.x.
+🚔 Validating app name...
+🚎 Initing dataverse app...
+🛟 Preparing...
+✅ Done!
+✨ To get started:
+
+📦 cd demo
+🔧 add your data models into ./models
+🔧 configure your dapp in dataverse.config.ts
+   dataverseos deploy
+   pnpm install
+   pnpm build
+   pnpm dev
 ```
