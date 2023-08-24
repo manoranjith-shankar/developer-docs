@@ -2,10 +2,9 @@
 
 update the metadata of a folder
 
-
 ## Usage
 ```js
-await runtimeConnector.updateFolderBaseInfo({
+await dataverseConnector.updateFolderBaseInfo({
     folderId,
     newFolderName,
     newFolderDescription,
@@ -22,9 +21,9 @@ await runtimeConnector.updateFolderBaseInfo({
 }
 ```
 - `folderId`: `string` - id of the folder to update
-- `newFolderName`: `string` - new name of the folder
-- `newFolderDescription`: `string` - new description of the folder
-- `syncImmediately`: `boolean` - whether to sync the update immediately or wait for os scheduled sync
+- OPTIONAL - `newFolderName`: `string` - new name of the folder
+- OPTIONAL - `newFolderDescription`: `string` - new description of the folder
+- OPTIONAL - `syncImmediately`: `boolean` - whether to sync the update immediately or wait for os scheduled sync
 
 ## Returns
 ```js
