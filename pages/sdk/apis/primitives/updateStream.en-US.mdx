@@ -4,7 +4,7 @@ update an existing stream
 
 ## Usage
 ```js
-await runtimeConnector.updateStream({
+await dataverseConnector.updateStream({
   streamId,
   streamContent: {
     appVersion,
@@ -22,9 +22,9 @@ await runtimeConnector.updateStream({
 
 ## Parameters
 - `streamId`: `string` - id of the stream to be updated
-- `streamContent` - `object` - the content of the stream, fields under this object are decided by the data model you are using,
-here is an example:
-if you data model looks like this:
+- `streamContent` - `object` - the content of the stream, fields under this object are decided by the data model you are using
+  Here is an example -
+  if your data model looks like this:
 ```graphql
 type post @createModel(accountRelation: LIST, description: "post") {
   author: DID! @documentAccount
