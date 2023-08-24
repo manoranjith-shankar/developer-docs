@@ -4,7 +4,7 @@ Upload a file to a folder.
 
 ## Usage
 ```js
-await runtimeConnector.uploadFile({
+await dataverseConnector.uploadFile({
   folderId,
   fileBase64,
   fileName,
@@ -21,15 +21,14 @@ await runtimeConnector.uploadFile({
     fileName: string;
     encrypted: boolean;
     storageProvider: StorageProvider;
-    syncImmediately?: boolean;
 }
 ```
-- `folderId`: `string` - The folder id.
+- OPTIONAL - `folderId`: `string` - The folder id.
 - `fileBase64`: `string` - The file data in base64 format.
 - `fileName`: `string` - The file name.
 - `encrypted`: `boolean` - Whether the file is encrypted.
-- `storageProvider`: `StorageProvider` - The upload provider. this field specifies
-which IPFS gateway to use. developers can choose between `web3.storage` and `lighthouse`.
+- `storageProvider`: `StorageProvider` - The upload provider. This field specifies
+which IPFS gateway to use. Developers can choose between `web3.storage` and `lighthouse`.
     ```js
     interface storageProvider {
         name: StorageProviderName;
@@ -40,7 +39,6 @@ which IPFS gateway to use. developers can choose between `web3.storage` and `lig
         Lighthouse,
     }
     ```
-- `syncImmediately`: `boolean` - Whether to sync immediately.
 
 ## Returns
 ```js
