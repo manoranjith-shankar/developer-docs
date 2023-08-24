@@ -37,17 +37,31 @@ We will also further optimise the ease of use and functionality of the wallet by
 
 ## Secure resources
 
-DataverseOS and the latest data networks are all built with EIP-4361 (Sign-in-with-Ethereum) standard.
-`Sign-in-with-Ethereum` defines how users can create identities, authenticate with applications,
-and manage data resources. However, the current implementations of `Sign-in-with-Ethereum` entirely
-rely on a specific format of user signatures. We build Data Wallet to provide a safe and easy way for
-users to manage their identities and signatures. Meanwhile, Data Wallet also prevents malicious websites
-from stealing user signatures.
+Dataverse Wallet implements safe access controls for resources based on Ethereum Improvement Proposals EIP-4361 (Sign-In with Ethereum) and EIP-5573 (ReCaps).
 
-Like you need a wallet address to send transactions on the blockchain, and therefore there are crypto wallets such
-as MetaMask to help manage private keys safely.
-You need a specific DID and Sign-in-with-Ethereum signature to interact with DataverseOS and other data networks.
-Therefore we build Data Wallet to help manage DID and Sign-in-with-Ethereum signature safely.
+Sign-In with Ethereum (SIWE) defines how users can create decentralized identities and authenticate with off-chain applications.
+
+ReCaps extends Sign-In with Ethereum's functionality, enabling users to grant informed consent to applications to act on their behalf after signing in.
+
+By combining these two standards, Dataverse Wallet enables users to selectively delegate permissions for applications to handle some of their resources.
+This is done by signing messages that inform the user exactly what access they are granting.
+
+<div className="flex">
+  <img src="/images/introduction/siwe1.png" width="40%" className="mx-auto" />
+  <img src="/images/introduction/siwe2.png" width="40%" className="mx-auto" />
+</div>
+
+Signed messages (signatures) serve as credentials that grant access to resources.
+The security of the signature is equivalent to the security of personal data.
+If a user's signatures leak or are compromised, it poses a risk of their web3 resources being stolen or tampered with.
+For example, if an unauthorized party gains access to a user's signatures, they could steal, edit or delete a user's personal data.
+
+Dataverse Wallet mitigates this risk by storing & protecting user's signatures locally like How MetaMask protects user private key,
+and selectively denying access to view or export signatures.
+
+We create data wallet in purpose to shape a standard for maintaining signature security in a decentralized manner.
+We are committed to bringing this security layer to all traditional crypto wallets, making data security a necessary part of wallet services.
+Thus users stay in control of their resources while being able to safely leverage decentralized apps.
 
 <img
   src="/images/introduction/comparision.png"
@@ -56,19 +70,3 @@ Therefore we build Data Wallet to help manage DID and Sign-in-with-Ethereum sign
 />
 
 ## DApp authenticator
-
-## Why Data Wallet is needed?
-
-<div className="flex">
-  <img src="/images/introduction/siwe1.png" width="45%" className="mx-auto" />
-  <img src="/images/introduction/siwe2.png" width="45%" className="mx-auto" />
-</div>
-
-We, along with many data teams nowadays, are using [EIP-4361](https://eips.ethereum.org/EIPS/eip-4361)
-signatures to enable offline authorization by users for data resources.
-In this scenario, the security of the signature is equivalent to the security of the data.
-In other words, if a malicious website successfully steals a user's signature,
-it can lead to the leakage and tampering of personal data.
-
-We create data wallet in purpose to shape a standard for maintaining signature security in a decentralized manner.
-We are committed to bringing this security layer to all traditional crypto wallets, making data security a necessary part of wallet services.
