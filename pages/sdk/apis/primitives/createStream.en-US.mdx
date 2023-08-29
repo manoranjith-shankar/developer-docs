@@ -7,18 +7,21 @@ create a public or encrypted stream under a data model.
 ## Usage
 
 ```js
-await dataverseConnector.createStream({
-  modelId,
-  streamContent: {
-    appVersion,
-    text: 'hello',
-    images: [
-      'https://bafkreib76wz6wewtkfmp5rhm3ep6tf4xjixvzzyh64nbyge5yhjno24yl4.ipfs.w3s.link',
-    ],
-    videos: [],
-    createdAt,
-    updatedAt,
-    encrypted,
+await dataverseConnector.runOS({
+  method: SYSTEM_CALL.createStream,
+  params: {
+    modelId,
+    streamContent: {
+      appVersion: "0.1.0",
+      text: "hello",
+      images: [
+        "https://bafkreib76wz6wewtkfmp5rhm3ep6tf4xjixvzzyh64nbyge5yhjno24yl4.ipfs.w3s.link",
+      ],
+      videos: [],
+      createdAt: new Date().toISOString();,
+      updatedAt: new Date().toISOString();,
+      encrypted,
+    },
   },
 });
 ```
