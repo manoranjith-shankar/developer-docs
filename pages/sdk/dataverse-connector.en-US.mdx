@@ -104,13 +104,16 @@ import { RESOURCE } from '@dataverse/dataverse-connector';
 const app = 'YOUR_APP_NAME';
 
 const createCapability = async () => {
-  const pkh = await dataverseConnector.createCapability({
-    app,
-    resource: RESOURCE.CERAMIC,
-    wallet,
-  });
-  return pkh;
-};
+    const pkh = await dataverseConnector.runOS({
+      method: SYSTEM_CALL.createCapability,
+      params: {
+        appId,
+        resource: RESOURCE.CERAMIC,
+        wallet,
+      }
+    });
+    return pkh;
+  };
 ```
 
 This will open a popup window to ask for user permission to connect with the application.
@@ -154,18 +157,21 @@ const encrypted = JSON.stringify({
   videos: false,
 });
 
-await dataverseConnector.createStream({
-  modelId,
-  streamContent: {
-    appVersion: '0.0.1',
-    text: 'hello',
-    images: [
-      'https://bafkreib76wz6wewtkfmp5rhm3ep6tf4xjixvzzyh64nbyge5yhjno24yl4.ipfs.w3s.link',
-    ],
-    videos: [],
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-    encrypted,
+const res = await dataverseConnector.runOS({
+  method: SYSTEM_CALL.createStream,
+  params: {
+    modelId,
+    streamContent: {
+      appVersion: postVersion,
+      text: "hello",
+      images: [
+        "https://bafkreib76wz6wewtkfmp5rhm3ep6tf4xjixvzzyh64nbyge5yhjno24yl4.ipfs.w3s.link",
+      ],
+      videos: [],
+      createdAt: new Date().toISOString();,
+      updatedAt: new Date().toISOString();,
+      encrypted,
+    },
   },
 });
 ```
@@ -215,17 +221,21 @@ return example
 You can load a stream's content by stream id.
 
 ```javascript
-await dataverseConnector.loadStream({
-  streamId: 'kjzl6kcym7w8ya8g9cj5764kll6veldqws40ub29r1odut2pxiqxet80sl9p6th', // for example
+await dataverseConnector.runOS({
+  method: SYSTEM_CALL.loadStream,
+  params: streamId,
 });
 ```
 
 You can also load multiple streams under a model.
 
 ```javascript
-await dataverseConnector.loadStreamsBy({
-  modelId,
-  pkh: 'did:pkh:eip155:137:0x5915e293823FCa840c93ED2E1E5B4df32d699999',
+await dataverseConnector.runOS({
+  method: SYSTEM_CALL.loadStreamsBy,
+  params: {
+    modelId,
+    pkh,
+  },
 });
 ```
 
@@ -242,18 +252,21 @@ const encrypted = JSON.stringify({
   videos: false,
 });
 
-const res = await dataverseConnector.updateStream({
-  streamId,
-  streamContent: {
-    appVersion: '0.0.1',
-    text: 'hello world!',
-    images: [
-      'https://bafkreib76wz6wewtkfmp5rhm3ep6tf4xjixvzzyh64nbyge5yhjno24yl4.ipfs.w3s.link',
-    ],
-    videos: [],
-    createdAt: date,
-    updatedAt: date,
-    encrypted,
+const res = await dataverseConnector.runOS({
+  method: SYSTEM_CALL.updateStream,
+  params: {
+    streamId,
+    streamContent: {
+      appVersion: postVersion,
+      text: "hello",
+      images: [
+        "https://bafkreib76wz6wewtkfmp5rhm3ep6tf4xjixvzzyh64nbyge5yhjno24yl4.ipfs.w3s.link",
+      ],
+      videos: [],
+      createdAt: date,
+      updatedAt: date,
+      encrypted,
+    },
   },
 });
 ```
@@ -266,18 +279,20 @@ and the return value is the same as `createStream`.
 ```javascript
 import { Currency } from "@dataverse/dataverse-connector";
 
-const res = await dataverseConnector.monetizeFile({
-  streamId,
-  datatokenVars: {
-    profileId: "LENS_HANDLE_PROFILE_ID",
-    collectLimit: 100,
-    amount: 0.0001,
-    currency: Currency.WMATIC,
+const res = await dataverseConnector.runOS({
+  method: SYSTEM_CALL.monetizeFile,
+  params: {
+    ...(indexFileId ? { indexFileId } : { streamId }),
+    datatokenVars: {
+      profileId,
+      collectLimit: 100,
+      amount: 0.0001,
+      currency: Currency.WMATIC,
+    },
+    decryptionConditions: [
+      ...
+    ]
   },
-  storageProvider,
-  decryptionConditions: [
-    ...
-  ],
 });
 ```
 
@@ -314,9 +329,12 @@ wallet address `0x3c6216caE32FF6691C55cb691766220Fd3f55555` on filecoin chain.
 ## Step 8: Unlock
 
 ```javascript
-await dataverseConnector.unlock({
-  indexFileId:
-    'kjzl6kcym7w8y5xf0j7kmies5i30f86xlerbfp42qnxju2vfno1io6i04sy2p2d',
+await dataverseConnector.runOS({
+  method: SYSTEM_CALL.unlock,
+  params: {
+    indexFileId:
+      'kjzl6kcym7w8y5xf0j7kmies5i30f86xlerbfp42qnxju2vfno1io6i04sy2p2d',
+  },
 });
 ```
 
