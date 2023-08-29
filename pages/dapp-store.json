@@ -1,0 +1,68 @@
+[
+  {
+    "name": "Playground",
+    "description": "Decentralized social platform, Web3 version of Twitter",
+    "link": "https://playground.dataverse-os.com",
+    "image": "/images/dapp-store/playground.png"
+  },
+  {
+    "name": "WordBlock",
+    "description": "Note-taking tool built for open and interactive block reference",
+    "link": "https://chrome.google.com/webstore/detail/wordblock/jbihofgilkjgaofihhklnkeocejckcjk",
+    "image": "/images/dapp-store/wordblock.jpeg"
+  },
+  {
+    "name": "Arazzo",
+    "description": "Note-taking tools. Web3 version of Medium",
+    "link": "https://venerable-queijadas-290c8d.netlify.app/",
+    "image": "/images/dapp-store/arazzo.png"
+  },
+  {
+    "name": "Daisi",
+    "description": "Efficient way to curate and discover",
+    "link": "https://daisi.social/",
+    "image": "/images/dapp-store/daisi.png"
+  },
+  {
+    "name": "Soulcial",
+    "description": "A self-generated social metaverse driven by on-chain behavior and real-world data",
+    "link": "https://daisi.social/",
+    "image": "/images/dapp-store/soulcial.png"
+  },
+  {
+    "name": "Pensieve",
+    "description": "A decentralized file storage to recreate your those moments in your memories",
+    "link": "https://ethglobal.com/showcase/pensieve-d0ixh",
+    "image": "/images/dapp-store/pensieve.jpeg"
+  },
+  {
+    "name": "Twitt3r",
+    "description": "Create a safe cyberplace for one using DID",
+    "link": "https://devfolio.co/projects/twittr-9edf",
+    "image": "/images/dapp-store/twitt3r.png"
+  },
+  {
+    "name": "TradeVerse",
+    "description": "Future of E-commerce: Connect, Engage, and Transact",
+    "link": "https://tradeverse-official.vercel.app/",
+    "image": "/images/dapp-store/tradeverse.png"
+  },
+  {
+    "name": "CypherSync",
+    "description": "A cloudverse where users can store their files, write notes and books in markdown, and create blogs",
+    "link": "https://cypher-sync-mzi6.vercel.app/",
+    "image": "/images/dapp-store/cyphersync.png"
+  },
+  {
+    "name": "Match",
+    "description": "Connect with all the loved ones in the Web3 space",
+    "link": "https://tune-up-ten.vercel.app/",
+    "image": "/images/dapp-store/match.png"
+  },
+  {
+    "name": "DocsProtect",
+    "description": "A decentralized files storing app specially to be used by judges and lawyers",
+    "link": "https://rebuild-ownership-hackathon.vercel.app/",
+    "image": "/images/dapp-store/docsprotect.png"
+  }
+]

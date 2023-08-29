@@ -1,14 +1,21 @@
+import Card, { Cards } from '@components/dataverse/Card';
+import apps from './dapp-store.json';
+
 # DApp store
 
-## Data desktop
+## Production of data
 
-Identity computer comes with an online desktop.
-It is a cloud-based data window that can be opened in a web browser.
-Users can sign into this desktop with their own DID to view and manage their data and activities.
-They can browse various applications and open them directly within this desktop,
-with the applications automatically inheriting the user's identity from the system.
+Applications are the source of data.
 
-We have built this desktop to enable users to explore the web3 network in one place.
+Every day, people generate large amounts of data through their online activities. This data falls into two main categories:
+
+- Content - Includes anything users actively create and share, such as social media posts, photos, videos, and documents.
+
+- Activity Logs - Includes records of users' interactions and behaviors within applications, such as search queries, clicks, views, purchases, and more.
+
+Both types of data originate from people utilizing various online services and applications. The internet is not just a massive file storage system. Rather, it primarily provides access to diverse apps and services that facilitate different aspects of digital life.
+
+These applications effectively serve as interfaces to collect and structure users' data. So most personal data on the internet is generated as a byproduct of users interacting with apps, as opposed to being manually uploaded.
 
 <img
   src="/images/introduction/desktop.jpg"
@@ -18,8 +25,10 @@ We have built this desktop to enable users to explore the web3 network in one pl
 
 DataverseOS empowers various dapps to provide users with a seamless & rich web3.0 experience.
 
+## Ecosystem apps
+
 We have been expanding first-party applications to provide users with essential system functionalities.
-For instance, [Finder](https://dataverse-os.com/finder) is our official application, which serves as an encrypted cloud-based personal folder,
+For instance, [Playground](https://dataverse-os.com/playground) is our official social application as a demonstration of decentralized prototype of Twitter,
 enabling users to view, manage, and monetize their cross-application data.
 
 We also provide developers with SDKs and other tools to assist them in developing various applications on the OS,
@@ -31,18 +40,19 @@ These applications span across various domains, including decentralized social n
 
 There has already been a bunch of applications in the dapp store, including:
 
-- [Playground](https://playground.dataverse-os.com)
+<Cards
+  num={3}
+  children={apps.map((app, i) => (
+    <Card
+      key={i}
+      title={app.name}
+      description={app.description}
+      img={app.image}
+      href={app.link}
+    />
+  ))}
+/>
 
-- [WordBlock](https://chrome.google.com/webstore/detail/wordblock/jbihofgilkjgaofihhklnkeocejckcjk)
-
-- [Arazzo](https://venerable-queijadas-290c8d.netlify.app/)
-
-- [Daisi](https://daisi.social/)
-
-- [Soulcial](https://soulcial.discoverse.club/)
-
-- Pensieve
-
-- Twitt3r
+<div className="h-5"></div>
 
 🚀 Welcome to try our SDK and list your application on our DApp store!
