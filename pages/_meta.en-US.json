@@ -3,10 +3,6 @@
     "title": "Home",
     "type": "page"
   },
-  "introduction": {
-    "title": "Introduction",
-    "type": "hidden"
-  },
   "overview": {
     "title": "Introduction"
   },
