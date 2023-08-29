@@ -43,11 +43,15 @@
     "title": "Why DataverseOS?",
     "type": "hidden"
   },
-  "how-it-works": {
-    "title": "How it works?"
-  },
   "system-calls": {
     "title": "System Calls"
+  },
+  "-- Appendix": {
+    "type": "separator",
+    "title": "Appendix"
+  },
+  "how-it-works": {
+    "title": "How it works?"
   },
   "support": {
     "title": "Support"
