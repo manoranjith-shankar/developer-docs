@@ -1,10 +1,15 @@
 # checkCapability
 
-check if your application has been authorized
+Check if your application has been authorized
 
 ## Usage
 ```javascript
-await dataverseConnector.checkCapability(app)
+await dataverseConnector.runOS({
+  method: SYSTEM_CALL.checkCapability,
+  params: {
+    appId,
+  },
+});
 ```
 
 ## Parameters
