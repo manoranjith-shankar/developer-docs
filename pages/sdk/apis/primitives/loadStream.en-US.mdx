@@ -7,8 +7,11 @@ Load a data stream by streamId
 ## Usage
 
 ```javascript
-await dataverseConnector.loadStream({
-  streamId: 'kjzl6kcym7w8ya8g9cj5764kll6veldqws40ub29r1odut2pxiqxet80sl9p6th',
+await dataverseConnector.runOS({
+  method: SYSTEM_CALL.loadStream,
+  params: {
+    streamId: 'kjzl6kcym7w8ya8g9cj5764kll6veldqws40ub29r1odut2pxiqxet80sl9p6th',
+  },
 });
 ```
 

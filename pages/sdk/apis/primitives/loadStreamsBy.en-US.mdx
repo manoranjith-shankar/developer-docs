@@ -4,9 +4,12 @@ Load multiple streams under a data model
 
 ## Usage
 ```js
-await dataverseConnector.loadStreamsBy({
-  modelId,
-  pkh
+await dataverseConnector.runOS({
+  method: SYSTEM_CALL.loadStreamsBy,
+  params: {
+    modelId,
+    pkh,
+  },
 });
 ```
 
