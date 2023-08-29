@@ -3,11 +3,29 @@
     "title": "Home",
     "type": "page"
   },
-  "overview": {
-    "title": "Overview"
-  },
   "introduction": {
+    "title": "Introduction",
+    "type": "hidden"
+  },
+  "overview": {
     "title": "Introduction"
+  },
+  "-- Products": {
+    "type": "separator",
+    "title": "Products"
+  },
+  "dataverse-cloud": {
+    "title": "Dataverse Cloud"
+  },
+  "dataverse-wallet": {
+    "title": "Dataverse Wallet"
+  },
+  "dapp-store": {
+    "title": "DApp Store"
+  },
+  "-- Build": {
+    "type": "separator",
+    "title": "Build"
   },
   "key-concepts": {
     "title": "Key Concepts"
@@ -52,13 +70,13 @@
     "title": "Build",
     "type": "menu",
     "items": {
-      "rebuild-ownership": {
-        "title": "Rebuild Ownership",
-        "href": "https://rebuild-ownership.devfolio.co/"
+      "Open Data Hack": {
+        "title": "Open Data Hack",
+        "href": "https://www.encode.club/open-data-hack"
       },
-      "hackfs": {
-        "title": "ETH Global HackFS 2023",
-        "href": "https://ethglobal.com/events/hackfs2023"
+      "ETHRome": {
+        "title": "ETH Rome",
+        "href": "https://ethrome.org/"
       }
     }
   },

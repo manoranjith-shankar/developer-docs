@@ -263,10 +263,11 @@ const config: DocsThemeConfig = {
     defaultMenuCollapseLevel: 1,
     titleComponent: ({ title, type }) =>
       type === 'separator' ? (
-        <div className="flex items-center gap-2">
-          <Logo height={10} width={10} />
-          {title}
-        </div>
+        // <div className="flex items-center gap-2">
+        //   <Logo height={10} width={10} />
+        //   {title}
+        // </div>
+        <div className="flex items-center gap-2">{title}</div>
       ) : (
         <>{title}</>
       ),
