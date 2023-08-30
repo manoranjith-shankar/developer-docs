@@ -6,25 +6,28 @@ Unlock a monetized file/folder, first will check if the decryptionConditions hav
 if so, will mint a Collect NFT and unlock the file/folder.
 
 ## Usage
-```js
-await runtimeConnector.unlock({
-  indexFileId:
-    "kjzl6kcym7w8y5xf0j7kmies5i30f86xlerbfp42qnxju2vfno1io6i04sy2p2d",  // or indexFileId | streamId
-});
 
+```js
+await dataverseConnector.unlock({
+  indexFileId:
+    'kjzl6kcym7w8y5xf0j7kmies5i30f86xlerbfp42qnxju2vfno1io6i04sy2p2d', // or indexFileId | streamId
+});
 ```
 
 ## Parameters
+
 ```js
 {
     streamId?: string;
     indexFileId?: string;
 }
 ```
+
 - `streamId`: `string` - The stream id if you are unlocking a data stream
 - `indexFileId`: `string` - The index file id if you are unlocking a file
 
 ## Returns
+
 ```js
 CollectOutput &
 {
@@ -34,11 +37,14 @@ CollectOutput &
   };
 }
 ```
+
 <Callout>
-    This function will send a transaction to mint a NFT, currently on Mumbai(Polygon Testnet).
+  This function will send a transaction to mint a NFT, currently on
+  Mumbai(Polygon Testnet).
 </Callout>
 
 Example:
+
 ```json
 {
   "streamContent": {

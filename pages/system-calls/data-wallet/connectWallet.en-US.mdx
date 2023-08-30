@@ -1,31 +1,64 @@
 # connectWallet
 
-Connet wallet.
+Connect wallet.
 
 ## Usage
-```js
-import { WALLET } from "@dataverse/runtime-connector";
 
-const pkh = await runtimeConnector.connectWallet(WALLET.METAMASK);
+1. connect with built-in wallets supported by Dataverse Wallet
+
+```js
+import { WALLET } from '@dataverse/dataverse-connector';
+
+const pkh = await dataverseConnector.connectWallet({
+  wallet: WALLET.METAMASK,
+});
+```
+
+2. pass in any [Ethereum Provider](https://eips.ethereum.org/EIPS/eip-1193) to use
+
+```js
+import { WALLET } from '@dataverse/dataverse-connector';
+
+const pkh = await dataverseConnector.connectWallet({
+  provider: window.ethereum,
+});
 ```
 
 ## Parameters
-`enum WALLET`
+
+- `enum WALLET` - which wallet to connect with
+
 ```js
 enum WALLET {
   METAMASK = "MetaMask",
-  PARTICLE = "Particle"
+  WALLETCONNECT = "WalletConnect",
+  COINBASE = "Coinbase",
+  PARTICLE = "Particle",
+  EXTERNAL_WALLET = "ExternalWallet",
 }
 ```
 
+or
+
+- `any` - providers conforming to [EIP-1193: Ethereum Provider JavaScript API](https://eips.ethereum.org/EIPS/eip-1193)
+
 ## Returns
+
+```js
+Promise<{
+    address: string;
+    chain: Chain;
+    wallet: WALLET;
+}>
+```
+
 ```json
 {
-    "address": "0x312eA852726E3A9f633A0377c0ea882086d66666",
-    "chain": {
-        "chainId": 80001,
-        "chainName": "mumbai"
-    },
-    "wallet": "MetaMask"
+  "address": "0x312eA852726E3A9f633A0377c0ea882086d66666",
+  "chain": {
+    "chainId": 80001,
+    "chainName": "mumbai"
+  },
+  "wallet": "MetaMask"
 }
 ```

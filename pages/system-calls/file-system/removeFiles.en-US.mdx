@@ -3,24 +3,27 @@
 Delete specified files.
 
 ## Usage
+
 ```js
-await runtimeConnector.removeFiles({
+await dataverseConnector.removeFiles({
   indexFileIds: [indexFileId],
 });
 ```
 
 ## Parameters
+
 ```js
 {
     indexFileIds: string[];
     syncImmediately?: boolean;
 }
 ```
+
 - `indexFileIds`: `string[]` - array of file ids to delete.
 - `syncImmediately`: `boolean` - Whether to sync to data networks immediately or wait for the os scheduler. Default is `false`.
 
-
 ## Returns
+
 ```
 {
     sourceFolders: StructuredFolders;
@@ -28,7 +31,9 @@ await runtimeConnector.removeFiles({
     allFolders: StructuredFolders;
 }
 ```
+
 Example:
+
 ```js
 {
   allFolders: {

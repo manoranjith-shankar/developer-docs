@@ -5,15 +5,16 @@ To update the base information of a file.
 ## Usage
 
 ```js
-await runtimeConnector.updateFileBaseInfo({
+await dataverseConnector.updateFileBaseInfo({
   indexFileId,
   fileInfo: {
-    mirrorName
+    mirrorName,
   },
 });
 ```
 
 ## Parameters
+
 ```js
 {
     indexFileId: string;
@@ -28,34 +29,38 @@ await runtimeConnector.updateFileBaseInfo({
     syncImmediately?: boolean;
 }
 ```
+
 - `indexFileId`: `string` - The indexfile id.
 - `fileInfo`: `Omit<FileInfo, | "datatokenId" | "fileKey" | "encryptedSymmetricKey" | "decryptionConditions" | "decryptionConditionsType">` - detailed information of the file.
-    ```js
-    interface FileInfo {
-        contentId?: string;
-        contentType?: IndexFileContentType;
-        mirrorName?: string;
-        note?: string;
-        tags?: string[];
-        originType?: OriginType;
-        originURL?: string;
-        originDate?: string;
-        embedURL?: string;
-        contentURL?: string;
-        fileType?: FileType;
-    }
-    ```
+  ```js
+  interface FileInfo {
+    contentId?: string;
+    contentType?: IndexFileContentType;
+    mirrorName?: string;
+    note?: string;
+    tags?: string[];
+    originType?: OriginType;
+    originURL?: string;
+    originDate?: string;
+    embedURL?: string;
+    contentURL?: string;
+    fileType?: FileType;
+  }
+  ```
 - `syncImmediately`: `boolean` - Whether to sync to data networks immediately or wait for the os scheduler.
 
 ## Returns
+
 ```js
 {
-    currentFile: MirrorFile;
-    currentFolder: StructuredFolder;
-    allFolders: StructuredFolders;
+  currentFile: MirrorFile;
+  currentFolder: StructuredFolder;
+  allFolders: StructuredFolders;
 }
 ```
+
 Example:
+
 ```js
 {
     currentFile: {

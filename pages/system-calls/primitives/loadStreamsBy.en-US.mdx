@@ -3,25 +3,30 @@
 Load multiple streams under a data model
 
 ## Usage
+
 ```js
-await runtimeConnector.loadStreamsBy({
+await dataverseConnector.loadStreamsBy({
   modelId,
-  pkh
+  pkh,
 });
 ```
 
 ## Parameters
+
 ```js
 {
   modelId: string;
   pkh?: string;
 }
 ```
+
 - `modelId`: `string` - the data model id
 - `pkh?`: `string` - user did, if not provided, will return all streams under the data model
 
 ## Returns
+
 return a `<streamid, content>` map
+
 ```json
 {
   "kjzl6kcym7w8y9bpn9dybvos7g52mowaq33fom5fq6x19k89fe57cyvnop6ppm0": {
@@ -30,7 +35,7 @@ return a `<streamid, content>` map
     "modelId": "kjzl6hvfrbw6c7gkypf9654o0vu1jd1q85fcnyrpc1koobuys71zhp0m7kbmrvs",
     "streamContent": {
       "content": {
-        ..., 
+        ...,
         "encrypted": "..."
       },
       "file": {
