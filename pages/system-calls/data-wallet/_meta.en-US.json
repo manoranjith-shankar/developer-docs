@@ -1,11 +1,4 @@
 {
-  "selectWallet": {
-    "title": "selectWallet",
-    "icon": "",
-    "description": "",
-    "href": "/system-calls/data-wallet/selectWallet",
-    "type": "hidden"
-  },
   "connectWallet": {
     "title": "connectWallet",
     "icon": "",

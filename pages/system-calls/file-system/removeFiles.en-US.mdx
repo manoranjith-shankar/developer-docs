@@ -3,7 +3,6 @@
 Delete specified files.
 
 ## Usage
-
 ```js
 await dataverseConnector.removeFiles({
   indexFileIds: [indexFileId],
@@ -11,19 +10,17 @@ await dataverseConnector.removeFiles({
 ```
 
 ## Parameters
-
 ```js
 {
     indexFileIds: string[];
     syncImmediately?: boolean;
 }
 ```
-
 - `indexFileIds`: `string[]` - array of file ids to delete.
-- `syncImmediately`: `boolean` - Whether to sync to data networks immediately or wait for the os scheduler. Default is `false`.
+- OPTIONAL - `syncImmediately`: `boolean` - Whether to sync to data networks immediately or wait for the os scheduler. Default is `false`.
+
 
 ## Returns
-
 ```
 {
     sourceFolders: StructuredFolders;
@@ -31,9 +28,7 @@ await dataverseConnector.removeFiles({
     allFolders: StructuredFolders;
 }
 ```
-
 Example:
-
 ```js
 {
   allFolders: {

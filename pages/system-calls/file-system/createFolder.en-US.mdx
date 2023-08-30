@@ -5,7 +5,7 @@ create a public/private folder
 ## Usage
 
 ```js
-import { FolderType } from '@dataverse/dataverse-connector';
+import { FolderType } from "@dataverse/dataverse-connector";
 
 await dataverseConnector.createFolder({
   folderType: FolderType.Private,
@@ -14,7 +14,6 @@ await dataverseConnector.createFolder({
 ```
 
 ## Parameters
-
 ```js
 {
     folderType: FolderType;
@@ -22,29 +21,25 @@ await dataverseConnector.createFolder({
     folderDescription?: string;
 }
 ```
-
 - `folderType`: `FolderType` - folder type
-  ```js
-  enum FolderType {
-      Public,
-      Private,
-      Datatoken
-  }
-  ```
+    ```js
+    enum FolderType {
+        Public,
+        Private,
+        Datatoken
+    }
+    ```
 - `folderName`: `string` - folder name
-- `folderDescription`: `string` - folder description
+- OPTIONAL - `folderDescription`: `string` - folder description
 
 ## Returns
-
 ```js
 {
   newFolder: StructuredFolder;
   allFolders: StructuredFolders;
 }
 ```
-
 Example:
-
 ```json
 {
   "newFolder": {

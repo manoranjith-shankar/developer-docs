@@ -3,7 +3,6 @@
 Mark a folder as `deleted`.
 
 ## Usage
-
 ```js
 await dataverseConnector.deleteFolder({
   folderId,
@@ -11,28 +10,23 @@ await dataverseConnector.deleteFolder({
 ```
 
 ## Parameters
-
 ```js
 {
     folderId: string;
     syncImmediately?: boolean;
 }
 ```
-
 - `folderId` - The folder id.
-- `syncImmediately` - Whether to sync the deletion to data network immediately or wait for os schedule. Default is `false`.
+- OPTIONAL - `syncImmediately` - Whether to sync the deletion to data network immediately or wait for os schedule. Default is `false`.
 
 ## Returns
-
 ```js
 {
-  currentFolder: StructuredFolder;
-  allFolders: StructuredFolders;
+    currentFolder: StructuredFolder;
+    allFolders: StructuredFolders;
 }
 ```
-
 Example:
-
 ```json
 {
   "currentFolder": {

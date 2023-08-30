@@ -1,17 +1,31 @@
 # checkCapability
 
-check if your application has been authorized
+Check if your application has been authorized
 
 ## Usage
-
 ```javascript
-await dataverseConnector.checkCapability(app);
+await dataverseConnector.runOS({
+  method: SYSTEM_CALL.checkCapability,
+  params: {
+    appId,
+  },
+});
 ```
 
 ## Parameters
-
-`app`: `string` - the name of the application you want to check
+```js
+{
+  app: string;
+  resource?: RESOURCE;
+}
+```
+- `app`: `string` - which app is asking for authorization.
+- OPTIONAL - `resource`: `RESOURCE` - Resource to give access to the capability.
+  ```js
+  enum RESOURCE {
+    CERAMIC,
+  }
+  ```
 
 ## Returns
-
 `boolean` - true if the application has been authorized, false otherwise

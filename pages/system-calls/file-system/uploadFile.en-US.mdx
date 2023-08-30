@@ -3,7 +3,6 @@
 Upload a file to a folder.
 
 ## Usage
-
 ```js
 await dataverseConnector.uploadFile({
   folderId,
@@ -15,7 +14,6 @@ await dataverseConnector.uploadFile({
 ```
 
 ## Parameters
-
 ```js
 {
     folderId: string;
@@ -23,17 +21,15 @@ await dataverseConnector.uploadFile({
     fileName: string;
     encrypted: boolean;
     storageProvider: StorageProvider;
-    syncImmediately?: boolean;
 }
 ```
-
-- `folderId`: `string` - The folder id.
+- OPTIONAL - `folderId`: `string` - The folder id.
 - `fileBase64`: `string` - The file data in base64 format.
 - `fileName`: `string` - The file name.
 - `encrypted`: `boolean` - Whether the file is encrypted.
-- `storageProvider`: `StorageProvider` - The upload provider. this field specifies
-  which IPFS gateway to use. developers can choose between `web3.storage` and `lighthouse`.
-  `js
+- `storageProvider`: `StorageProvider` - The upload provider. This field specifies
+which IPFS gateway to use. Developers can choose between `web3.storage` and `lighthouse`.
+    ```js
     interface storageProvider {
         name: StorageProviderName;
         apiKey: string;
@@ -42,21 +38,17 @@ await dataverseConnector.uploadFile({
         Web3Storage,
         Lighthouse,
     }
-    `
-- `syncImmediately`: `boolean` - Whether to sync immediately.
+    ```
 
 ## Returns
-
 ```js
 {
-  newFile: MirrorFile;
-  currentFolder: StructuredFolder;
-  allFolders: StructuredFolders;
+    newFile: MirrorFile;
+    currentFolder: StructuredFolder;
+    allFolders: StructuredFolders;
 }
 ```
-
 Example:
-
 ```json
 {
   "newFile": {

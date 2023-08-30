@@ -1,6 +1,6 @@
 # getCurrentWallet
 
-get the current wallet connected.
+Get the current wallet connected.
 
 ## Usage
 
@@ -13,6 +13,14 @@ await dataverseConnector.getCurrentWallet();
 void
 
 ## Returns
+
+```js
+Promise<{
+    address: string;
+    chain: Chain;
+    wallet: WALLET;
+}>
+```
 
 ```json
 {
