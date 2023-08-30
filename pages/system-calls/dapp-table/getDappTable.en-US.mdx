@@ -5,46 +5,54 @@ Function for getting the list of registered dataverse apps.
 ## Usage
 
 ```js
-await dataverseConnector.getDAppTable()
+await dataverseConnector.getDAppTable();
 ```
 
 ## Parameters
+
 void
 
 ## Returns
+
+`Promise<Dapp[]>`
+
 ```json
-{
-  "Dataverse": {
-    "website": "https://dataverse-os.com/",
-    "logo": "https://s3.ap-east-1.amazonaws.com/dataverse-os.com/assets/logo2.35a5744e.png",
-    "defaultFolderName": "Untitled",
-    "description": "A Web3-native Operating System with Self-sovereignty Data Space",
-    "ceramic": "https://dataverseceramicdaemon.com",
-    "models": {
-      "kjzl6hvfrbw6c56xdo1a2z8s96z31i70vyz8rm7bzhr8uz8an9xmk27apcp6lst": {
-        "modelId": "kjzl6hvfrbw6c56xdo1a2z8s96z31i70vyz8rm7bzhr8uz8an9xmk27apcp6lst",
-        "modelName": "indexFolders",
-        "isPublicDomain": false
-      },
-      "kjzl6hvfrbw6c6fmbkbnaxut1ksfljgiq24a7y9z47o15stntc5nbdat655a0d1": {
-        "modelId": "kjzl6hvfrbw6c6fmbkbnaxut1ksfljgiq24a7y9z47o15stntc5nbdat655a0d1",
-        "modelName": "contentFolders",
-        "isPublicDomain": false
-      },
-      "kjzl6hvfrbw6c7sf2o6pueqacza0x9zza54pdxdrei50aw1gesmrewghope97f9": {
-        "modelId": "kjzl6hvfrbw6c7sf2o6pueqacza0x9zza54pdxdrei50aw1gesmrewghope97f9",
-        "modelName": "indexFiles",
-        "isPublicDomain": false
-      },
-      "kjzl6hvfrbw6c9p8dty6snnp028mzau052p9s7edj9tffef393h2pels32ykocz": {
-        "modelId": "kjzl6hvfrbw6c9p8dty6snnp028mzau052p9s7edj9tffef393h2pels32ykocz",
-        "modelName": "dataverse_profile",
-        "isPublicDomain": true,
-        "encryptable": null
-      }
-    }
+[
+  {
+    "id": "319e6aa6-916d-46fc-a7bf-4c4b0cb04919",
+    "createdAt": 1691665818,
+    "updatedAt": 1691665818,
+    "deletedAt": null,
+    "name": "dataverse_app_base_example",
+    "logo": "https://bafybeifozdhcbbfydy2rs6vbkbbtj3wc4vjlz5zg2cnqhb2g4rm2o5ldna.ipfs.w3s.link/dataverse.svg",
+    "website": [],
+    "defaultFolderName": "Main",
+    "description": "This is dataverse app example.",
+    "models": [
+        {
+            "modelName": "post",
+            "internal": false,
+            "streams": [
+                {
+                    "modelId": "kjzl6hvfrbw6catndj34fzm0au0qu8dznn6wtrrdmd4va7052ffiypywqd8fjg9",
+                    "createdAt": 1691665818,
+                    "schema": "type post @createModel(accountRelation: LIST, description: \"Dataverse: 319e6aa6-916d-46fc-a7bf-4c4b0cb04919 | post\") {\n  author: DID! @documentAccount\n  version: CommitID! @documentVersion\n  appVersion: String! @string(maxLength: 100)\n  text: String @string(maxLength: 300000000)\n  images: [String] @list(maxLength: 10000000) @string(maxLength: 2000000)\n  videos: [String] @list(maxLength: 10000000) @string(maxLength: 2000000)\n  options: String @string(maxLength: 300000000)\n  createdAt: DateTime!\n  updatedAt: DateTime!\n  encrypted: String @string(maxLength: 300000000)\n}",
+                    "isPublicDomain": false,
+                    "encryptable": [
+                        "text",
+                        "images",
+                        "videos"
+                    ],
+                    "version": 0,
+                    "latest": true
+                }
+            ]
+        },
+        ...
+    ],
+    "address": "0x65AB67C2d00cF7CfE8FE1E8A6C47535dDB9260eE",
+    "ceramic": "https://dataverseceramicdaemon.com"
   },
-  "some other dataverse app":{...}
   ...
-}
+]
 ```
