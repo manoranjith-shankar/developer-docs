@@ -3,18 +3,18 @@
     "title": "getDappTable",
     "icon": "",
     "description": "",
-    "href": "/sdk/apis/dapp-table/getDappTable"
+    "href": "/system-calls/dapp-table/getDappTable"
   },
   "getDappInfo": {
     "title": "getDappInfo",
     "icon": "",
     "description": "",
-    "href": "/sdk/apis/dapp-table/getDappInfo"
+    "href": "/system-calls/dapp-table/getDappInfo"
   },
   "getModelBaseInfo": {
     "title": "getModelBaseInfo",
     "icon": "",
     "description": "",
-    "href": "/sdk/apis/dapp-table/getModelBaseInfo"
+    "href": "/system-calls/dapp-table/getModelBaseInfo"
   }
 }
