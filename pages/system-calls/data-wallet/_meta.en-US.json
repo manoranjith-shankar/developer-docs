@@ -12,29 +12,17 @@
     "href": "/system-calls/data-wallet/getCurrentWallet",
     "type": "hidden"
   },
-  "switchNetwork": {
-    "title": "switchNetwork",
+  "getProvider": {
+    "title": "getProvider",
     "icon": "",
     "description": "",
-    "href": "/system-calls/data-wallet/switchNetwork"
-  },
-  "sign": {
-    "title": "sign",
-    "icon": "",
-    "description": "",
-    "href": "/system-calls/data-wallet/sign"
+    "href": "/system-calls/data-wallet/getProvider"
   },
   "contractCall": {
     "title": "contractCall",
     "icon": "",
     "description": "",
     "href": "/system-calls/data-wallet/contractCall"
-  },
-  "ethereumRequest": {
-    "title": "ethereumRequest",
-    "icon": "",
-    "description": "",
-    "href": "/system-calls/data-wallet/ethereumRequest"
   },
   "getCurrentPkh": {
     "title": "getCurrentPkh",

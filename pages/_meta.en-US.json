@@ -39,6 +39,10 @@
     "title": "Why DataverseOS?",
     "type": "hidden"
   },
+  "-- API": {
+    "type": "separator",
+    "title": "API"
+  },
   "system-calls": {
     "title": "System Calls"
   },
