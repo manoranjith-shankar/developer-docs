@@ -1,8 +1,8 @@
 import { Callout } from 'nextra-theme-docs';
 
-# connectPKPWallet
+# getPKP
 
-Connet to a [Lit PKP](https://developer.litprotocol.com/pkp/intro) wallet.
+Connect to a [Lit PKP](https://developer.litprotocol.com/pkp/intro) wallet.
 
 Each Programmable Key Pair (PKP) is a versatile MPC wallet. DataverseOS integrates PKP to:
 
@@ -19,7 +19,7 @@ Each Programmable Key Pair (PKP) is a versatile MPC wallet. DataverseOS integrat
 ## Usage
 
 ```js
-await dataverseConnector.connectPKPWallet();
+await dataverseConnector.runOS({ method: SYSTEM_CALL.getPKP });
 ```
 
 ## Parameters

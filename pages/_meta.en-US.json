@@ -43,6 +43,12 @@
     "type": "separator",
     "title": "API"
   },
+  "wallet-apis": {
+    "title": "Wallet APIs"
+  },
+  "dapp-store-apis": {
+    "title": "DApp Store APIs"
+  },
   "system-calls": {
     "title": "System Calls"
   },

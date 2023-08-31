@@ -1,0 +1,51 @@
+{
+  "connectWallet": {
+    "title": "connectWallet",
+    "icon": "",
+    "description": "",
+    "href": "/wallet-apis/connectWallet"
+  },
+  "getCurrentWallet": {
+    "title": "getCurrentWallet",
+    "icon": "",
+    "description": "",
+    "href": "/wallet-apis/getCurrentWallet",
+    "type": "hidden"
+  },
+  "getCurrentPkh": {
+    "title": "getCurrentPkh",
+    "icon": "",
+    "description": "",
+    "href": "/wallet-apis/getCurrentPkh"
+  },
+  "getProvider": {
+    "title": "getProvider",
+    "icon": "",
+    "description": "",
+    "href": "/wallet-apis/getProvider"
+  },
+  "createProfile": {
+    "title": "createProfile",
+    "icon": "",
+    "description": "",
+    "href": "/wallet-apis/createProfile"
+  },
+  "getProfiles": {
+    "title": "getProfiles",
+    "icon": "",
+    "description": "",
+    "href": "/wallet-apis/getProfiles"
+  },
+  "getDatatokenBaseInfo": {
+    "title": "getDatatokenBaseInfo",
+    "icon": "",
+    "description": "",
+    "href": "/wallet-apis/getDatatokenBaseInfo"
+  },
+  "isCollected": {
+    "title": "isCollected",
+    "icon": "",
+    "description": "",
+    "href": "/wallet-apis/isCollected"
+  }
+}

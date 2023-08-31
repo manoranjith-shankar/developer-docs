@@ -16,10 +16,12 @@ void
 
 Return an Ethereum Provider object.
 
+## Examples
+
 With the Ethereum Provider, you can call JavaScript API specified in EIP-1193,
 similar to calling MetaMask functions via `window.ethereum`. For example,
 
-1. Send a transaction
+### 1. Send a transaction
 
 ```js
 const provider = await dataverseConnector.getProvider();
@@ -35,7 +37,7 @@ await provider.request({
 });
 ```
 
-2. Switch chain
+### 2. Switch chain
 
 ```js
 const provider = await dataverseConnector.getProvider();
@@ -45,7 +47,7 @@ await provider.request({
 });
 ```
 
-3. Sign a message
+### 3. Sign a message
 
 ```js
 const provider = await dataverseConnector.getProvider();
@@ -98,4 +100,15 @@ await provider.request({
     }),
   ],
 });
+```
+
+### 4. Call a smart contract function
+
+```js
+import Web3 from 'web3';
+const provider = await dataverseConnector.getProvider();
+// Create Web3 instance
+const web3 = new Web3(provider); // use the provider from dataverse.
+const contract = new web3.eth.Contract(ABI, ADDRESS);
+...
 ```
