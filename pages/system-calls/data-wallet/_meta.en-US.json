@@ -5,6 +5,30 @@
     "description": "",
     "href": "/system-calls/data-wallet/connectWallet"
   },
+  "createProfile": {
+    "title": "createProfile",
+    "icon": "",
+    "description": "",
+    "href": "/system-calls/data-wallet/createProfile"
+  },
+  "getProfiles": {
+    "title": "getProfiles",
+    "icon": "",
+    "description": "",
+    "href": "/system-calls/data-wallet/getProfiles"
+  },
+  "getDatatokenBaseInfo": {
+    "title": "getDatatokenBaseInfo",
+    "icon": "",
+    "description": "",
+    "href": "/system-calls/data-wallet/getDatatokenBaseInfo"
+  },
+  "isCollected": {
+    "title": "isCollected",
+    "icon": "",
+    "description": "",
+    "href": "/system-calls/data-wallet/isCollected"
+  },
   "getCurrentWallet": {
     "title": "getCurrentWallet",
     "icon": "",

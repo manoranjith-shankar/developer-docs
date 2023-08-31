@@ -1,0 +1,34 @@
+import { Callout } from 'nextra-theme-docs';
+
+# getProfiles
+
+Get Lens Profiles under a wallet address.
+
+## Usage
+
+```js
+await dataverseConnector.getProfiles(address);
+```
+
+## Parameters
+
+- `string` - wallet address.
+
+## Returns
+
+```js
+Promise<{
+    id: string;
+}[]>
+```
+
+```js
+[
+  {
+    id: '0x0230',
+  },
+  {
+    id: '0x02d4',
+  },
+];
+```
