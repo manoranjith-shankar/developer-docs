@@ -49,7 +49,7 @@
   },
   {
     "name": "CypherSync",
-    "description": "A cloudverse where users can store their files, write notes and books in markdown, and create blogs",
+    "description": "A cloudverse where users can store their files, write notes and books and create blogs",
     "link": "https://cypher-sync-mzi6.vercel.app/",
     "image": "/images/dapp-store/cyphersync.png"
   },

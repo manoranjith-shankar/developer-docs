@@ -11,6 +11,12 @@
     "description": "",
     "href": "/system-calls/checkCapability"
   },
+  "getValidAppCaps": {
+    "title": "getValidAppCaps",
+    "icon": "",
+    "description": "",
+    "href": "/system-calls/getValidAppCaps"
+  },
   "getModelBaseInfo": {
     "title": "getModelBaseInfo",
     "icon": "",
