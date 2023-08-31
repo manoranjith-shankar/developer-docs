@@ -3,52 +3,61 @@
 Upload a file to a folder.
 
 ## Usage
+
 ```js
-await dataverseConnector.uploadFile({
-  folderId,
-  fileBase64,
-  fileName,
-  encrypted: false,
-  storageProvider,
+await dataverseConnector.runOS({
+  method: SYSTEM_CALL.uploadFile,
+  params: {
+    folderId,
+    fileBase64,
+    fileName,
+    encrypted: false,
+    storageProvider,
+  },
 });
 ```
 
 ## Parameters
+
 ```js
 {
-    folderId: string;
-    fileBase64: string;
-    fileName: string;
-    encrypted: boolean;
-    storageProvider: StorageProvider;
+  folderId: string;
+  fileBase64: string;
+  fileName: string;
+  encrypted: boolean;
+  storageProvider: StorageProvider;
 }
 ```
+
 - OPTIONAL - `folderId`: `string` - The folder id.
 - `fileBase64`: `string` - The file data in base64 format.
 - `fileName`: `string` - The file name.
 - `encrypted`: `boolean` - Whether the file is encrypted.
 - `storageProvider`: `StorageProvider` - The upload provider. This field specifies
-which IPFS gateway to use. Developers can choose between `web3.storage` and `lighthouse`.
-    ```js
-    interface storageProvider {
-        name: StorageProviderName;
-        apiKey: string;
-    }
-    enum StorageProviderName {
-        Web3Storage,
-        Lighthouse,
-    }
-    ```
+  which IPFS gateway to use. Developers can choose between `web3.storage` and `lighthouse`.
+  `js
+  interface storageProvider {
+      name: StorageProviderName;
+      apiKey: string;
+  }
+  enum StorageProviderName {
+      Web3Storage,
+      Lighthouse,
+  }
+  `
 
 ## Returns
+
 ```js
 {
-    newFile: MirrorFile;
-    currentFolder: StructuredFolder;
-    allFolders: StructuredFolders;
+  newFile: MirrorFile;
+  currentFolder: StructuredFolder;
+  allFolders: StructuredFolders;
 }
 ```
+
 Example:
+
 ```json
 {
   "newFile": {

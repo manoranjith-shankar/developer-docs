@@ -5,10 +5,13 @@ Update the metadata of a folder
 ## Usage
 
 ```js
-await dataverseConnector.updateFolderBaseInfo({
-  folderId,
-  newFolderName,
-  newFolderDescription,
+await dataverseConnector.runOS({
+  method: SYSTEM_CALL.updateFolderBaseInfo,
+  params: {
+    folderId,
+    newFolderName,
+    newFolderDescription,
+  },
 });
 ```
 
