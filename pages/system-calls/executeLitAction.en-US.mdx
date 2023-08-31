@@ -19,7 +19,10 @@ const executeJsArgs = {
     sigName: 'sig1',
   },
 };
-const res = await dataverseConnector.executeLitAction(executeJsArgs);
+const res = await dataverseConnector.runOS({
+  method: SYSTEM_CALL.executeLitAction,
+  params: executeJsArgs,
+});
 ```
 
 ## Parameters
