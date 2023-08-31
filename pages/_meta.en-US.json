@@ -30,7 +30,17 @@
     "title": "Create Dataverse App"
   },
   "sdk": {
-    "title": "SDKs"
+    "title": "SDKs",
+    "type": "hidden"
+  },
+  "dataverse-connector": {
+    "title": "Dataverse Connector"
+  },
+  "wallet-adaptor": {
+    "title": "Wallet Adaptor"
+  },
+  "dweb-toolkits": {
+    "title": "DWeb Toolkits"
   },
   "code-examples": {
     "title": "Code Examples"

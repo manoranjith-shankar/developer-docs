@@ -17,10 +17,9 @@ powering your dapp with data sovereighty and content monetization.
   <Tabs
     items={[
       '👋 Introduction',
-      '🛠️ Create Dataverse App',
-      '🧑‍💻 SDK',
+      '🛠️ Tutorial',
+      '🧑‍💻 API Reference',
       '❓ How it works',
-      '🏗️ System Calls',
       '🫶 Support',
     ]}
   >
@@ -70,11 +69,24 @@ powering your dapp with data sovereighty and content monetization.
       <div className="mb-4 text-xl font-bold">Guides</div>
       <Cards num={2}>
         <Card
+          title="Key Concepts"
+          description="Explanation of several key concepts of DataverseOS."
+          icon="🔑"
+          href="/key-concepts"
+        />
+        <Card
           title="create-dataverse-app"
           description="A CLI tool to help you create a dataverse application."
           icon="🧩"
           href="/cli-and-tools"
         />
+        <Card
+          title="Dataverse Connector"
+          description="A quick guide to get you started with the dataverse-connector JS SDK."
+          icon="🚀"
+          href="/cli-and-tools"
+        />
+
       </Cards>
       <div className="text-right mt-4">
         <Link href="/cli-and-tools">View all →</Link>
@@ -184,5 +196,6 @@ powering your dapp with data sovereighty and content monetization.
         <Link href="/how-it-works">View all →</Link>
       </div>
     </Tab>
+
   </Tabs>
 </div>
