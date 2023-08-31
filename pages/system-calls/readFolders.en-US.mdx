@@ -5,7 +5,9 @@ Retrieve all folders under an app
 ## Usage
 
 ```js
-await dataverseConnector.readFolders();
+await dataverseConnector.runOS({
+  method: SYSTEM_CALL.readFolders,
+});
 ```
 
 ## Parameters
