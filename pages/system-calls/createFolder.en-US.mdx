@@ -7,9 +7,12 @@ Create a public/private folder
 ```js
 import { FolderType } from '@dataverse/dataverse-connector';
 
-await dataverseConnector.createFolder({
-  folderType: FolderType.Private,
-  folderName,
+await dataverseConnector.runOS({
+  method: SYSTEM_CALL.createFolder,
+  params: {
+    folderType: FolderType.Private,
+    folderName,
+  },
 });
 ```
 

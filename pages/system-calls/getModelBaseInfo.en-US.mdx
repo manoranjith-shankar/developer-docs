@@ -3,24 +3,36 @@
 Get information of a data model
 
 ## Usage
+
 ```js
-await dataverseConnector.getModelBaseInfo(modelId)
+await dataverseConnector.runOS({
+  method: SYSTEM_CALL.getModelBaseInfo,
+  params: modelId,
+});
 ```
 
 ## Parameters
+
 `modelId`: `string` - id of the model
 
 ## Returns
+
+Information of the model, for example:
+
 ```json
 {
-  "streamId": "kjzl6hvfrbw6c7gkypf9654o0vu1jd1q85fcnyrpc1koobuys71zhp0m7kbmrvs",
+  "streamId": "kjzl6hvfrbw6catndj34fzm0au0qu8dznn6wtrrdmd4va7052ffiypywqd8fjg9",
   "state": {
     "type": 2,
     "content": {
-      "name": "fxy001_post",
+      "name": "post",
       "views": {
-        "author": { "type": "documentAccount" },
-        "version": { "type": "documentVersion" }
+        "author": {
+          "type": "documentAccount"
+        },
+        "version": {
+          "type": "documentVersion"
+        }
       },
       "schema": {
         "type": "object",
@@ -35,33 +47,57 @@ await dataverseConnector.getModelBaseInfo(modelId)
         "$schema": "https://json-schema.org/draft/2020-12/schema",
         "required": ["appVersion", "createdAt", "updatedAt"],
         "properties": {
-          "text": { "type": "string", "maxLength": 300000000 },
+          "text": {
+            "type": "string",
+            "maxLength": 300000000
+          },
           "images": {
             "type": "array",
-            "items": { "type": "string", "maxLength": 2000000 },
+            "items": {
+              "type": "string",
+              "maxLength": 2000000
+            },
             "maxItems": 10000000
           },
           "videos": {
             "type": "array",
-            "items": { "type": "string", "maxLength": 2000000 },
+            "items": {
+              "type": "string",
+              "maxLength": 2000000
+            },
             "maxItems": 10000000
           },
-          "options": { "type": "string", "maxLength": 300000000 },
-          "createdAt": { "$ref": "#/$defs/GraphQLDateTime" },
-          "encrypted": { "type": "string", "maxLength": 300000000 },
-          "updatedAt": { "$ref": "#/$defs/GraphQLDateTime" },
-          "appVersion": { "type": "string", "maxLength": 100 }
+          "options": {
+            "type": "string",
+            "maxLength": 300000000
+          },
+          "createdAt": {
+            "$ref": "#/$defs/GraphQLDateTime"
+          },
+          "encrypted": {
+            "type": "string",
+            "maxLength": 300000000
+          },
+          "updatedAt": {
+            "$ref": "#/$defs/GraphQLDateTime"
+          },
+          "appVersion": {
+            "type": "string",
+            "maxLength": 100
+          }
         },
         "additionalProperties": false
       },
       "version": "1.0",
       "relations": {},
-      "description": "Dataverse:fxy001 | post",
-      "accountRelation": { "type": "list" }
+      "description": "Dataverse: 319e6aa6-916d-46fc-a7bf-4c4b0cb04919 | post",
+      "accountRelation": {
+        "type": "list"
+      }
     },
     "metadata": {
       "controllers": [
-        "did:key:z6MkwaB6fLUHjuB32VvDAFGZqVeuD5F1Gvf8eZLkiwfCSPaH"
+        "did:key:z6Mkm7jAJQDeYCqmhLCoam5z1SgSeshpNQwX9i6Lfuzd9qDY"
       ],
       "model": "kh4q0ozorrgaq2mezktnrmdwleo1d"
     },
@@ -69,19 +105,19 @@ await dataverseConnector.getModelBaseInfo(modelId)
     "anchorStatus": "ANCHORED",
     "log": [
       {
-        "cid": "bagcqceramix6bcpta2bwnutvdfktg5qdkhpzvqwydftwclvexsstzpxf4gua",
+        "cid": "bagcqcera5eo5g3vb5bvkcwi4tkiq4f5itzty3rtstu2mb4l7dxxnnp5ibq4q",
         "type": 0,
-        "timestamp": 1682242343
+        "timestamp": 1691666603
       },
       {
-        "cid": "bafyreihwsxis4vwuy4garbornimidloytlmjolom3dibcs3zhweup6dhou",
+        "cid": "bafyreidioewycjjqk4eyko5hbtzk527uvvfkn4jgjit4fkm4bydmnebbbi",
         "type": 2,
-        "timestamp": 1682242343
+        "timestamp": 1691666603
       }
     ],
     "anchorProof": {
-      "root": "bafyreigx4g3i6av2f57ybrfqqz6i5thtzzvpg7i4pszjxheczktfeekhda",
-      "txHash": "bagjqcgza36eijs2rlg47gnkp3uteax6oajr2gsw4fl4otapl4weqda2i7gvq",
+      "root": "bafyreia27kwj22wexqdehcyn46n5p2ozkjknohzwjn5i446yqykjwjj2rm",
+      "txHash": "bagjqcgzaxsc72rxw422aunjeg2u3dukrgsalw4iit3txzxodukf5telexqwq",
       "txType": "f(bytes32)",
       "chainId": "eip155:1"
     },
