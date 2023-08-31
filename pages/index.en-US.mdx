@@ -35,7 +35,7 @@ powering your dapp with data sovereighty and content monetization.
           title="What is DataverseOS?"
           description="A new kind of identity computer to visualize data files over dApps"
           icon="🏆"
-          href="/introduction/"
+          href="/overview"
         />
         <Card
           title="Dataverse Cloud"
@@ -57,7 +57,7 @@ powering your dapp with data sovereighty and content monetization.
         />
       </Cards>
       <div className="text-right mt-4">
-        <Link href="/introduction">View all →</Link>
+        <Link href="/overview">View all →</Link>
       </div>
     </Tab>
     <Tab>
@@ -84,38 +84,46 @@ powering your dapp with data sovereighty and content monetization.
           title="Dataverse Connector"
           description="A quick guide to get you started with the dataverse-connector JS SDK."
           icon="🚀"
-          href="/cli-and-tools"
+          href="/dataverse-connector"
         />
-
+        <Card
+          title="DWeb Toolkits"
+          description="A series of toolkits to ease integration of DataverseOS with various Web3 protocols."
+          icon="⚙️"
+          href="/dweb-toolkits"
+        />
       </Cards>
       <div className="text-right mt-4">
-        <Link href="/cli-and-tools">View all →</Link>
+        <Link href="/key-concepts">View all →</Link>
       </div>
     </Tab>
     <Tab>
       <div className="mb-8">
-        DataverseOS SDK is a collection of libraries that can power your app
+        DataverseOS APIs is a collection of methods that can power your app
         with identity, storage, ACL, monetization, etc. It provides system calls
         to access the DataverseOS kernel and its features.
       </div>
       <div className="mb-4 text-xl font-bold">Guides</div>
       <Cards num={2}>
         <Card
-          title="Dataverse Connector"
-          description="Start with our JavaScript SDK in 10 minutes."
+          title="Wallet APIs"
+          description="Wallet-related methods"
           icon="🚀"
-          href="/sdk/dataverse-connector"
+          href="/wallet-apis/connectWallet"
         />
         <Card
-          title="DWeb Toolkits"
-          description="A collection of libraries that ease integration with DWeb protocols."
+          title="DApp Store APIs"
+          description="APIs for querying DApp Table"
           icon="📝"
-          href="/sdk/dweb-toolkits"
+          href="/dapp-store-apis/getDappTable"
+        />
+        <Card
+          title="System Calls"
+          description="System call functions for building upon Dataverse Cloud"
+          icon="📝"
+          href="/system-calls/createCapability"
         />
       </Cards>
-      <div className="text-right mt-4">
-        <Link href="/sdk">View all →</Link>
-      </div>
     </Tab>
     <Tab>
       <div className="mb-8">
@@ -135,7 +143,7 @@ powering your dapp with data sovereighty and content monetization.
         <Link href="/how-it-works">View all →</Link>
       </div>
     </Tab>
-    <Tab>
+    {/* <Tab>
       <div className="mb-8">
         DataverseOS controls and coordinates multiple web3 protocols to build a
         new kind of identity computer, which powers storage-based dApp around
@@ -171,7 +179,7 @@ powering your dapp with data sovereighty and content monetization.
       <div className="text-right mt-4">
         <Link href="/system-calls">View all →</Link>
       </div>
-    </Tab>
+    </Tab> */}
     <Tab>
       <div className="mb-8">
         Welcome to contact us for any questions or feedbacks or seeking for
