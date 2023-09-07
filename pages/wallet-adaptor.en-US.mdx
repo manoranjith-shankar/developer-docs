@@ -1,16 +1,17 @@
 # Wallet Adaptor
 
-In the context of decentralized applications, a wallet adaptor allows you to connect your dApp 
-with various wallet providers, enabling secure interactions with blockchain networks. 
+In the context of decentralized applications, a wallet adaptor allows you to connect your dApp
+with various wallet providers, enabling secure interactions with blockchain networks.
 In this section, we'll focus on integrating Dataverse Wallet as a wallet provider using wagmi.
 
 ## wagmi
 
-wagmi is a JavaScript library that simplifies interactions with Ethereum wallets and providers.
+[wagmi](https://wagmi.sh/) is a JavaScript library that simplifies interactions with Ethereum wallets and providers.
 It offers React hooks and components for easy integration with your dApp.
 
 <Callout type="warning" emoji="⚠️">
-  Before we start, please make sure you have run your dataverse-connector demo from [here](https://github.com/dataverse-os/dataverse-connector)
+  Before we start, please make sure you have run your dataverse-connector demo
+  from [here](https://github.com/dataverse-os/dataverse-connector)
 </Callout>
 
 It will look like this
@@ -21,7 +22,7 @@ Click on `go to wagmi demo page`. It will take you to "http://localhost:5173/wag
 
 <img src="/images/wallet-adaptor/wagmi.png" />
 
-Click on the `Connect Wallet And Capability`. It will open the Dataverse Wallet extension Options page 
+Click on the `Connect Wallet And Capability`. It will open the Dataverse Wallet extension Options page
 from which you can select the wallet of your choice (MetaMask, WalletConnect, Coinbase, Particle).
 After connecting your wallet, you can use the react hooks provided by `wagmi` such as `useBalance`, `useEnsName`, etc.
 
