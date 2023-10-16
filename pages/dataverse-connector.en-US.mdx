@@ -42,6 +42,21 @@ import { DataverseConnector } from '@dataverse/dataverse-connector';
 const dataverseConnector = new DataverseConnector();
 ```
 
+<Callout type="info">
+If you are using the SDK in a `Vite` project, you may need to add the following to your `vite.config.ts` file:
+
+```ts
+export default defineConfig({
+  ...
+  define: {
+    'process.env': {},
+  },
+  ...
+});
+```
+
+</Callout>
+
 ## Step 2: Connect with user wallet
 
 ```javascript
