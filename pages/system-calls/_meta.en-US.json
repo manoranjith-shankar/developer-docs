@@ -29,6 +29,24 @@
     "description": "",
     "href": "/system-calls/createIndexFile"
   },
+  "updateIndexFile": {
+    "title": "updateIndexFile",
+    "icon": "",
+    "description": "",
+    "href": "/system-calls/updateIndexFile"
+  },
+  "createActionFile": {
+    "title": "createActionFile",
+    "icon": "",
+    "description": "",
+    "href": "/system-calls/createActionFile"
+  },
+  "updateActionFile": {
+    "title": "updateActionFile",
+    "icon": "",
+    "description": "",
+    "href": "/system-calls/updateActionFile"
+  },
   "loadFile": {
     "title": "loadFile",
     "icon": "",
@@ -40,12 +58,6 @@
     "icon": "",
     "description": "",
     "href": "/system-calls/loadFilesBy"
-  },
-  "updateIndexFile": {
-    "title": "updateIndexFile",
-    "icon": "",
-    "description": "",
-    "href": "/system-calls/updateIndexFile"
   },
   "createFolder": {
     "title": "createFolder",
@@ -125,6 +137,13 @@
     "description": "",
     "href": "/system-calls/unlockFile"
   },
+  "isFileUnlocked": {
+    "title": "isFileUnlocked",
+    "icon": "",
+    "description": "",
+    "href": "/system-calls/isFileUnlocked"
+  },
+
   "loadDatatokensCreatedBy": {
     "title": "loadDatatokensCreatedBy",
     "icon": "",
