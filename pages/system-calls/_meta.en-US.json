@@ -47,6 +47,25 @@
     "description": "",
     "href": "/system-calls/updateActionFile"
   },
+  "createBareFile": {
+    "title": "createBareFile",
+    "icon": "",
+    "description": "",
+    "href": "/system-calls/createBareFile"
+  },
+  "updateBareFile": {
+    "title": "updateBareFile",
+    "icon": "",
+    "description": "",
+    "href": "/system-calls/updateBareFile"
+  },
+  "uploadFile": {
+    "title": "uploadFile",
+    "icon": "",
+    "description": "",
+    "type": "hidden",
+    "href": "/system-calls/uploadFile"
+  },
   "loadFile": {
     "title": "loadFile",
     "icon": "",
@@ -58,6 +77,12 @@
     "icon": "",
     "description": "",
     "href": "/system-calls/loadFilesBy"
+  },
+  "loadBareFileContent": {
+    "title": "loadBareFileContent",
+    "icon": "",
+    "description": "",
+    "href": "/system-calls/loadBareFileContent"
   },
   "createFolder": {
     "title": "createFolder",
@@ -101,16 +126,11 @@
     "description": "",
     "href": "/system-calls/deleteFolder"
   },
-  "uploadFile": {
-    "title": "uploadFile",
-    "icon": "",
-    "description": "",
-    "href": "/system-calls/uploadFile"
-  },
   "updateFileBaseInfo": {
     "title": "updateFileBaseInfo",
     "icon": "",
     "description": "",
+    "type": "hidden",
     "href": "/system-calls/updateFileBaseInfo"
   },
   "moveFiles": {
