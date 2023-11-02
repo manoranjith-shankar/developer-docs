@@ -23,35 +23,47 @@
     "description": "",
     "href": "/system-calls/getModelBaseInfo"
   },
-  "createStream": {
-    "title": "createStream",
+  "createIndexFile": {
+    "title": "createIndexFile",
     "icon": "",
     "description": "",
-    "href": "/system-calls/createStream"
+    "href": "/system-calls/createIndexFile"
   },
-  "loadStream": {
-    "title": "loadStream",
+  "loadFile": {
+    "title": "loadFile",
     "icon": "",
     "description": "",
-    "href": "/system-calls/loadStream"
+    "href": "/system-calls/loadFile"
   },
-  "loadStreamsBy": {
-    "title": "loadStreamsBy",
+  "loadFilesBy": {
+    "title": "loadFilesBy",
     "icon": "",
     "description": "",
-    "href": "/system-calls/loadStreamsBy"
+    "href": "/system-calls/loadFilesBy"
   },
-  "updateStream": {
-    "title": "updateStream",
+  "updateIndexFile": {
+    "title": "updateIndexFile",
     "icon": "",
     "description": "",
-    "href": "/system-calls/updateStream"
+    "href": "/system-calls/updateIndexFile"
   },
   "createFolder": {
     "title": "createFolder",
     "icon": "",
     "description": "",
     "href": "/system-calls/createFolder"
+  },
+  "loadCreatedDatatokenFiles": {
+    "title": "loadCreatedDatatokenFiles",
+    "icon": "",
+    "description": "",
+    "href": "/system-calls/loadCreatedDatatokenFiles"
+  },
+  "loadCollectedDatatokenFiles": {
+    "title": "loadCollectedDatatokenFiles",
+    "icon": "",
+    "description": "",
+    "href": "/system-calls/loadCollectedDatatokenFiles"
   },
   "readFolderById": {
     "title": "readFolderById",
@@ -101,11 +113,17 @@
     "description": "",
     "href": "/system-calls/monetizeFile"
   },
-  "unlock": {
-    "title": "unlock",
+  "collectFile": {
+    "title": "collectFile",
     "icon": "",
     "description": "",
-    "href": "/system-calls/unlock"
+    "href": "/system-calls/collectFile"
+  },
+  "unlockFile": {
+    "title": "unlockFile",
+    "icon": "",
+    "description": "",
+    "href": "/system-calls/unlockFile"
   },
   "loadDatatokensCreatedBy": {
     "title": "loadDatatokensCreatedBy",
