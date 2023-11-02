@@ -8,25 +8,25 @@ Move specified files to the target folder
 await dataverseConnector.runOS({
   method: SYSTEM_CALL.moveFiles,
   params: {
-    targetFolderId,
-    sourceIndexFileIds: [],
+    targetFolderId: folderId,
+    fileIds: [actionFileId || indexFileId],
   },
 });
 ```
 
 ## Parameters
 
-- `string` - destination folder id
-- `Array<string>` - Id of files to move
+- `targetFolderId`: `string` - destination folder id
+- `fileIds`: `Array<string>` - Id of files to move
 
 ## Returns
 
 ```js
 {
-    movedFiles: Array<File>,
-    sourceFolders: Array<StructuredFolder>,
-    targetFolder: StructuredFolder,
-    allFolders: Array<StructuredFolder>
+  sourceFolders: StructuredFolderRecord;
+  targetFolder: StructuredFolder;
+  movedFiles: MirrorFileRecord;
+  allFolders: StructuredFolderRecord;
 }
 ```
 

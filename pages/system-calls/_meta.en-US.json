@@ -90,29 +90,17 @@
     "description": "",
     "href": "/system-calls/createFolder"
   },
-  "loadCreatedDatatokenFiles": {
-    "title": "loadCreatedDatatokenFiles",
+  "loadFolderById": {
+    "title": "loadFolderById",
     "icon": "",
     "description": "",
-    "href": "/system-calls/loadCreatedDatatokenFiles"
+    "href": "/system-calls/loadFolderById"
   },
-  "loadCollectedDatatokenFiles": {
-    "title": "loadCollectedDatatokenFiles",
+  "loadFolderTrees": {
+    "title": "loadFolderTrees",
     "icon": "",
     "description": "",
-    "href": "/system-calls/loadCollectedDatatokenFiles"
-  },
-  "readFolderById": {
-    "title": "readFolderById",
-    "icon": "",
-    "description": "",
-    "href": "/system-calls/readFolderById"
-  },
-  "readFolders": {
-    "title": "readFolders",
-    "icon": "",
-    "description": "",
-    "href": "/system-calls/readFolders"
+    "href": "/system-calls/loadFolderTrees"
   },
   "updateFolderBaseInfo": {
     "title": "updateFolderBaseInfo",
@@ -156,6 +144,18 @@
     "icon": "",
     "description": "",
     "href": "/system-calls/unlockFile"
+  },
+  "loadCreatedDatatokenFiles": {
+    "title": "loadCreatedDatatokenFiles",
+    "icon": "",
+    "description": "",
+    "href": "/system-calls/loadCreatedDatatokenFiles"
+  },
+  "loadCollectedDatatokenFiles": {
+    "title": "loadCollectedDatatokenFiles",
+    "icon": "",
+    "description": "",
+    "href": "/system-calls/loadCollectedDatatokenFiles"
   },
   "isFileUnlocked": {
     "title": "isFileUnlocked",
