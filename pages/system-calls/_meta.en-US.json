@@ -107,6 +107,42 @@
     "description": "",
     "href": "/system-calls/unlock"
   },
+  "loadDatatokensCreatedBy": {
+    "title": "loadDatatokensCreatedBy",
+    "icon": "",
+    "description": "",
+    "href": "/system-calls/loadDatatokensCreatedBy"
+  },
+  "loadDatatokensCollectedBy": {
+    "title": "loadDatatokensCollectedBy",
+    "icon": "",
+    "description": "",
+    "href": "/system-calls/loadDatatokensCollectedBy"
+  },
+  "loadDatatoken": {
+    "title": "loadDatatoken",
+    "icon": "",
+    "description": "",
+    "href": "/system-calls/loadDatatoken"
+  },
+  "loadDatatokens": {
+    "title": "loadDatatokens",
+    "icon": "",
+    "description": "",
+    "href": "/system-calls/loadDatatokens"
+  },
+  "loadDatatokenCollectors": {
+    "title": "loadDatatokenCollectors",
+    "icon": "",
+    "description": "",
+    "href": "/system-calls/loadDatatokenCollectors"
+  },
+  "isDatatokenCollectedBy": {
+    "title": "isDatatokenCollectedBy",
+    "icon": "",
+    "description": "",
+    "href": "/system-calls/isDatatokenCollectedBy"
+  },
   "removeFiles": {
     "title": "removeFiles",
     "icon": "",
