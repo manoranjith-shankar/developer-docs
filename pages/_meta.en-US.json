@@ -59,8 +59,21 @@
   "dapp-store-apis": {
     "title": "DApp Store APIs"
   },
-  "system-calls": {
+  "-- System-Calls": {
+    "type": "separator",
     "title": "System Calls"
+  },
+  "capability": {
+    "title": "Capability"
+  },
+  "folder": {
+    "title": "Folder"
+  },
+  "file": {
+    "title": "File"
+  },
+  "data-token": {
+    "title": "Data Token"
   },
   "-- Appendix": {
     "type": "separator",
@@ -90,13 +103,9 @@
     "title": "Build",
     "type": "menu",
     "items": {
-      "Open Data Hack": {
-        "title": "Open Data Hack",
-        "href": "https://www.encode.club/open-data-hack"
-      },
-      "ETHRome": {
-        "title": "ETH Rome",
-        "href": "https://ethrome.org/"
+      "Rebuild Ownership 2.0": {
+        "title": "Rebuild Ownership 2.0",
+        "href": "https://rebuild.dataverse.city/"
       }
     }
   },
