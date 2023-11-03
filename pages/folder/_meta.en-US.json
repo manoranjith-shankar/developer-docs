@@ -3,30 +3,30 @@
     "title": "createFolder",
     "icon": "",
     "description": "",
-    "href": "/system-calls/createFolder"
+    "href": "/folder/createFolder"
   },
   "loadFolderById": {
     "title": "loadFolderById",
     "icon": "",
     "description": "",
-    "href": "/system-calls/loadFolderById"
+    "href": "/folder/loadFolderById"
   },
   "loadFolderTrees": {
     "title": "loadFolderTrees",
     "icon": "",
     "description": "",
-    "href": "/system-calls/loadFolderTrees"
+    "href": "/folder/loadFolderTrees"
   },
   "updateFolderBaseInfo": {
     "title": "updateFolderBaseInfo",
     "icon": "",
     "description": "",
-    "href": "/system-calls/updateFolderBaseInfo"
+    "href": "/folder/updateFolderBaseInfo"
   },
   "deleteFolder": {
     "title": "deleteFolder",
     "icon": "",
     "description": "",
-    "href": "/system-calls/deleteFolder"
+    "href": "/folder/deleteFolder"
   }
 }

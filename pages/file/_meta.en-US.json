@@ -3,116 +3,116 @@
     "title": "createIndexFile",
     "icon": "",
     "description": "",
-    "href": "/system-calls/createIndexFile"
+    "href": "/file/createIndexFile"
   },
   "updateIndexFile": {
     "title": "updateIndexFile",
     "icon": "",
     "description": "",
-    "href": "/system-calls/updateIndexFile"
+    "href": "/file/updateIndexFile"
   },
   "createActionFile": {
     "title": "createActionFile",
     "icon": "",
     "description": "",
-    "href": "/system-calls/createActionFile"
+    "href": "/file/createActionFile"
   },
   "updateActionFile": {
     "title": "updateActionFile",
     "icon": "",
     "description": "",
-    "href": "/system-calls/updateActionFile"
+    "href": "/file/updateActionFile"
   },
   "createBareFile": {
     "title": "createBareFile",
     "icon": "",
     "description": "",
-    "href": "/system-calls/createBareFile"
+    "href": "/file/createBareFile"
   },
   "updateBareFile": {
     "title": "updateBareFile",
     "icon": "",
     "description": "",
-    "href": "/system-calls/updateBareFile"
+    "href": "/file/updateBareFile"
   },
   "uploadFile": {
     "title": "uploadFile",
     "icon": "",
     "description": "",
     "type": "hidden",
-    "href": "/system-calls/uploadFile"
+    "href": "/file/uploadFile"
   },
   "loadFile": {
     "title": "loadFile",
     "icon": "",
     "description": "",
-    "href": "/system-calls/loadFile"
+    "href": "/file/loadFile"
   },
   "loadFilesBy": {
     "title": "loadFilesBy",
     "icon": "",
     "description": "",
-    "href": "/system-calls/loadFilesBy"
+    "href": "/file/loadFilesBy"
   },
   "loadBareFileContent": {
     "title": "loadBareFileContent",
     "icon": "",
     "description": "",
-    "href": "/system-calls/loadBareFileContent"
+    "href": "/file/loadBareFileContent"
   },
   "updateFileBaseInfo": {
     "title": "updateFileBaseInfo",
     "icon": "",
     "description": "",
     "type": "hidden",
-    "href": "/system-calls/updateFileBaseInfo"
+    "href": "/file/updateFileBaseInfo"
   },
   "moveFiles": {
     "title": "moveFiles",
     "icon": "",
     "description": "",
-    "href": "/system-calls/moveFiles"
+    "href": "/file/moveFiles"
   },
   "monetizeFile": {
     "title": "monetizeFile",
     "icon": "",
     "description": "",
-    "href": "/system-calls/monetizeFile"
+    "href": "/file/monetizeFile"
   },
   "collectFile": {
     "title": "collectFile",
     "icon": "",
     "description": "",
-    "href": "/system-calls/collectFile"
+    "href": "/file/collectFile"
   },
   "unlockFile": {
     "title": "unlockFile",
     "icon": "",
     "description": "",
-    "href": "/system-calls/unlockFile"
+    "href": "/file/unlockFile"
   },
   "isFileUnlocked": {
     "title": "isFileUnlocked",
     "icon": "",
     "description": "",
-    "href": "/system-calls/isFileUnlocked"
+    "href": "/file/isFileUnlocked"
   },
   "loadCreatedDatatokenFiles": {
     "title": "loadCreatedDatatokenFiles",
     "icon": "",
     "description": "",
-    "href": "/system-calls/loadCreatedDatatokenFiles"
+    "href": "/file/loadCreatedDatatokenFiles"
   },
   "loadCollectedDatatokenFiles": {
     "title": "loadCollectedDatatokenFiles",
     "icon": "",
     "description": "",
-    "href": "/system-calls/loadCollectedDatatokenFiles"
+    "href": "/file/loadCollectedDatatokenFiles"
   },
   "removeFiles": {
     "title": "removeFiles",
     "icon": "",
     "description": "",
-    "href": "/system-calls/removeFiles"
+    "href": "/file/removeFiles"
   }
 }

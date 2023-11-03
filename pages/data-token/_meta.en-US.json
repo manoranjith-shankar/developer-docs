@@ -3,36 +3,36 @@
     "title": "loadDatatoken",
     "icon": "",
     "description": "",
-    "href": "/system-calls/loadDatatoken"
+    "href": "/data-token/loadDatatoken"
   },
   "loadDatatokens": {
     "title": "loadDatatokens",
     "icon": "",
     "description": "",
-    "href": "/system-calls/loadDatatokens"
+    "href": "/data-token/loadDatatokens"
   },
   "loadDatatokensCreatedBy": {
     "title": "loadDatatokensCreatedBy",
     "icon": "",
     "description": "",
-    "href": "/system-calls/loadDatatokensCreatedBy"
+    "href": "/data-token/loadDatatokensCreatedBy"
   },
   "loadDatatokensCollectedBy": {
     "title": "loadDatatokensCollectedBy",
     "icon": "",
     "description": "",
-    "href": "/system-calls/loadDatatokensCollectedBy"
+    "href": "/data-token/loadDatatokensCollectedBy"
   },
   "loadDatatokenCollectors": {
     "title": "loadDatatokenCollectors",
     "icon": "",
     "description": "",
-    "href": "/system-calls/loadDatatokenCollectors"
+    "href": "/data-token/loadDatatokenCollectors"
   },
   "isDatatokenCollectedBy": {
     "title": "isDatatokenCollectedBy",
     "icon": "",
     "description": "",
-    "href": "/system-calls/isDatatokenCollectedBy"
+    "href": "/data-token/isDatatokenCollectedBy"
   }
 }

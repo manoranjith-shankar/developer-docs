@@ -3,36 +3,36 @@
     "title": "createCapability",
     "icon": "",
     "description": "",
-    "href": "/system-calls/createCapability"
+    "href": "/capability/createCapability"
   },
   "checkCapability": {
     "title": "checkCapability",
     "icon": "",
     "description": "",
-    "href": "/system-calls/checkCapability"
+    "href": "/capability/checkCapability"
   },
   "getValidAppCaps": {
     "title": "getValidAppCaps",
     "icon": "",
     "description": "",
-    "href": "/system-calls/getValidAppCaps"
+    "href": "/capability/getValidAppCaps"
   },
   "getModelBaseInfo": {
     "title": "getModelBaseInfo",
     "icon": "",
     "description": "",
-    "href": "/system-calls/getModelBaseInfo"
+    "href": "/capability/getModelBaseInfo"
   },
   "getPKP": {
     "title": "getPKP",
     "icon": "",
     "description": "",
-    "href": "/system-calls/getPKP"
+    "href": "/capability/getPKP"
   },
   "executeLitAction": {
     "title": "executeLitAction",
     "icon": "",
     "description": "",
-    "href": "/system-calls/executeLitAction"
+    "href": "/capability/executeLitAction"
   }
 }
