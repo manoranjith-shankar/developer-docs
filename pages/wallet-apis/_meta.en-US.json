@@ -40,12 +40,14 @@
     "title": "getDatatokenBaseInfo",
     "icon": "",
     "description": "",
+    "type": "hidden",
     "href": "/wallet-apis/getDatatokenBaseInfo"
   },
   "isCollected": {
     "title": "isCollected",
     "icon": "",
     "description": "",
+    "type": "hidden",
     "href": "/wallet-apis/isCollected"
   }
 }

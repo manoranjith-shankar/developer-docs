@@ -1,4 +1,4 @@
-# readFolderById
+# loadFolderById
 
 Retrieve one folder by its ID.
 
@@ -6,14 +6,14 @@ Retrieve one folder by its ID.
 
 ```js
 await dataverseConnector.runOS({
-  method: SYSTEM_CALL.readFolderById,
+  method: SYSTEM_CALL.loadFolderById,
   params: folderId,
 });
 ```
 
 ## Parameters
 
-void
+- `folderId`: `string` - The ID of the folder to load.
 
 ## Returns
 

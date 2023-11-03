@@ -1,0 +1,32 @@
+{
+  "createFolder": {
+    "title": "createFolder",
+    "icon": "",
+    "description": "",
+    "href": "/system-calls/createFolder"
+  },
+  "loadFolderById": {
+    "title": "loadFolderById",
+    "icon": "",
+    "description": "",
+    "href": "/system-calls/loadFolderById"
+  },
+  "loadFolderTrees": {
+    "title": "loadFolderTrees",
+    "icon": "",
+    "description": "",
+    "href": "/system-calls/loadFolderTrees"
+  },
+  "updateFolderBaseInfo": {
+    "title": "updateFolderBaseInfo",
+    "icon": "",
+    "description": "",
+    "href": "/system-calls/updateFolderBaseInfo"
+  },
+  "deleteFolder": {
+    "title": "deleteFolder",
+    "icon": "",
+    "description": "",
+    "href": "/system-calls/deleteFolder"
+  }
+}

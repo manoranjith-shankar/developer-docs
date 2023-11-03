@@ -7,7 +7,9 @@ Mark a folder as `deleted`.
 ```js
 await dataverseConnector.runOS({
   method: SYSTEM_CALL.deleteFolder,
-  params: { folderId },
+  params: {
+    folderId,
+  },
 });
 ```
 
