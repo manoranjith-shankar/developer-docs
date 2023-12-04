@@ -2,8 +2,9 @@ import { Callout } from 'nextra-theme-docs';
 
 # monetizeFile
 
-Monetize a file into a collection of NFTs, only NFT holders can access the file.
-Use this function to empower users & applications with the ability to earn from their data.
+This function will transform a off-chain file into on-chain asset. It will create an NFT collection for the file with each `Collect NFT` representing access right of limited numbers.
+`Collect NFT`s can be sold to others and only owners of `Collect NFT` can access the file.
+Use this function to empower users with the ability to earn from their data.
 
 ## Usage
 
@@ -59,9 +60,8 @@ await dataverseConnector.runOS({
 ```
 
 <Callout>
-  This function will ask users to sign a transaction to mint NFTs. Currently,
-  the transaction will be sent to mumbai testnet and the monetized folder will
-  be returned after the transaction is confirmed.
+  This function will ask users to send a transaction which deploys an NFT
+  contract on Mumbai(Polygon testnet).
 </Callout>
 
 Example:
