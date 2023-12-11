@@ -60,6 +60,12 @@
     "description": "",
     "href": "/file/loadBareFileContent"
   },
+  "loadActionFilesByFileId": {
+    "title": "loadActionFilesByFileId",
+    "icon": "",
+    "description": "",
+    "href": "/file/loadActionFilesByFileId"
+  },
   "updateFileBaseInfo": {
     "title": "updateFileBaseInfo",
     "icon": "",

@@ -9,8 +9,7 @@
     "title": "getCurrentWallet",
     "icon": "",
     "description": "",
-    "href": "/wallet-apis/getCurrentWallet",
-    "type": "hidden"
+    "href": "/wallet-apis/getCurrentWallet"
   },
   "getCurrentPkh": {
     "title": "getCurrentPkh",
