@@ -208,7 +208,7 @@ type blog @createModel(accountRelation: LIST, description: "post") {
 need to set them manually when create a stream.
 
 Data models define the important data types in an application. You can use the data models to create data streams and access the data resources.
-Creating a data stream under the corresponding model means creating a structured data in the application. For example, creating a data stream using the [`createStream`](/sdk/apis/primitives/createStream) method under the `post` model means publishing a tweet on a social network.
+Creating a data stream under the corresponding model means creating a structured data in the application. For example, creating a data stream using the [`createIndexFile`](/file/createIndexFile) method under the `post` model means publishing a tweet on a social network.
 
 <Callout>
   Models under `fs` folder are special models. They are used by DataverseOS to
