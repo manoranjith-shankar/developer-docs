@@ -5,7 +5,7 @@ import { Callout } from 'nextra-theme-docs';
 A quick guide to get you started with the dataverse runtime connector SDK.
 
 After reading this guide, you will be able to connect with the dataverse browser extension,
-create data streams, load data streams, update data streams, and monetize data.
+create, load, update and monetize a file.
 
 <Callout type="warning" emoji="⚠️">
   Before we start, please make sure you have created your dataverse-app and
@@ -143,11 +143,11 @@ The popup shall be like this:
 It returns:
 pkh: string - a pkh 'DID' you may use to interact with the data resources later.
 
-## Step 4: Create a data stream
+## Step 4: Create a file
 
-Data stream is the smallest unit of data in our system.
-Unlike IPFS CID which cannot be changed after upload, data streams can be updated and linked between each other.
-Each data stream belongs to a data model. For example, if you have created a data model called `post` as a data structure for posts in a social app
+File is the smallest unit of data in our system.
+Unlike IPFS CID which 1. cannot be changed after upload 2. are discrete and not related, files can be updated after creation and linked between each other.
+Each file belongs to a data model. For example, if you have created a data model called `post` as a data structure for posts in a social app
 
 ```graphql
 type post @createModel(accountRelation: LIST, description: "post") {
@@ -163,7 +163,7 @@ type post @createModel(accountRelation: LIST, description: "post") {
 }
 ```
 
-`createStream` under this `post` model is how you create posts.
+`createIndexFile` under this `post` model is how you create posts.
 
 ```javascript
 const encrypted = JSON.stringify({
@@ -173,11 +173,12 @@ const encrypted = JSON.stringify({
 });
 
 const res = await dataverseConnector.runOS({
-  method: SYSTEM_CALL.createStream,
+  method: SYSTEM_CALL.createIndexFile,
   params: {
     modelId,
-    streamContent: {
-      appVersion: "0.1.0",
+    fileName: "post1",
+    fileContent: {
+      modelVersion: "0.0.1",
       text: "hello",
       images: [
         "https://bafkreib76wz6wewtkfmp5rhm3ep6tf4xjixvzzyh64nbyge5yhjno24yl4.ipfs.w3s.link",
@@ -195,58 +196,60 @@ return example
 
 ```json
 {
-  "pkh": "did:pkh:eip155:137:0xb4D93398f6F3FB5EE4436D1aE93b32d65693a799",
-  "appId": "fxy001",
-  "modelId": "kjzl6hvfrbw6c7gkypf9654o0vu1jd1q85fcnyrpc1koobuys71zhp0m7kbmrvs",
-  "streamId": "kjzl6kcym7w8y7nfklssfuv1o8p32use2psysup1khcm6k6bfzpcm3bb8fcc2iu",
-  "streamContent": {
+  "pkh": "did:pkh:eip155:1:0xb4D93398f6F3FB5EE4436D1aE93b32d65693a799",
+  "appId": "a3f0ac63-ff7d-4085-aade-c04888b71088",
+  "modelId": "kjzl6hvfrbw6catek36h3pep09k9gymfnla9k6ojlgrmwjogvjqg8q3zpybl1yu",
+  "fileContent": {
     "content": {
       "text": "hello",
       "images": [
         "https://bafkreib76wz6wewtkfmp5rhm3ep6tf4xjixvzzyh64nbyge5yhjno24yl4.ipfs.w3s.link"
       ],
       "videos": [],
-      "createdAt": "2023-06-09T06:18:00.716Z",
+      "createdAt": "2023-11-02T08:04:53.380Z",
       "encrypted": "{\"text\":false,\"images\":false,\"videos\":false}",
-      "updatedAt": "2023-06-09T06:18:00.716Z",
-      "appVersion": "0.0.1"
+      "updatedAt": "2023-11-02T08:04:53.380Z",
+      "modelVersion": "0.0.1"
     },
     "file": {
-      "appVersion": "0.2.0",
-      "contentId": "kjzl6kcym7w8y7nfklssfuv1o8p32use2psysup1khcm6k6bfzpcm3bb8fcc2iu",
-      "contentType": "kjzl6hvfrbw6c7gkypf9654o0vu1jd1q85fcnyrpc1koobuys71zhp0m7kbmrvs",
-      "comment": { "mirrorName": "fxy001_post", "note": "", "tags": [] },
+      "fsVersion": "0.11",
+      "contentId": "kjzl6kcym7w8y8wx1zuujmssq4wj6o6paynupzmidz7izcsiqwgpnt1uyo9lg2a",
+      "contentType": {
+        "resource": "CERAMIC",
+        "resourceId": "kjzl6hvfrbw6catek36h3pep09k9gymfnla9k6ojlgrmwjogvjqg8q3zpybl1yu"
+      },
+      "fileName": "create a file",
       "fileType": 0,
-      "createdAt": "2023-06-09T06:18:02.556Z",
-      "updatedAt": "2023-06-09T06:18:02.556Z",
-      "indexFileId": "kjzl6kcym7w8y50qam78fms8q5vneg9zuxm8advu3v5b6ke24opn6fv5muczw63"
+      "createdAt": "2023-11-02T08:04:56.699Z",
+      "updatedAt": "2023-11-02T08:04:56.699Z",
+      "fileId": "kjzl6kcym7w8ya3kyamskljmo181t6z3vz6px0w90c76ea3m28g994t58341ijt"
     }
   }
 }
 ```
 
 <Callout emoji="❗">
-  To create a data stream under a specific model, you need to specify the model
-  id and ensure your app has the capability to write data under this model. if
-  not, please use `createCapability` to create a capability for the model first.
+  To create a file under a specific model, you need to specify the model id and
+  ensure your app has the capability to write data under this model. if not,
+  please use `createCapability` to create a capability for the model first.
 </Callout>
 
-## Step 5: Load a data stream
+## Step 5: Load a file
 
-You can load a stream's content by stream id.
+You can load an indexFile's content by its id.
 
 ```javascript
 await dataverseConnector.runOS({
-  method: SYSTEM_CALL.loadStream,
-  params: streamId,
+  method: SYSTEM_CALL.loadFile,
+  params: indexFileId,
 });
 ```
 
-You can also load multiple streams under a model.
+You can also load multiple indexFiles under a model using [`loadFilesBy`](/file/loadFilesBy).
 
 ```javascript
 await dataverseConnector.runOS({
-  method: SYSTEM_CALL.loadStreamsBy,
+  method: SYSTEM_CALL.loadFilesBy,
   params: {
     modelId,
     pkh,
@@ -254,9 +257,9 @@ await dataverseConnector.runOS({
 });
 ```
 
-The `pkh` is optional. If not specified, it will return all streams under the model.
+The `pkh` field is optional. If not specified, it will return all streams under the model. Otherwise, it will return streams under the model that are created by the user.
 
-## Step 6: Update a data stream
+## Step 6: Update a file
 
 ```javascript
 const date = new Date().toISOString();
@@ -268,10 +271,11 @@ const encrypted = JSON.stringify({
 });
 
 const res = await dataverseConnector.runOS({
-  method: SYSTEM_CALL.updateStream,
+  method: SYSTEM_CALL.updateIndexFile,
   params: {
-    streamId,
-    streamContent: {
+    fileId,
+    fileName: 'new-post1',
+    fileContent: {
       appVersion: '0.1.0',
       text: 'hello',
       images: [
@@ -286,10 +290,10 @@ const res = await dataverseConnector.runOS({
 });
 ```
 
-`updateStream` shares the same parameters as `createStream`, except the `streamId` is required.
-and the return value is the same as `createStream`.
+`updateIndexFile` shares the same parameters as `createIndexFile`, except the `fileId` is required.
+and the return value is in the same format as `createIndexFile`.
 
-## Step 7: Monetize
+## Step 7: Monetize a file
 
 ```javascript
 import { Currency } from "@dataverse/dataverse-connector";
@@ -311,12 +315,10 @@ const res = await dataverseConnector.runOS({
 });
 ```
 
-**Why lens profile is needed to monetize data?**
-
 To put it simply, data monetization is to deploy a collection of NFTs on the blockchain
-and use the NFT as access credentials to the data. In this case, we use lens protocol to
-turn off-chain data into on-chain `lens post`, and program the NFT smart contract around
-the post.
+and use the NFT as access credentials to the data. We deployed multi version of smart contracts for this process of converting off-chain data to on-chain NFTs.
+By default, leave the `profileId` as `null`, and the transaction will go through dataverse default profileless smart contracts.
+We're also compatible with [Lens Protocol](https://lens.xyz/) in case you want to use their smart contracts and let your lens handle own your data. Pass in your lens profile id to `profileId` to use Lens Protocol here.
 
 `decryptionConditions` specifies a set of conditions to limit access to the data.
 For example
@@ -341,15 +343,12 @@ For example
 This condition specifies that the data can only be accessed by the
 wallet address `0x3c6216caE32FF6691C55cb691766220Fd3f55555` on filecoin chain.
 
-## Step 8: Unlock
+## Step 8: Purchase a file
 
 ```javascript
 await dataverseConnector.runOS({
-  method: SYSTEM_CALL.unlock,
-  params: {
-    indexFileId:
-      'kjzl6kcym7w8y5xf0j7kmies5i30f86xlerbfp42qnxju2vfno1io6i04sy2p2d',
-  },
+  method: SYSTEM_CALL.collectFile,
+  params: indexFileId,
 });
 ```
 
@@ -357,5 +356,14 @@ This will send a transaction to mint an NFT to the user's wallet address.
 The NFT is the access credential to the data.
 
 <Callout>
-  `monetize` and `unlock` functions are currently on Mumbai testnet.
+  `monetizeFile` and `collectFile` functions are on Mumbai testnet for now.
 </Callout>
+
+After purchase completed, you can load the file content using `unlockFile` function.
+
+```javascript
+await dataverseConnector.runOS({
+  method: SYSTEM_CALL.unlockFile,
+  params: indexFileId,
+});
+```
