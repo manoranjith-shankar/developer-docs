@@ -1,10 +1,10 @@
 # Contributing
 
-Thank you for your interest in contributing to Livepeer Docs! We appreciate your time and effort to help make our documentation better.
+Thank you for your interest in contributing to DataverseOS Docs! We appreciate your time and effort to help make our documentation better.
 
 Please take a moment to review these guidelines before submitting any contributions.
 
-If you want to contribute, but aren't sure where to start, you can create a [new discussion](https://github.com/livepeer/docs/discussions).
+If you want to contribute, but aren't sure where to start, you can create a [issue](https://github.com/dataverse-os/developer-docs/issues).
 
 ## Getting Started
 
@@ -12,7 +12,7 @@ If you want to contribute, but aren't sure where to start, you can create a [new
 1. To start contributing to the project, clone it to your local machine using git:
 
    ```sh
-   git clone https://github.com/livepeer/docs
+   git clone https://github.com/dataverse-os/developer-docs.git
    ```
 2. Ensure you have Node.js and PNPM installed on your local machine. You can run the following commands in your terminal to check your local Node.js and pnpm versions:
 
@@ -40,7 +40,7 @@ If you want to contribute, but aren't sure where to start, you can create a [new
 ---
 
 <div align="center">
-  ✅ Now you're ready to contribute to Livepeer docs! Follow the next steps to learn more about making and submitting changes. 
+  ✅ Now you're ready to contribute to DataverseOS docs! Follow the next steps to learn more about making and submitting changes. 
 </div>
 
 ---
